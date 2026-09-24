@@ -10,6 +10,7 @@ on:
 
 permissions:
   contents: read
+  packages: write # GitHub Packages mirror, for org repos that route @burtson-labs there
 
 concurrency:
   group: publish-${{ github.ref }}
@@ -46,3 +47,18 @@ jobs:
         run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      # Some Burtson Labs apps route the whole @burtson-labs scope to GitHub
+      # Packages (.npmrc), so the same version is published there too.
+      - name: Publish to GitHub Packages
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          NAME=$(node -p "require('./package.json').name")
+          VERSION=$(node -p "require('./package.json').version")
+          npm config set "//npm.pkg.github.com/:_authToken" "$GH_TOKEN" --location=project
+          if npm view "$NAME@$VERSION" version --registry https://npm.pkg.github.com >/dev/null 2>&1; then
+            echo "$NAME@$VERSION is already on GitHub Packages"
+          else
+            npm publish --registry https://npm.pkg.github.com
+          fi
