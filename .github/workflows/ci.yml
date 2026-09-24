@@ -23,6 +23,9 @@ jobs:
         run: npm run validate
       - name: Originality (against Lucide)
         run: npm run originality
+      - name: Build
+        # Tests, examples and the types check import dist/, so lint needs it.
+        run: npm run build
       - name: Lint (Burtson Labs frontend standards)
         run: npm run lint
       - name: Format
