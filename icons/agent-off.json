@@ -1,0 +1,6 @@
+{
+  "tags": ["agent disabled", "ai off", "bot off"],
+  "categories": ["agents", "status"],
+  "contributors": ["burtson-labs"],
+  "aliases": ["bot-off"]
+}

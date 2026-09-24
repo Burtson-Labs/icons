@@ -13,7 +13,7 @@ import { ROOT } from './lib.mjs';
 import { fail, say } from './log.mjs';
 
 const DIST = join(ROOT, 'dist');
-const entries = { index: 'index.js', react: 'react.js', render: 'render.js' };
+const entries = { index: 'index.js', react: 'react.js', render: 'render.js', mui: 'mui.js' };
 for (const f of Object.values(entries)) {
   if (!existsSync(join(DIST, f))) {
     fail(`dist/${f} is missing; run the build first`);
@@ -28,7 +28,7 @@ await build({
   format: 'cjs',
   platform: 'neutral',
   target: 'es2020',
-  external: ['react', 'react/jsx-runtime'],
+  external: ['react', 'react/jsx-runtime', '@mui/material', '@mui/material/*'],
   logLevel: 'warning',
 });
 say(

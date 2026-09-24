@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.3.0 - 2026-09-24
+
+- **382 icons** (from 230). 152 new drawings close every gap found in an
+  inventory of the icons Burtson Labs apps actually import: media and devices
+  (camera, film, monitors, headphones), connectivity (wifi, cloud-off,
+  cloud-sync), text editing (bold, italic, strikethrough, lists), files and
+  folders, finance, legal (scale, gavel), charts and trends, faces and more.
+  Material Symbols and Lucide names are aliases (`photo-camera`, `sports-score`,
+  `local-shipping`, `crop-square`, ...), so migrating is mostly an import change.
+- **`@burtson-labs/icons/mui`**: every icon as an MUI `SvgIcon`, so
+  `fontSize`, `color="primary"`, `sx` and `startIcon` work exactly as they do
+  with `@mui/icons-material`. `@mui/material` is an optional peer.
+
 ## 0.2.1 - 2026-09-24
 
 - **CommonJS support.** `require('@burtson-labs/icons')`, `/react` and

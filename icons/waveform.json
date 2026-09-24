@@ -1,5 +1,6 @@
 {
   "tags": ["voice", "audio", "waveform", "speech", "sound", "tts"],
   "categories": ["voice"],
-  "contributors": ["burtson-labs"]
+  "contributors": ["burtson-labs"],
+  "aliases": ["audio-lines", "graphic-eq"]
 }

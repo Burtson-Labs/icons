@@ -1,0 +1,6 @@
+{
+  "tags": ["warning", "threat", "risk", "security alert"],
+  "categories": ["security"],
+  "contributors": ["burtson-labs"],
+  "aliases": ["gpp-maybe"]
+}

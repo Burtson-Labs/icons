@@ -2,5 +2,5 @@
   "tags": ["delete", "remove", "bin"],
   "categories": ["interface"],
   "contributors": ["burtson-labs"],
-  "aliases": ["delete", "bin"]
+  "aliases": ["bin", "delete", "delete-outline", "delete-sweep"]
 }

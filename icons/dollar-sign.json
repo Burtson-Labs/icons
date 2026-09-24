@@ -1,0 +1,6 @@
+{
+  "tags": ["money", "price", "cost", "billing"],
+  "categories": ["interface"],
+  "contributors": ["burtson-labs"],
+  "aliases": ["attach-money", "paid"]
+}

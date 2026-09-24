@@ -1,5 +1,6 @@
 {
   "tags": ["fuel", "level", "tank", "inventory"],
   "categories": ["operations"],
-  "contributors": ["burtson-labs"]
+  "contributors": ["burtson-labs"],
+  "aliases": ["fuel", "local-gas-station"]
 }

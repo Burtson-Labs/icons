@@ -2,5 +2,5 @@
   "tags": ["sort", "order", "arrows"],
   "categories": ["interface"],
   "contributors": ["burtson-labs"],
-  "aliases": ["arrows-up-down"]
+  "aliases": ["arrow-up-down", "arrows-up-down", "swap-vert"]
 }

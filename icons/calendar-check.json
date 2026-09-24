@@ -1,0 +1,6 @@
+{
+  "tags": ["scheduled", "booked", "event confirmed"],
+  "categories": ["interface"],
+  "contributors": ["burtson-labs"],
+  "aliases": ["event-available"]
+}

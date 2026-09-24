@@ -1,6 +1,6 @@
 {
   "name": "@burtson-labs/icons",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "Burtson Icons: an open-source stroke icon set for AI agents, security, provenance, infrastructure and evidence work. 24px grid, 2px stroke, zero dependencies.",
   "license": "ISC",
   "author": {
@@ -66,7 +66,12 @@
     "./burtson-icons.js": "./dist/burtson-icons.js",
     "./svg-white/*": "./dist/svg-white/*",
     "./svg-black/*": "./dist/svg-black/*",
-    "./svg-accent/*": "./dist/svg-accent/*"
+    "./svg-accent/*": "./dist/svg-accent/*",
+    "./mui": {
+      "types": "./dist/mui.d.ts",
+      "import": "./dist/mui.js",
+      "require": "./dist/cjs/mui.cjs"
+    }
   },
   "files": [
     "dist",
@@ -77,16 +82,23 @@
     "node": ">=18"
   },
   "peerDependencies": {
-    "react": ">=18"
+    "react": ">=18",
+    "@mui/material": ">=5"
   },
   "peerDependenciesMeta": {
     "react": {
+      "optional": true
+    },
+    "@mui/material": {
       "optional": true
     }
   },
   "devDependencies": {
     "@burtson-labs/frontend-standards": "github:Burtson-Labs/frontend-standards#3d007ff818835a72aaa53087b1f86fedf35bebfe",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
     "@eslint/js": "^9.39.5",
+    "@mui/material": "^9.4.0",
     "@types/node": "^26.6.2",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
@@ -105,7 +117,7 @@
   "scripts": {
     "validate": "node scripts/validate.mjs",
     "originality": "node scripts/originality.mjs",
-    "build": "node scripts/build.mjs && node scripts/cjs.mjs",
+    "build": "node scripts/build.mjs && node scripts/mui.mjs && node scripts/cjs.mjs",
     "site": "node site/build.mjs && node scripts/enhance.mjs --site",
     "new": "node scripts/new-icon.mjs",
     "status": "node scripts/status.mjs",
@@ -137,6 +149,9 @@
       ],
       "browser": [
         "./dist/browser.d.ts"
+      ],
+      "mui": [
+        "./dist/mui.d.ts"
       ]
     }
   }

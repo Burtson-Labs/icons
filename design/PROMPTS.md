@@ -93,14 +93,11 @@ These icons fail review. Redraw only these, same rules:
 
 Generated from `design/backlog.json`: only icons not yet drawn.
 
-### Batch 1: Interface (5)
+### Batch 1: Interface (2)
 
 ```text
-- unlock (interface): open padlock
-- sidebar (interface): window with a left panel
 - help (interface): circle with ?
 - alert (interface): triangle with !
-- chat (interface): speech bubble
 ```
 
 ### Batch 2: Status (12)
@@ -187,11 +184,10 @@ Generated from `design/backlog.json`: only icons not yet drawn.
 - offline-mode (agents): cloud with a slash and a small chip
 ```
 
-### Batch 7: Provenance & audit (10)
+### Batch 7: Provenance & audit (9)
 
 ```text
 - prev-hash (provenance): block with a back-pointing arrow
-- signature (provenance): pen nib with a key
 - verify-signature (provenance): seal with a check
 - tamper (provenance): seal with a crack
 - tamper-evident (provenance): seal with an eye
@@ -337,7 +333,7 @@ Generated from `design/backlog.json`: only icons not yet drawn.
 - kokoro (voice): waveform with a flower-free spark
 ```
 
-### Batch 16: Documents & reports (12)
+### Batch 16: Documents & reports (10)
 
 ```text
 - report (documents): document with a chart
@@ -349,19 +345,14 @@ Generated from `design/backlog.json`: only icons not yet drawn.
 - certificate (documents): document with a ribbon seal
 - form (documents): document with input boxes
 - export (documents): document with an up-right arrow
-- print (documents): printer
 - pdf (documents): document with a curly corner
-- spreadsheet (documents): grid document
 ```
 
-### Batch 17: People (8)
+### Batch 17: People (5)
 
 ```text
-- team (people): three people
 - admin (people): person with a shield
 - role (people): person with a badge
-- sign-in (people): arrow into a door
-- sign-out (people): arrow out of a door
 - sso (people): key with a person
 - org (people): building
 - tenant (people): building with a door key
@@ -387,6 +378,16 @@ Generated from `design/backlog.json`: only icons not yet drawn.
 - bandit-stealth (brand): mask with an editor window
 - sentinel (brand): watchtower eye with a shield
 - forge (brand): anvil with a chain link
+```
+
+### Refinement
+
+```text
+Redraw these existing icons; they read weaker than the rest at 16px:
+- ear-off: ear shape is hard to recognise
+- hand-heart: too many strokes
+- cable: plug ends read as blobs
+- key-round: bow and bit are unbalanced
 ```
 
 ## Moodboard prompt (optional, image model)

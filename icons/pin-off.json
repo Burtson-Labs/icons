@@ -1,0 +1,6 @@
+{
+  "tags": ["unpin", "remove pin"],
+  "categories": ["interface"],
+  "contributors": ["burtson-labs"],
+  "aliases": ["push-pin-off"]
+}

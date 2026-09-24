@@ -357,11 +357,6 @@
       "concept": "block with a back-pointing arrow"
     },
     {
-      "name": "signature",
-      "category": "provenance",
-      "concept": "pen nib with a key"
-    },
-    {
       "name": "verify-signature",
       "category": "provenance",
       "concept": "seal with a check"
@@ -807,19 +802,9 @@
       "concept": "document with an up-right arrow"
     },
     {
-      "name": "print",
-      "category": "documents",
-      "concept": "printer"
-    },
-    {
       "name": "pdf",
       "category": "documents",
       "concept": "document with a curly corner"
-    },
-    {
-      "name": "spreadsheet",
-      "category": "documents",
-      "concept": "grid document"
     },
     {
       "name": "proof-confirmed",
@@ -882,16 +867,6 @@
       "concept": "hourglass"
     },
     {
-      "name": "unlock",
-      "category": "interface",
-      "concept": "open padlock"
-    },
-    {
-      "name": "sidebar",
-      "category": "interface",
-      "concept": "window with a left panel"
-    },
-    {
       "name": "help",
       "category": "interface",
       "concept": "circle with ?"
@@ -902,16 +877,6 @@
       "concept": "triangle with !"
     },
     {
-      "name": "chat",
-      "category": "interface",
-      "concept": "speech bubble"
-    },
-    {
-      "name": "team",
-      "category": "people",
-      "concept": "three people"
-    },
-    {
       "name": "admin",
       "category": "people",
       "concept": "person with a shield"
@@ -920,16 +885,6 @@
       "name": "role",
       "category": "people",
       "concept": "person with a badge"
-    },
-    {
-      "name": "sign-in",
-      "category": "people",
-      "concept": "arrow into a door"
-    },
-    {
-      "name": "sign-out",
-      "category": "people",
-      "concept": "arrow out of a door"
     },
     {
       "name": "sso",

@@ -1,0 +1,6 @@
+{
+  "tags": ["temperature", "heat", "thermal"],
+  "categories": ["status", "infrastructure"],
+  "contributors": ["burtson-labs"],
+  "aliases": ["thermostat", "device-thermostat"]
+}
