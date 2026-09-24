@@ -65,6 +65,6 @@ jobs:
           node-version: '22'
           cache: npm
       - run: npm ci --ignore-scripts
-      - uses: Burtson-Labs/sentinel-audit@a760cbb00db0e8ac9333aa8192c5c291eb2dca1e # v0.2.1
+      - uses: Burtson-Labs/sentinel-audit@fd44c9223ae78a52ea5a3a234c36b1c48da2d838 # v0.2.2
         with:
           fail-on: findings
