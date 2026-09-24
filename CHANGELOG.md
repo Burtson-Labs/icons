@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.4.2
+
+- New operations icons: `fuel-tanker` (tank trailer and cab) and `fuel-terminal`
+  (storage tanks at a terminal rack). 384 icons.
+
 ## 0.4.1
 
 - icons.burtson.ai: plain descriptive copy, neutral ink/paper palette and an
