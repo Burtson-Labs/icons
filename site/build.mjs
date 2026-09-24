@@ -62,12 +62,12 @@ const html = `<!doctype html>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Burtson Icons</title>
 <meta name="description" content="${n} open-source stroke icons for AI agents, editors, security, infrastructure and the products around them. React, SVG and CDN. Free under ISC.">
-<meta name="theme-color" content="#101016">
+<meta name="theme-color" content="#09090b">
 <link rel="canonical" href="${SITE}/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Burtson Labs">
 <meta property="og:title" content="Burtson Icons: ${n} open-source icons">
-<meta property="og:description" content="One visual language for every surface. Icons for agents, editors, security and infrastructure. Search, tweak and copy React or SVG in one click.">
+<meta property="og:description" content="${n} stroke icons for agents, editors, security and infrastructure, plus brand logos. React, SVG and CDN. ISC license.">
 <meta property="og:url" content="${SITE}/">
 <meta property="og:image" content="${SITE}/og.png?v=${pkg.version}">
 <meta property="og:image:type" content="image/png">
@@ -81,14 +81,27 @@ const html = `<!doctype html>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="icon" href="${favicon}">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<script>try{const t=localStorage.getItem('bl-icons-theme');if(t)document.documentElement.dataset.theme=t}catch{}</script>
+<script>try{const q=new URLSearchParams(location.search),d=document.documentElement,t=q.get('theme')||localStorage.getItem('bl-icons-theme'),a=q.get('accent')||localStorage.getItem('bl-icons-accent');if(t)d.dataset.theme=t;if(a)d.dataset.accent=a}catch{}</script>
 <style>${css}</style>
 </head>
 <body>
-<header><div class="brand">${toSvgString(logo.node, { extra: ' aria-hidden="true"' })}<div>Burtson Icons<small>BURTSON LABS / OPEN ICON SYSTEM</small></div></div>
-<div class="topright"><nav class="links"><a href="#usage">Usage</a><a href="https://github.com/Burtson-Labs/icons">GitHub</a><a href="https://www.npmjs.com/package/@burtson-labs/icons">npm</a></nav><span class="tag">v${pkg.version}</span><button id="theme" type="button" aria-label="Switch light and dark theme">Theme</button></div></header>
-<div class="shell"><aside class="nav"><h2>COLLECTIONS</h2><div class="cats" id="cats"></div><div class="navnote"><strong>Familiar by design.</strong><br>24px canvas. Round joins.<br>Current-colour strokes.<br><br>Press <kbd>/</kbd> to search.</div></aside>
-<main><section class="hero"><div class="eyebrow">Built for the things you build</div><h1>One visual language.<br><span>Every surface.</span></h1><p>Open-source icons for agents, editors, security, infrastructure and the products around them. The same source geometry ships as React components, SVG files and a CDN.</p><div class="metrics"><div><b>${n}</b><small>Icons</small></div><div><b>${Object.keys(titles).length}</b><small>Collections</small></div><div><b>24 / 2</b><small>Grid / stroke</small></div></div></section>
+<header><div class="brand">${toSvgString(logo.node, { extra: ' aria-hidden="true"' })}<div>Burtson Icons<small>@burtson-labs/icons · ISC</small></div></div>
+<div class="topright"><nav class="links"><a href="#usage">Usage</a><a href="https://github.com/Burtson-Labs/icons">GitHub</a><a href="https://www.npmjs.com/package/@burtson-labs/icons">npm</a></nav><span class="tag">v${pkg.version}</span><div class="accents" role="radiogroup" aria-label="Accent colour">${[
+  ['ink', 'Ink', '#18181b'],
+  ['violet', 'Violet (Burtson)', '#a60ee5'],
+  ['blue', 'Blue', '#2563eb'],
+  ['teal', 'Teal', '#0d9488'],
+  ['orange', 'Orange', '#ea580c'],
+]
+  .map(
+    ([id, label, c]) =>
+      `<button type="button" role="radio" data-accent="${id}" aria-label="${label}" title="${label}" aria-checked="false" style="background:${c}"></button>`,
+  )
+  .join(
+    '',
+  )}</div><button id="theme" type="button" aria-label="Switch light and dark theme">Theme</button></div></header>
+<div class="shell"><aside class="nav"><h2>COLLECTIONS</h2><div class="cats" id="cats"></div><div class="navnote">24px canvas, 2px stroke, round joins, current-colour strokes.<br><br>Press <kbd>/</kbd> to search.</div></aside>
+<main><section class="hero"><h1>Burtson Icons</h1><p>Stroke icons drawn for the tools we build: agents, editors, security, infrastructure and evidence work, plus brand logos. Each icon ships from the same source as a React component, an SVG file and a CDN URL.</p><div class="metrics"><div><b>${n}</b><small>Icons</small></div><div><b>${Object.keys(titles).length}</b><small>Collections</small></div><div><b>24 / 2</b><small>Grid / stroke</small></div></div></section>
 <div class="controls"><label class="search"><span aria-hidden="true">&#8981;</span><input id="search" type="search" placeholder="Search icons, workflows, tags..." aria-label="Search icons" autocomplete="off" spellcheck="false"><kbd>/</kbd></label><label class="knob">Size<input id="size" type="range" min="16" max="48" value="28" step="4"><output id="sizeout">28</output></label><label class="knob">Stroke<input id="weight" type="range" min="1" max="3" value="2" step=".25"><output id="weightout">2</output></label></div>
 <div class="section-head"><h2 id="category-title">All icons</h2><span id="result-count">${n} icons</span></div><div class="grid" id="grid"></div><div class="empty" id="empty">No icons match. <a href="https://github.com/Burtson-Labs/icons/issues/new?title=Icon%20request%3A%20">Request one</a>.</div>
 <section class="usage" id="usage"><div class="section-head"><h2>Usage</h2></div><pre>npm i @burtson-labs/icons
@@ -169,6 +182,10 @@ el.innerHTML = toSvg('merkle-tree', { size: 20 });
     $('cats').appendChild(b);
   }
   const dark = () => root.dataset.theme ? root.dataset.theme === 'dark' : !matchMedia('(prefers-color-scheme: light)').matches;
+  const accents = [...document.querySelectorAll('.accents button')];
+  const paintAccent = () => { const cur = root.dataset.accent || 'ink'; accents.forEach((b) => b.setAttribute('aria-checked', String(b.dataset.accent === cur))); };
+  accents.forEach((b) => { b.onclick = () => { root.dataset.accent = b.dataset.accent; try { localStorage.setItem('bl-icons-accent', b.dataset.accent); } catch {} paintAccent(); }; });
+  paintAccent();
   const paintTheme = () => { $('theme').textContent = dark() ? 'Light mode' : 'Dark mode'; };
   $('theme').onclick = () => { root.dataset.theme = dark() ? 'light' : 'dark'; try { localStorage.setItem('bl-icons-theme', root.dataset.theme); } catch {} paintTheme(); };
   paintTheme();

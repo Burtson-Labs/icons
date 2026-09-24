@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.1
+
+- icons.burtson.ai: plain descriptive copy, neutral ink/paper palette and an
+  accent picker (ink by default; violet is the Burtson purple). New link-preview
+  card. No change to the icons.
+
 ## 0.4.0 - 2026-09-24
 
 - **Brand logos**, in their own entry: `@burtson-labs/icons/brands`,

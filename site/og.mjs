@@ -66,32 +66,30 @@ const vial = byName.has('burtson-labs-vial') ? 'burtson-labs-vial' : 'stealth-ma
 
 const html = `<!doctype html><html><head><meta charset="utf-8"><style>
 *{box-sizing:border-box;margin:0}
-body{width:1200px;height:630px;background:#101016;color:#f0edf7;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,sans-serif;overflow:hidden;position:relative}
-.glow{position:absolute;inset:auto -200px -260px auto;width:760px;height:760px;background:radial-gradient(circle,#a60ee540,transparent 65%)}
+body{width:1200px;height:630px;background:#09090b;color:#fafafa;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,sans-serif;overflow:hidden;position:relative}
 .left{position:absolute;left:72px;top:70px;width:560px}
 .brand{display:flex;align-items:center;gap:14px;font-size:26px;font-weight:700;letter-spacing:-.4px}
-.brand small{display:block;font:500 13px ui-monospace,Menlo,monospace;letter-spacing:2px;color:#a39bac;margin-top:2px}
-h1{font-size:64px;line-height:1.02;letter-spacing:-2.4px;font-weight:750;margin-top:64px}
-h1 span{color:#c77afa}
-p{font-size:23px;line-height:1.45;color:#b9b1c4;margin-top:22px}
+.brand small{display:block;font:400 14px ui-monospace,Menlo,monospace;color:#a1a1aa;margin-top:2px}
+h1{font-size:76px;line-height:1;letter-spacing:-2.6px;font-weight:700;margin-top:70px}
+p{font-size:24px;line-height:1.45;color:#a1a1aa;margin-top:24px}
 .meta{position:absolute;left:72px;bottom:62px;display:flex;gap:14px;font:600 18px ui-monospace,Menlo,monospace}
-.pill{border:1px solid #2e2a3b;background:#191820;border-radius:999px;padding:9px 16px;color:#e4ddeb}
-.pill.accent{border-color:#a60ee5;color:#d9a8fa;background:#2b193a}
+.pill{border:1px solid #27272a;background:#141416;border-radius:8px;padding:9px 16px;color:#d4d4d8}
+.pill.accent{border-color:#3f3f46;color:#fafafa}
 .grid{position:absolute;right:62px;top:62px;display:grid;grid-template-columns:repeat(4,108px);gap:12px}
-.cell{width:108px;height:108px;border-radius:18px;background:#191820;border:1px solid #2e2a3b;display:grid;place-items:center}
-.cell.hot{border-color:#a60ee5;background:#2b193a}
-</style></head><body><div class="glow"></div>
+.cell{width:108px;height:108px;border-radius:12px;background:#141416;border:1px solid #27272a;display:grid;place-items:center}
+.cell.hot{border-color:#fafafa}
+</style></head><body>
 <div class="left">
-  <div class="brand">${glyph(vial, 44, '#c77afa')}<div>Burtson Icons<small>BURTSON LABS · OPEN SOURCE</small></div></div>
-  <h1>One visual language.<br><span>Every surface.</span></h1>
-  <p>${icons.length} stroke icons for agents, editors, security and infrastructure. React, SVG and CDN. Free under ISC.</p>
+  <div class="brand">${glyph(vial, 40, '#fafafa')}<div>Burtson Labs<small>@burtson-labs/icons · ISC</small></div></div>
+  <h1>Burtson Icons</h1>
+  <p>${icons.length} stroke icons for agents, editors, security and infrastructure, plus brand logos. React, SVG and CDN.</p>
 </div>
 <div class="meta"><span class="pill accent">icons.burtson.ai</span><span class="pill">npm i @burtson-labs/icons</span></div>
 <div class="grid">${featured
   .slice(0, 16)
   .map(
     (n, k) =>
-      `<div class="cell${k === 5 ? ' hot' : ''}">${glyph(n, 48, k === 5 ? '#d9a8fa' : '#e4ddeb')}</div>`,
+      `<div class="cell${k === 5 ? ' hot' : ''}">${glyph(n, 48, k === 5 ? '#fafafa' : '#d4d4d8')}</div>`,
   )
   .join('')}</div>
 </body></html>`;
@@ -122,7 +120,7 @@ try {
   const touch = join(dir, 'touch.html');
   writeFileSync(
     touch,
-    `<!doctype html><html><body style="margin:0;width:180px;height:180px;background:#101016;display:grid;place-items:center">${glyph(vial, 112, '#c77afa')}</body></html>`,
+    `<!doctype html><html><body style="margin:0;width:180px;height:180px;background:#09090b;display:grid;place-items:center">${glyph(vial, 112, '#fafafa')}</body></html>`,
   );
   const touchOut = join(ROOT, 'site', 'apple-touch-icon.png');
   spawnSync(
