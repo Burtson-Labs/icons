@@ -113,6 +113,7 @@
     "test:enhancements": "npm run build && node --test test/enhancements.test.mjs",
     "test:react": "npm run build && node scripts/verify-react.mjs",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "og": "node site/og.mjs"
   }
 }

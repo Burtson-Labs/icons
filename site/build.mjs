@@ -37,7 +37,10 @@ const data = {
   })),
 };
 const json = JSON.stringify(data).replace(/</g, '\\u003c');
-const logo = icons.find((i) => i.name === 'stealth-mask') ?? icons[0];
+const logo =
+  icons.find((i) => i.name === 'burtson-labs-vial') ??
+  icons.find((i) => i.name === 'stealth-mask') ??
+  icons[0];
 const favicon = `data:image/svg+xml,${encodeURIComponent(toSvgString(logo.node, { color: '#a60ee5' }))}`;
 const css = readFileSync(join(ROOT, 'site', 'gallery.css'), 'utf8');
 const n = icons.length;
@@ -48,12 +51,26 @@ const html = `<!doctype html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Burtson Icons</title>
-<meta name="description" content="${n} open-source stroke icons for AI agents, editors, security, infrastructure and the products around them. ISC licensed, 24px grid, React, SVG and CDN.">
+<meta name="description" content="${n} open-source stroke icons for AI agents, editors, security, infrastructure and the products around them. React, SVG and CDN. Free under ISC.">
+<meta name="theme-color" content="#101016">
 <link rel="canonical" href="${SITE}/">
-<meta property="og:title" content="Burtson Icons">
-<meta property="og:description" content="One visual language for every surface. ${n} open-source icons from Burtson Labs.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Burtson Labs">
+<meta property="og:title" content="Burtson Icons: ${n} open-source icons">
+<meta property="og:description" content="One visual language for every surface. Icons for agents, editors, security and infrastructure. Search, tweak and copy React or SVG in one click.">
 <meta property="og:url" content="${SITE}/">
+<meta property="og:image" content="${SITE}/og.png?v=${pkg.version}">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Burtson Icons: ${n} stroke icons for agents, editors, security and infrastructure">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Burtson Icons: ${n} open-source icons">
+<meta name="twitter:description" content="Icons for agents, editors, security and infrastructure. React, SVG and CDN. Free under ISC.">
+<meta name="twitter:image" content="${SITE}/og.png?v=${pkg.version}">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="icon" href="${favicon}">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <script>try{const t=localStorage.getItem('bl-icons-theme');if(t)document.documentElement.dataset.theme=t}catch{}</script>
 <style>${css}</style>
 </head>
@@ -163,6 +180,14 @@ writeFileSync(join(OUT, 'index.html'), html);
 cpSync(join(ROOT, 'dist', 'svg'), join(OUT, 'svg'), { recursive: true });
 cpSync(join(ROOT, 'dist', 'sprite.svg'), join(OUT, 'sprite.svg'));
 cpSync(join(ROOT, 'dist', 'icons.json'), join(OUT, 'icons.json'));
+for (const f of ['og.png', 'apple-touch-icon.png']) {
+  if (!existsSync(join(ROOT, 'site', f))) {
+    fail(`site/${f} is missing; run npm run og`);
+    process.exit(1);
+  }
+  cpSync(join(ROOT, 'site', f), join(OUT, f));
+}
+writeFileSync(join(OUT, 'favicon.svg'), toSvgString(logo.node, { color: '#a60ee5' }) + '\n');
 writeFileSync(join(OUT, 'robots.txt'), `User-agent: *\nAllow: /\nSitemap: ${SITE}/sitemap.xml\n`);
 writeFileSync(
   join(OUT, 'sitemap.xml'),

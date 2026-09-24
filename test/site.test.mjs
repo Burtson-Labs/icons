@@ -35,3 +35,24 @@ test('embedded data cannot close its script tag', () => {
   const block = /<script id="data" type="application\/json">([\s\S]*?)<\/script>/.exec(html)[1];
   assert.ok(!block.includes('</'));
 });
+
+test('link previews (Slack, Teams, X) have a large image card', () => {
+  const meta = (attr, key) =>
+    new RegExp(`<meta ${attr}="${key}" content="([^"]+)"`).exec(html)?.[1];
+  for (const k of [
+    'og:title',
+    'og:description',
+    'og:url',
+    'og:image',
+    'og:image:alt',
+    'og:site_name',
+  ]) {
+    assert.ok(meta('property', k), k);
+  }
+  assert.equal(meta('name', 'twitter:card'), 'summary_large_image');
+  assert.match(meta('property', 'og:image'), /^https:\/\/icons\.burtson\.ai\/og\.png/);
+  assert.equal(meta('property', 'og:image:width'), '1200');
+  assert.equal(meta('property', 'og:image:height'), '630');
+  for (const f of ['og.png', 'favicon.svg', 'apple-touch-icon.png'])
+    assert.ok(existsSync(join(ROOT, 'site/dist', f)), f);
+});
