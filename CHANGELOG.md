@@ -1,5 +1,22 @@
 # Changelog
 
+## 0.4.0 - 2026-09-24
+
+- **Brand logos**, in their own entry: `@burtson-labs/icons/brands`,
+  `/brands/react` (`<ClaudeLogo />`, `<GithubLogo colored />`),
+  per-logo `/brands/react/<name>`, and `brands/svg` + `brands/svg-color`
+  files. 75 logos across AI (Anthropic, Claude, Ollama, Gemini, Hugging Face,
+  Mistral, Copilot, ...), social (X, Instagram, YouTube, Discord, Bluesky, ...),
+  platforms (Apple, macOS, Linux, Ubuntu, Android, ...) and developer tools
+  (GitHub, Docker, Kubernetes, Python, TypeScript, Rust, ...). Filled marks with
+  official colours; geometry from Simple Icons (CC0), not redrawn. The logos are
+  trademarks of their owners: see TRADEMARKS.md, which also lists the brands
+  Simple Icons does not carry (OpenAI, LinkedIn, Slack, Microsoft, ...). The
+  stroke set, its count and its validators are unchanged.
+- icons.burtson.ai has a **Brand logos** collection, and serves
+  `/brands/svg/<name>.svg`, `/brands/svg-color/<name>.svg` and
+  `/brands/brands.json`.
+
 ## 0.3.0 - 2026-09-24
 
 - **382 icons** (from 230). 152 new drawings close every gap found in an

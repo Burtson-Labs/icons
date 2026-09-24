@@ -1,6 +1,6 @@
 {
   "name": "@burtson-labs/icons",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Burtson Icons: an open-source stroke icon set for AI agents, security, provenance, infrastructure and evidence work. 24px grid, 2px stroke, zero dependencies.",
   "license": "ISC",
   "author": {
@@ -23,7 +23,9 @@
     "icon-set",
     "react",
     "stroke-icons",
-    "burtson-labs"
+    "burtson-labs",
+    "brand-icons",
+    "logos"
   ],
   "type": "module",
   "sideEffects": [
@@ -71,19 +73,37 @@
       "types": "./dist/mui.d.ts",
       "import": "./dist/mui.js",
       "require": "./dist/cjs/mui.cjs"
-    }
+    },
+    "./brands": {
+      "types": "./dist/brands/index.d.ts",
+      "import": "./dist/brands/index.js",
+      "require": "./dist/cjs/brands.cjs"
+    },
+    "./brands/react": {
+      "types": "./dist/brands/react.d.ts",
+      "import": "./dist/brands/react.js",
+      "require": "./dist/cjs/brands-react.cjs"
+    },
+    "./brands/react/*": {
+      "types": "./dist/brands/react/*.d.ts",
+      "import": "./dist/brands/react/*.js"
+    },
+    "./brands/svg/*": "./dist/brands/svg/*",
+    "./brands/svg-color/*": "./dist/brands/svg-color/*",
+    "./brands/brands.json": "./dist/brands/brands.json"
   },
   "files": [
     "dist",
     "LICENSE",
-    "README.md"
+    "README.md",
+    "TRADEMARKS.md"
   ],
   "engines": {
     "node": ">=18"
   },
   "peerDependencies": {
-    "react": ">=18",
-    "@mui/material": ">=5"
+    "@mui/material": ">=5",
+    "react": ">=18"
   },
   "peerDependenciesMeta": {
     "react": {
@@ -109,6 +129,7 @@
     "prettier": "^3.9.9",
     "react": "^19.3.0",
     "react-dom": "^19.3.0",
+    "simple-icons": "16.32.0",
     "typescript": "^6.0.3"
   },
   "publishConfig": {
@@ -117,7 +138,7 @@
   "scripts": {
     "validate": "node scripts/validate.mjs",
     "originality": "node scripts/originality.mjs",
-    "build": "node scripts/build.mjs && node scripts/mui.mjs && node scripts/cjs.mjs",
+    "build": "node scripts/build.mjs && node scripts/brands.mjs && node scripts/mui.mjs && node scripts/cjs.mjs",
     "site": "node site/build.mjs && node scripts/enhance.mjs --site",
     "new": "node scripts/new-icon.mjs",
     "status": "node scripts/status.mjs",
@@ -152,6 +173,15 @@
       ],
       "mui": [
         "./dist/mui.d.ts"
+      ],
+      "brands": [
+        "./dist/brands/index.d.ts"
+      ],
+      "brands/react": [
+        "./dist/brands/react.d.ts"
+      ],
+      "brands/react/*": [
+        "./dist/brands/react/*.d.ts"
       ]
     }
   }

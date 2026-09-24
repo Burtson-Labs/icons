@@ -13,7 +13,14 @@ import { ROOT } from './lib.mjs';
 import { fail, say } from './log.mjs';
 
 const DIST = join(ROOT, 'dist');
-const entries = { index: 'index.js', react: 'react.js', render: 'render.js', mui: 'mui.js' };
+const entries = {
+  index: 'index.js',
+  react: 'react.js',
+  render: 'render.js',
+  mui: 'mui.js',
+  brands: 'brands/index.js',
+  'brands-react': 'brands/react.js',
+};
 for (const f of Object.values(entries)) {
   if (!existsSync(join(DIST, f))) {
     fail(`dist/${f} is missing; run the build first`);

@@ -6,6 +6,7 @@ import { cpSync, existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } fr
 import { join } from 'node:path';
 import { ROOT, readCategories, toPascal, toSvgString } from '../scripts/lib.mjs';
 import { loadIcons } from '../scripts/build.mjs';
+import { BRAND_GROUPS, loadBrands } from '../scripts/brands.mjs';
 import { say, fail } from '../scripts/log.mjs';
 
 const OUT = join(ROOT, 'site', 'dist');
@@ -34,6 +35,15 @@ const data = {
     c: i.categories,
     a: i.aliases,
     g: i.node,
+  })),
+  // Third-party logos: a separate collection, filled, never mixed into "All icons".
+  brands: loadBrands().map((b) => ({
+    n: b.name,
+    p: toPascal(b.name) + 'Logo',
+    ti: b.title,
+    h: b.hex,
+    d: b.path,
+    gr: BRAND_GROUPS[b.group].title,
   })),
 };
 const json = JSON.stringify(data).replace(/</g, '\\u003c');
@@ -93,7 +103,7 @@ el.innerHTML = toSvg('merkle-tree', { size: 20 });
 
 // Straight from this site (explicit colours: svg-accent, svg-white, svg-black)
 &lt;img src="${SITE}/svg-accent/gpu.svg" width="24" height="24" alt="GPU"&gt;</pre></section>
-<div class="foot">Burtson Icons ${pkg.version} · <a href="https://github.com/Burtson-Labs/icons/blob/main/LICENSE">ISC License</a> · <a href="${SITE}/icons.json">icons.json</a> · Made by <a href="https://burtson.ai">Burtson Labs</a></div></main>
+<div class="foot">Burtson Icons ${pkg.version} · <a href="https://github.com/Burtson-Labs/icons/blob/main/LICENSE">ISC License</a> · <a href="${SITE}/icons.json">icons.json</a> · Brand logos are trademarks of their owners (<a href="https://github.com/Burtson-Labs/icons/blob/main/TRADEMARKS.md">notice</a>) · Made by <a href="https://burtson.ai">Burtson Labs</a></div></main>
 <aside class="inspector" aria-label="Selected icon"><div class="eyebrow">Icon inspector</div><h2 class="mono" id="selected-name"></h2><div class="sub" id="selected-status"></div><div class="preview" id="selected-preview"></div><div class="sizes" id="sizes"></div><div class="tabs" role="tablist" aria-label="Code format"><button type="button" data-tab="react" role="tab" aria-selected="true">React</button><button type="button" data-tab="svg" role="tab" aria-selected="false">SVG</button><button type="button" data-tab="cdn" role="tab" aria-selected="false">CDN</button></div><pre id="code" aria-label="Usage code"></pre><div class="actions"><button type="button" class="primary" id="copy">Copy code</button><button type="button" id="download">Download SVG</button></div><div id="tags" class="chips"></div><div class="notice">For an external <code>&lt;img&gt;</code>, use an explicit-colour variant (<code>svg-accent</code>, <code>svg-white</code>, <code>svg-black</code>). Inline SVG, React and CSS masks inherit the text colour.</div></aside></div><div id="toast" class="toast" role="status"></div>
 <script id="data" type="application/json">${json}</script>
 <script>
@@ -106,9 +116,17 @@ el.innerHTML = toSvg('merkle-tree', { size: 20 });
   let category = 'all';
   let tab = 'react';
   const svg = (i, size = 24) => '<svg xmlns="http://www.w3.org/2000/svg" width="' + size + '" height="' + size + '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="' + $('weight').value + '" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + i.g.map(([t, a]) => '<' + t + ' ' + Object.entries(a).map(([k, v]) => k + '="' + esc(v) + '"').join(' ') + ' />').join('') + '</svg>';
-  const label = (i) => i.n.replace(/-/g, ' ');
+  const brandSvg = (b, size = 24, colored = false) => '<svg xmlns="http://www.w3.org/2000/svg" width="' + size + '" height="' + size + '" viewBox="0 0 24 24" fill="' + (colored ? b.h : 'currentColor') + '" aria-hidden="true"><path d="' + b.d + '"/></svg>';
+  const isBrand = (i) => Boolean(i.d);
+  const draw = (i, size) => (isBrand(i) ? brandSvg(i, size) : svg(i, size));
+  const label = (i) => (isBrand(i) ? i.ti : i.n.replace(/-/g, ' '));
   function code() {
     const i = selected;
+    if (isBrand(i)) {
+      if (tab === 'react') return "import { " + i.p + " } from\\n  '@burtson-labs/icons/brands/react/" + i.n + "';\\n\\n<" + i.p + " size={24} title=\\"" + i.ti + "\\" />\\n// brand colour: <" + i.p + " colored />";
+      if (tab === 'svg') return brandSvg(i).replace(' aria-hidden="true"', ' role="img" aria-label="' + esc(i.ti) + '"');
+      return '<img\\n  src="${SITE}/brands/svg-color/' + i.n + '.svg"\\n  width="24" height="24"\\n  alt="' + esc(i.ti) + '"\\n/>\\n\\n<!-- monochrome (black): ${SITE}/brands/svg/' + i.n + '.svg -->';
+    }
     if (tab === 'react') return "import { " + i.p + " } from\\n  '@burtson-labs/icons/react/" + i.n + "';\\n\\n<" + i.p + "\\n  size={24}\\n  strokeWidth={" + $('weight').value + "}\\n  aria-label=\\"" + label(i) + "\\"\\n/>";
     if (tab === 'svg') return svg(i).replace(' aria-hidden="true"', '').replace(/></g, '>\\n<');
     return '<img\\n  src="${SITE}/svg-accent/' + i.n + '.svg"\\n  width="24" height="24"\\n  alt="' + label(i) + '"\\n/>\\n\\n<!-- or pinned to this release -->\\nhttps://cdn.jsdelivr.net/npm/@burtson-labs/icons@' + D.version + '/dist/svg/' + i.n + '.svg';
@@ -116,32 +134,34 @@ el.innerHTML = toSvg('merkle-tree', { size: 20 });
   function inspect(i, push = true) {
     selected = i;
     $('selected-name').textContent = i.n;
-    $('selected-status').textContent = i.c.map((c) => D.titles[c] || c).join(' / ');
-    $('selected-preview').innerHTML = svg(i, 96);
-    $('sizes').innerHTML = [16, 24, 32].map((s) => '<div>' + svg(i, s) + '<small>' + s + 'px</small></div>').join('');
+    $('selected-status').textContent = isBrand(i) ? i.ti + ' / ' + i.gr + ' / ' + i.h : i.c.map((c) => D.titles[c] || c).join(' / ');
+    $('selected-preview').innerHTML = isBrand(i) ? brandSvg(i, 96, true) : svg(i, 96);
+    $('sizes').innerHTML = [16, 24, 32].map((s) => '<div>' + draw(i, s) + '<small>' + s + 'px</small></div>').join('');
     $('code').textContent = code();
-    $('tags').replaceChildren(...i.t.map((t) => { const e = document.createElement('span'); e.textContent = t; return e; }));
+    $('tags').replaceChildren(...(isBrand(i) ? ['trademark of its owner'] : i.t).map((t) => { const e = document.createElement('span'); e.textContent = t; return e; }));
     document.querySelectorAll('.tile').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.name === i.n)));
-    if (push) history.replaceState(null, '', '#' + i.n);
+    if (push) history.replaceState(null, '', '#' + (isBrand(i) ? 'brand-' : '') + i.n);
   }
   function render() {
     const q = $('search').value.trim().toLowerCase();
-    const list = D.icons.filter((i) => (category === 'all' || i.c.includes(category)) && (!q || [i.n, ...i.t, ...i.a].join(' ').includes(q)));
+    const list = category === 'brands'
+      ? D.brands.filter((b) => !q || [b.n, b.ti.toLowerCase(), b.gr.toLowerCase()].join(' ').includes(q))
+      : D.icons.filter((i) => (category === 'all' || i.c.includes(category)) && (!q || [i.n, ...i.t, ...i.a].join(' ').includes(q)));
     $('grid').replaceChildren(...list.map((i) => {
       const b = document.createElement('button');
       b.type = 'button'; b.className = 'tile'; b.dataset.name = i.n;
       b.setAttribute('aria-label', i.n); b.setAttribute('aria-pressed', String(i.n === selected.n));
-      b.innerHTML = svg(i) + '<span class="name">' + i.n + '</span>';
+      b.innerHTML = draw(i) + '<span class="name">' + i.n + '</span>';
       b.onclick = () => inspect(i);
       return b;
     }));
-    $('result-count').textContent = list.length + ' icons';
+    $('result-count').textContent = list.length + (category === 'brands' ? ' logos' : ' icons');
     $('empty').style.display = list.length ? 'none' : 'block';
-    $('category-title').textContent = category === 'all' ? 'All icons' : D.titles[category];
+    $('category-title').textContent = category === 'all' ? 'All icons' : category === 'brands' ? 'Brand logos' : D.titles[category];
     document.querySelectorAll('.cats button').forEach((b) => { b.classList.toggle('active', b.dataset.category === category); b.setAttribute('aria-pressed', String(b.dataset.category === category)); });
   }
-  for (const [id, title] of [['all', 'All icons'], ...Object.entries(D.titles)]) {
-    const count = D.icons.filter((i) => id === 'all' || i.c.includes(id)).length;
+  for (const [id, title] of [['all', 'All icons'], ...Object.entries(D.titles), ['brands', 'Brand logos']]) {
+    const count = id === 'brands' ? D.brands.length : D.icons.filter((i) => id === 'all' || i.c.includes(id)).length;
     const b = document.createElement('button');
     b.type = 'button'; b.dataset.category = id;
     b.innerHTML = '<span>' + esc(title) + '</span><b>' + count + '</b>';
@@ -159,13 +179,14 @@ el.innerHTML = toSvg('merkle-tree', { size: 20 });
   let timer;
   const toast = (t) => { $('toast').textContent = t; $('toast').style.display = 'block'; clearTimeout(timer); timer = setTimeout(() => $('toast').style.display = 'none', 1800); };
   $('copy').onclick = async () => { try { await navigator.clipboard.writeText(code()); toast('Code copied'); } catch { toast('Select and copy the code above'); } };
-  $('download').onclick = () => { const a = document.createElement('a'); a.href = 'svg/' + selected.n + '.svg'; a.download = selected.n + '.svg'; a.click(); };
+  $('download').onclick = () => { const a = document.createElement('a'); a.href = (isBrand(selected) ? 'brands/svg-color/' : 'svg/') + selected.n + '.svg'; a.download = selected.n + '.svg'; a.click(); };
   document.addEventListener('keydown', (e) => {
     if (e.key === '/' && !['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) { e.preventDefault(); $('search').focus(); }
     if (e.key === 'Escape') { $('search').value = ''; $('search').blur(); render(); }
   });
-  const fromHash = D.icons.find((i) => i.n === decodeURIComponent(location.hash.slice(1)));
-  if (fromHash) selected = fromHash;
+  const h = decodeURIComponent(location.hash.slice(1));
+  const fromHash = h.startsWith('brand-') ? D.brands.find((b) => 'brand-' + b.n === h) : D.icons.find((i) => i.n === h);
+  if (fromHash) { selected = fromHash; if (isBrand(fromHash)) category = 'brands'; }
   render();
   inspect(selected, Boolean(fromHash));
 })();
@@ -180,6 +201,9 @@ writeFileSync(join(OUT, 'index.html'), html);
 cpSync(join(ROOT, 'dist', 'svg'), join(OUT, 'svg'), { recursive: true });
 cpSync(join(ROOT, 'dist', 'sprite.svg'), join(OUT, 'sprite.svg'));
 cpSync(join(ROOT, 'dist', 'icons.json'), join(OUT, 'icons.json'));
+for (const d of ['svg', 'svg-color'])
+  cpSync(join(ROOT, 'dist', 'brands', d), join(OUT, 'brands', d), { recursive: true });
+cpSync(join(ROOT, 'dist', 'brands', 'brands.json'), join(OUT, 'brands', 'brands.json'));
 for (const f of ['og.png', 'apple-touch-icon.png']) {
   if (!existsSync(join(ROOT, 'site', f))) {
     fail(`site/${f} is missing; run npm run og`);
