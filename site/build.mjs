@@ -152,9 +152,9 @@ footer{border-top:1px solid var(--line);padding:24px 0 40px;color:var(--muted);f
       <div class="card"><h3>Plain JavaScript</h3><pre>import { toSvg } from '@burtson-labs/icons';
 
 el.innerHTML = toSvg('merkle-tree', { size: 20 });</pre></div>
-      <div class="card"><h3>Sprite</h3><pre>&lt;svg width="24" height="24"&gt;
-  &lt;use href="${SITE}/sprite.svg#gpu" /&gt;
-&lt;/svg&gt;</pre></div>
+      <div class="card"><h3>Sprite</h3><pre>&lt;!-- serve node_modules/@burtson-labs/icons/dist/sprite.svg
+     from your own origin; browsers block cross-origin &lt;use&gt; --&gt;
+&lt;svg width="24" height="24"&gt;&lt;use href="/sprite.svg#gpu" /&gt;&lt;/svg&gt;</pre></div>
       <div class="card"><h3>Straight from this site</h3><pre>&lt;img src="${SITE}/svg/waveform.svg"
      width="24" height="24" alt="" /&gt;</pre></div>
     </div>

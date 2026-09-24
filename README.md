@@ -66,7 +66,7 @@ el.innerHTML = toSvg(gpu); // named exports are the raw nodes, so bundlers tree-
 | Want | Use |
 |---|---|
 | One file | `@burtson-labs/icons/svg/<name>.svg`, or `https://icons.burtson.ai/svg/<name>.svg` |
-| A sprite | `@burtson-labs/icons/sprite.svg` with `<use href="sprite.svg#<name>" />` |
+| A sprite | `@burtson-labs/icons/sprite.svg`, served from your own origin, with `<use href="/sprite.svg#<name>" />` (browsers block cross-origin `<use>`) |
 | Everything as data | `@burtson-labs/icons/icons.json`: names, tags, categories and geometry |
 
 ## <img src="preview/accent/signed-log.svg" width="22" align="absmiddle" alt=""> Design rules
