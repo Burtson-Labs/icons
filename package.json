@@ -1,6 +1,6 @@
 {
   "name": "@burtson-labs/icons",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Burtson Icons: an open-source stroke icon set for AI agents, security, provenance, infrastructure and evidence work. 24px grid, 2px stroke, zero dependencies.",
   "license": "ISC",
   "author": {
@@ -29,16 +29,18 @@
   "sideEffects": [
     "**/*.css"
   ],
-  "main": "./dist/index.js",
+  "main": "./dist/cjs/index.cjs",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.js"
+      "import": "./dist/index.js",
+      "require": "./dist/cjs/index.cjs"
     },
     "./react": {
       "types": "./dist/react.d.ts",
-      "import": "./dist/react.js"
+      "import": "./dist/react.js",
+      "require": "./dist/cjs/react.cjs"
     },
     "./sprite.svg": "./dist/sprite.svg",
     "./icons.json": "./dist/icons.json",
@@ -53,7 +55,8 @@
     },
     "./render": {
       "types": "./dist/render.d.ts",
-      "import": "./dist/render.js"
+      "import": "./dist/render.js",
+      "require": "./dist/cjs/render.cjs"
     },
     "./browser": {
       "types": "./dist/browser.d.ts",
@@ -87,6 +90,7 @@
     "@types/node": "^26.6.2",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
+    "esbuild": "^0.28.2",
     "eslint": "^9.39.5",
     "globals": "^17.12.0",
     "lucide-static": "1.47.0",
@@ -101,7 +105,7 @@
   "scripts": {
     "validate": "node scripts/validate.mjs",
     "originality": "node scripts/originality.mjs",
-    "build": "node scripts/build.mjs",
+    "build": "node scripts/build.mjs && node scripts/cjs.mjs",
     "site": "node site/build.mjs && node scripts/enhance.mjs --site",
     "new": "node scripts/new-icon.mjs",
     "status": "node scripts/status.mjs",
@@ -109,11 +113,31 @@
     "check": "npm run validate && npm run originality && npm run build && npm run lint && npm run format:check && npm run typecheck && npm test && npm run site",
     "prepublishOnly": "npm run check",
     "lint": "eslint .",
-    "typecheck": "npm run build && tsc -p tsconfig.json",
+    "typecheck": "npm run build && tsc -p tsconfig.json && node scripts/link-self.mjs && tsc -p tsconfig.node10.json",
     "test:enhancements": "npm run build && node --test test/enhancements.test.mjs",
     "test:react": "npm run build && node scripts/verify-react.mjs",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "og": "node site/og.mjs"
+  },
+  "module": "./dist/index.js",
+  "typesVersions": {
+    "*": {
+      "react": [
+        "./dist/react.d.ts"
+      ],
+      "react/*": [
+        "./dist/react/*.d.ts"
+      ],
+      "nodes/*": [
+        "./dist/nodes/*.d.ts"
+      ],
+      "render": [
+        "./dist/render.d.ts"
+      ],
+      "browser": [
+        "./dist/browser.d.ts"
+      ]
+    }
   }
 }

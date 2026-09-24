@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.2.1 - 2026-09-24
+
+- **CommonJS support.** `require('@burtson-labs/icons')`, `/react` and
+  `/render` now load real CommonJS builds, so packages compiled with
+  TypeScript `module: CommonJS` can depend on the icons.
+- **Types under older TypeScript resolution.** `typesVersions` maps every
+  subpath (`/react`, `/react/<name>`, `/nodes/<name>`, `/render`,
+  `/browser`) for projects on `moduleResolution: node`, which ignores
+  package `exports`.
+- Link previews for icons.burtson.ai (Slack, Teams, X) and a real favicon.
+
 ## 0.2.0 - 2026-09-24
 
 - **230 icons** (from 18). 129 everyday app basics (arrows, chevrons,
