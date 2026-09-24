@@ -1,0 +1,16 @@
+{
+  "agents": { "title": "Agents & AI", "description": "Coding agents, local models, prompts, tools, memory and evals." },
+  "development": { "title": "Development", "description": "Terminals, editors, source control, builds, packages and debugging." },
+  "security": { "title": "Security", "description": "Audits, proofs, findings, secrets, sandboxes, keys and policy." },
+  "provenance": { "title": "Provenance & audit", "description": "Signed logs, hash chains, Merkle trees, timestamps and verification." },
+  "infrastructure": { "title": "Infrastructure", "description": "Clusters, nodes, GPUs, microVMs, containers, networks and storage." },
+  "data": { "title": "Data", "description": "Databases, vectors, ingestion, pipelines, queues and search." },
+  "evidence": { "title": "Evidence & video", "description": "Forensic video, recorders, exhibits, chain of custody and case files." },
+  "voice": { "title": "Voice & audio", "description": "Speech-to-text, text-to-speech, voice cloning, waveforms and mixing." },
+  "documents": { "title": "Documents & reports", "description": "Reports, findings, forms, worksheets and exports." },
+  "status": { "title": "Status", "description": "Health, progress, verdicts and alerts." },
+  "interface": { "title": "Interface", "description": "The everyday UI set: arrows, actions, navigation, layout and editing." },
+  "people": { "title": "People", "description": "Users, teams, roles and access." },
+  "recreation": { "title": "Recreation", "description": "Bowling, scoring, leagues and events." },
+  "brand": { "title": "Burtson Labs", "description": "Product marks drawn in the house style." }
+}

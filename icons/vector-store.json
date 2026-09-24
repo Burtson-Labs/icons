@@ -1,0 +1,17 @@
+{
+  "tags": [
+    "vector",
+    "database",
+    "embeddings",
+    "qdrant",
+    "retrieval",
+    "rag"
+  ],
+  "categories": [
+    "data",
+    "agents"
+  ],
+  "contributors": [
+    "burtson-labs"
+  ]
+}

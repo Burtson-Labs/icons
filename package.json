@@ -1,0 +1,86 @@
+{
+  "name": "@burtson-labs/icons",
+  "version": "0.1.0",
+  "description": "Burtson Icons: an open-source stroke icon set for AI agents, security, provenance, infrastructure and evidence work. 24px grid, 2px stroke, zero dependencies.",
+  "license": "ISC",
+  "author": {
+    "name": "Burtson Labs",
+    "email": "team@burtson.ai",
+    "url": "https://burtson.ai"
+  },
+  "homepage": "https://icons.burtson.ai",
+  "funding": "https://afsp.org/chapter/missouri",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Burtson-Labs/icons.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Burtson-Labs/icons/issues"
+  },
+  "keywords": [
+    "icons",
+    "svg",
+    "icon-set",
+    "react",
+    "stroke-icons",
+    "burtson-labs"
+  ],
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./react": {
+      "types": "./dist/react.d.ts",
+      "import": "./dist/react.js"
+    },
+    "./sprite.svg": "./dist/sprite.svg",
+    "./icons.json": "./dist/icons.json",
+    "./svg/*": "./dist/svg/*"
+  },
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "peerDependencies": {
+    "react": ">=18"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.5",
+    "@types/node": "^26.6.2",
+    "@types/react": "^19.3.0",
+    "eslint": "^9.39.5",
+    "globals": "^17.12.0",
+    "lucide-static": "1.47.0",
+    "typescript": "^7.0.2"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "validate": "node scripts/validate.mjs",
+    "originality": "node scripts/originality.mjs",
+    "build": "node scripts/build.mjs",
+    "site": "node site/build.mjs",
+    "new": "node scripts/new-icon.mjs",
+    "status": "node scripts/status.mjs",
+    "test": "node --test test/*.test.mjs",
+    "check": "npm run validate && npm run originality && npm run lint && npm run typecheck && npm test && npm run site",
+    "prepublishOnly": "npm run check",
+    "lint": "eslint .",
+    "typecheck": "npm run build && tsc -p tsconfig.json"
+  }
+}

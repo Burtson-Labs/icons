@@ -1,0 +1,16 @@
+{
+  "tags": [
+    "sandbox",
+    "container",
+    "isolated",
+    "no-network",
+    "locked"
+  ],
+  "categories": [
+    "security",
+    "infrastructure"
+  ],
+  "contributors": [
+    "burtson-labs"
+  ]
+}

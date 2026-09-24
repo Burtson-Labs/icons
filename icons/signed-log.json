@@ -1,0 +1,17 @@
+{
+  "tags": [
+    "audit-log",
+    "signed",
+    "ledger",
+    "tamper-evident",
+    "record",
+    "forge"
+  ],
+  "categories": [
+    "provenance",
+    "documents"
+  ],
+  "contributors": [
+    "burtson-labs"
+  ]
+}

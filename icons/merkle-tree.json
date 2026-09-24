@@ -1,0 +1,16 @@
+{
+  "tags": [
+    "merkle",
+    "hash-tree",
+    "integrity",
+    "checkpoint",
+    "forge"
+  ],
+  "categories": [
+    "provenance",
+    "data"
+  ],
+  "contributors": [
+    "burtson-labs"
+  ]
+}

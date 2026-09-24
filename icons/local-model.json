@@ -1,0 +1,17 @@
+{
+  "tags": [
+    "local-model",
+    "on-device",
+    "llm",
+    "chip",
+    "private",
+    "ollama"
+  ],
+  "categories": [
+    "agents",
+    "infrastructure"
+  ],
+  "contributors": [
+    "burtson-labs"
+  ]
+}

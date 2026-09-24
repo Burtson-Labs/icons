@@ -1,0 +1,16 @@
+{
+  "tags": [
+    "cluster",
+    "servers",
+    "nodes",
+    "rack",
+    "pi",
+    "kubernetes"
+  ],
+  "categories": [
+    "infrastructure"
+  ],
+  "contributors": [
+    "burtson-labs"
+  ]
+}

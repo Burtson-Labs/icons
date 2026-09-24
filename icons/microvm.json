@@ -1,0 +1,16 @@
+{
+  "tags": [
+    "microvm",
+    "firecracker",
+    "sandbox",
+    "virtual-machine",
+    "isolation"
+  ],
+  "categories": [
+    "infrastructure",
+    "security"
+  ],
+  "contributors": [
+    "burtson-labs"
+  ]
+}

@@ -1,0 +1,1310 @@
+{
+  "note": "Icons to draw next. A name leaves this list when icons/<name>.svg lands; npm run status shows progress. Concepts are starting points, not specs; 'x-free' means avoid that clich\u00e9.",
+  "icons": [
+    {
+      "name": "agent",
+      "category": "agents",
+      "concept": "a small robot-free agent mark: a speech cursor with a spark"
+    },
+    {
+      "name": "agent-loop",
+      "category": "agents",
+      "concept": "circular arrow around a spark: the plan-act-observe loop"
+    },
+    {
+      "name": "subagent",
+      "category": "agents",
+      "concept": "a large spark with a smaller spark branching off"
+    },
+    {
+      "name": "prompt",
+      "category": "agents",
+      "concept": "chevron with a text line, inside a speech bubble"
+    },
+    {
+      "name": "tool-call",
+      "category": "agents",
+      "concept": "wrench inside angle brackets"
+    },
+    {
+      "name": "tool-result",
+      "category": "agents",
+      "concept": "document with a return-arrow"
+    },
+    {
+      "name": "memory",
+      "category": "agents",
+      "concept": "brain-free: stacked cards with a bookmark"
+    },
+    {
+      "name": "context-window",
+      "category": "agents",
+      "concept": "brackets framing stacked lines, one fading"
+    },
+    {
+      "name": "model-select",
+      "category": "agents",
+      "concept": "chip with a chevron-down"
+    },
+    {
+      "name": "model-download",
+      "category": "agents",
+      "concept": "chip with a down-arrow"
+    },
+    {
+      "name": "eval-bench",
+      "category": "agents",
+      "concept": "bar chart with a check on the tallest bar"
+    },
+    {
+      "name": "regression",
+      "category": "agents",
+      "concept": "line chart dipping with an alert dot"
+    },
+    {
+      "name": "hallucination",
+      "category": "agents",
+      "concept": "speech bubble with a dashed outline and question"
+    },
+    {
+      "name": "fake-completion",
+      "category": "agents",
+      "concept": "check mark crossed through: claimed done, not done"
+    },
+    {
+      "name": "stall",
+      "category": "agents",
+      "concept": "hourglass inside a speech bubble"
+    },
+    {
+      "name": "self-improve",
+      "category": "agents",
+      "concept": "spark with an upward arrow looping back"
+    },
+    {
+      "name": "mcp-server",
+      "category": "agents",
+      "concept": "plug connecting to a stack"
+    },
+    {
+      "name": "mcp-trust",
+      "category": "agents",
+      "concept": "plug with a fingerprint arc"
+    },
+    {
+      "name": "checkpoint",
+      "category": "agents",
+      "concept": "flag on a timeline dot"
+    },
+    {
+      "name": "rewind",
+      "category": "agents",
+      "concept": "timeline with a back arrow to a dot"
+    },
+    {
+      "name": "skill",
+      "category": "agents",
+      "concept": "puzzle-piece-free: a lightning bolt on a card"
+    },
+    {
+      "name": "persona",
+      "category": "agents",
+      "concept": "mask outline with a spark"
+    },
+    {
+      "name": "reasoning",
+      "category": "agents",
+      "concept": "three dots becoming a path"
+    },
+    {
+      "name": "token-budget",
+      "category": "agents",
+      "concept": "coin stack with a gauge"
+    },
+    {
+      "name": "streaming",
+      "category": "agents",
+      "concept": "lines flowing out of a bubble"
+    },
+    {
+      "name": "offline-mode",
+      "category": "agents",
+      "concept": "cloud with a slash and a small chip"
+    },
+    {
+      "name": "code-review",
+      "category": "development",
+      "concept": "magnifier over angle brackets"
+    },
+    {
+      "name": "diff",
+      "category": "development",
+      "concept": "plus and minus lines side by side"
+    },
+    {
+      "name": "branch-review",
+      "category": "development",
+      "concept": "git branch with an eye"
+    },
+    {
+      "name": "pull-request-draft",
+      "category": "development",
+      "concept": "PR arrows with a dashed node"
+    },
+    {
+      "name": "commit-signed",
+      "category": "development",
+      "concept": "commit dot with a seal"
+    },
+    {
+      "name": "merge-safe",
+      "category": "development",
+      "concept": "merge arrows with a check"
+    },
+    {
+      "name": "build",
+      "category": "development",
+      "concept": "hammer over a box"
+    },
+    {
+      "name": "build-failed",
+      "category": "development",
+      "concept": "box with an x"
+    },
+    {
+      "name": "package",
+      "category": "development",
+      "concept": "box with a tag"
+    },
+    {
+      "name": "package-publish",
+      "category": "development",
+      "concept": "box with an up-arrow"
+    },
+    {
+      "name": "dependency-tree",
+      "category": "development",
+      "concept": "package with branching lines"
+    },
+    {
+      "name": "lockfile",
+      "category": "development",
+      "concept": "document with a padlock"
+    },
+    {
+      "name": "debugger",
+      "category": "development",
+      "concept": "bug-free: breakpoint dot on a code line"
+    },
+    {
+      "name": "breakpoint",
+      "category": "development",
+      "concept": "filled dot on a margin line"
+    },
+    {
+      "name": "extension-host",
+      "category": "development",
+      "concept": "window with a puzzle-free plug socket"
+    },
+    {
+      "name": "language-server",
+      "category": "development",
+      "concept": "brackets with a signal wave"
+    },
+    {
+      "name": "terminal-split",
+      "category": "development",
+      "concept": "terminal window split in two"
+    },
+    {
+      "name": "pty",
+      "category": "development",
+      "concept": "terminal with a cable"
+    },
+    {
+      "name": "ide-window",
+      "category": "development",
+      "concept": "window with sidebar and editor panes"
+    },
+    {
+      "name": "hot-reload",
+      "category": "development",
+      "concept": "lightning with a circular arrow"
+    },
+    {
+      "name": "feature-flag",
+      "category": "development",
+      "concept": "flag with a toggle"
+    },
+    {
+      "name": "changelog",
+      "category": "development",
+      "concept": "document with a clock"
+    },
+    {
+      "name": "release-tag",
+      "category": "development",
+      "concept": "tag with a version dot"
+    },
+    {
+      "name": "shield-pattern",
+      "category": "security",
+      "concept": "shield with a dashed check: pattern-confirmed"
+    },
+    {
+      "name": "shield-plausible",
+      "category": "security",
+      "concept": "shield with a question mark"
+    },
+    {
+      "name": "shield-triaged",
+      "category": "security",
+      "concept": "shield with a filter funnel"
+    },
+    {
+      "name": "proof-script",
+      "category": "security",
+      "concept": "scroll with a play triangle"
+    },
+    {
+      "name": "finding",
+      "category": "security",
+      "concept": "magnifier with an exclamation"
+    },
+    {
+      "name": "finding-blocker",
+      "category": "security",
+      "concept": "octagon with an exclamation"
+    },
+    {
+      "name": "secret",
+      "category": "security",
+      "concept": "key with an asterisk"
+    },
+    {
+      "name": "secret-masked",
+      "category": "security",
+      "concept": "key with dots replacing the bit"
+    },
+    {
+      "name": "secret-history",
+      "category": "security",
+      "concept": "key with a clock"
+    },
+    {
+      "name": "api-key-scoped",
+      "category": "security",
+      "concept": "key with a bracket around its tip"
+    },
+    {
+      "name": "rotate-key",
+      "category": "security",
+      "concept": "key inside a circular arrow"
+    },
+    {
+      "name": "ssrf",
+      "category": "security",
+      "concept": "arrow bouncing off a server towards a house"
+    },
+    {
+      "name": "injection",
+      "category": "security",
+      "concept": "syringe-free: text caret entering brackets"
+    },
+    {
+      "name": "xss",
+      "category": "security",
+      "concept": "angle brackets with a lightning bolt"
+    },
+    {
+      "name": "path-traversal",
+      "category": "security",
+      "concept": "folder with ../ steps"
+    },
+    {
+      "name": "sarif",
+      "category": "security",
+      "concept": "document with a shield corner"
+    },
+    {
+      "name": "policy",
+      "category": "security",
+      "concept": "scroll with a gavel-free check list"
+    },
+    {
+      "name": "permission-tier",
+      "category": "security",
+      "concept": "stacked bars with a lock on the top one"
+    },
+    {
+      "name": "no-network",
+      "category": "security",
+      "concept": "globe with a slash"
+    },
+    {
+      "name": "egress-blocked",
+      "category": "security",
+      "concept": "arrow leaving a box stopped by a wall"
+    },
+    {
+      "name": "read-only",
+      "category": "security",
+      "concept": "document with a lock and no pencil"
+    },
+    {
+      "name": "cap-drop",
+      "category": "security",
+      "concept": "badge with a minus"
+    },
+    {
+      "name": "threat-model",
+      "category": "security",
+      "concept": "target with an eye"
+    },
+    {
+      "name": "pentest",
+      "category": "security",
+      "concept": "crosshair over a window"
+    },
+    {
+      "name": "soc2",
+      "category": "security",
+      "concept": "checklist with a shield"
+    },
+    {
+      "name": "csp",
+      "category": "security",
+      "concept": "browser window with a shield"
+    },
+    {
+      "name": "hash-chain",
+      "category": "provenance",
+      "concept": "three linked blocks with arrows"
+    },
+    {
+      "name": "prev-hash",
+      "category": "provenance",
+      "concept": "block with a back-pointing arrow"
+    },
+    {
+      "name": "signature",
+      "category": "provenance",
+      "concept": "pen nib with a key"
+    },
+    {
+      "name": "verify-signature",
+      "category": "provenance",
+      "concept": "seal with a check"
+    },
+    {
+      "name": "tamper",
+      "category": "provenance",
+      "concept": "seal with a crack"
+    },
+    {
+      "name": "tamper-evident",
+      "category": "provenance",
+      "concept": "seal with an eye"
+    },
+    {
+      "name": "timestamp",
+      "category": "provenance",
+      "concept": "clock with a stamp base"
+    },
+    {
+      "name": "transparency-log",
+      "category": "provenance",
+      "concept": "scroll with a magnifier"
+    },
+    {
+      "name": "key-pinning",
+      "category": "provenance",
+      "concept": "key with a pushpin"
+    },
+    {
+      "name": "attestation",
+      "category": "provenance",
+      "concept": "certificate with a ribbon"
+    },
+    {
+      "name": "append-only",
+      "category": "provenance",
+      "concept": "list with a plus at the bottom and a lock"
+    },
+    {
+      "name": "replay",
+      "category": "provenance",
+      "concept": "two identical records with an x"
+    },
+    {
+      "name": "cluster",
+      "category": "infrastructure",
+      "concept": "three connected nodes in a hexagon"
+    },
+    {
+      "name": "node",
+      "category": "infrastructure",
+      "concept": "single hexagon with a dot"
+    },
+    {
+      "name": "raspberry-pi",
+      "category": "infrastructure",
+      "concept": "small board with pins and a berry-free circle"
+    },
+    {
+      "name": "gpu-claim",
+      "category": "infrastructure",
+      "concept": "gpu with a hand-free grab arrow"
+    },
+    {
+      "name": "gpu-release",
+      "category": "infrastructure",
+      "concept": "gpu with an outward arrow"
+    },
+    {
+      "name": "vram",
+      "category": "infrastructure",
+      "concept": "memory stick with a gauge"
+    },
+    {
+      "name": "container",
+      "category": "infrastructure",
+      "concept": "stacked box with a door"
+    },
+    {
+      "name": "container-image",
+      "category": "infrastructure",
+      "concept": "box with a layered stack"
+    },
+    {
+      "name": "registry",
+      "category": "infrastructure",
+      "concept": "shelf of boxes"
+    },
+    {
+      "name": "ingress",
+      "category": "infrastructure",
+      "concept": "arrow entering a gateway arch"
+    },
+    {
+      "name": "load-balancer",
+      "category": "infrastructure",
+      "concept": "one arrow splitting into three"
+    },
+    {
+      "name": "helm-chart",
+      "category": "infrastructure",
+      "concept": "ship-wheel-free: chart document with a cog"
+    },
+    {
+      "name": "pod",
+      "category": "infrastructure",
+      "concept": "capsule with two dots"
+    },
+    {
+      "name": "namespace",
+      "category": "infrastructure",
+      "concept": "dashed frame around dots"
+    },
+    {
+      "name": "deploy",
+      "category": "infrastructure",
+      "concept": "rocket-free: box moving along an arrow"
+    },
+    {
+      "name": "rollback",
+      "category": "infrastructure",
+      "concept": "box with a back arrow"
+    },
+    {
+      "name": "self-healing",
+      "category": "infrastructure",
+      "concept": "cog with a plus"
+    },
+    {
+      "name": "reconciler",
+      "category": "infrastructure",
+      "concept": "two arrows forming a circle around a dot"
+    },
+    {
+      "name": "vm-boot",
+      "category": "infrastructure",
+      "concept": "power symbol inside a cube"
+    },
+    {
+      "name": "gateway",
+      "category": "infrastructure",
+      "concept": "arch with an arrow through it"
+    },
+    {
+      "name": "dns",
+      "category": "infrastructure",
+      "concept": "globe with a list"
+    },
+    {
+      "name": "tls",
+      "category": "infrastructure",
+      "concept": "padlock with a globe"
+    },
+    {
+      "name": "tunnel",
+      "category": "infrastructure",
+      "concept": "arch with dashes through it"
+    },
+    {
+      "name": "air-gap",
+      "category": "infrastructure",
+      "concept": "two boxes with a gap and a slash"
+    },
+    {
+      "name": "on-prem",
+      "category": "infrastructure",
+      "concept": "building with a server"
+    },
+    {
+      "name": "edge-cache",
+      "category": "infrastructure",
+      "concept": "lightning over a cylinder"
+    },
+    {
+      "name": "metrics",
+      "category": "infrastructure",
+      "concept": "gauge"
+    },
+    {
+      "name": "logs",
+      "category": "infrastructure",
+      "concept": "stacked lines with timestamps"
+    },
+    {
+      "name": "trace",
+      "category": "infrastructure",
+      "concept": "dots joined by a path"
+    },
+    {
+      "name": "document-ingest",
+      "category": "data",
+      "concept": "document entering a funnel"
+    },
+    {
+      "name": "chunking",
+      "category": "data",
+      "concept": "document cut into three strips"
+    },
+    {
+      "name": "embedding",
+      "category": "data",
+      "concept": "document turning into dots"
+    },
+    {
+      "name": "retrieval",
+      "category": "data",
+      "concept": "magnifier over a cylinder"
+    },
+    {
+      "name": "rag",
+      "category": "data",
+      "concept": "book with a spark"
+    },
+    {
+      "name": "queue",
+      "category": "data",
+      "concept": "three boxes in a row with an arrow"
+    },
+    {
+      "name": "worker",
+      "category": "data",
+      "concept": "cog with a list"
+    },
+    {
+      "name": "pipeline",
+      "category": "data",
+      "concept": "three connected pipes"
+    },
+    {
+      "name": "bulk-import",
+      "category": "data",
+      "concept": "stack with an up-arrow"
+    },
+    {
+      "name": "s3-bucket",
+      "category": "data",
+      "concept": "bucket"
+    },
+    {
+      "name": "object-storage",
+      "category": "data",
+      "concept": "cube with a label"
+    },
+    {
+      "name": "mongo-collection",
+      "category": "data",
+      "concept": "leaf-free: stacked documents in a cylinder"
+    },
+    {
+      "name": "schema",
+      "category": "data",
+      "concept": "table with a key column"
+    },
+    {
+      "name": "sync",
+      "category": "data",
+      "concept": "two cylinders with arrows"
+    },
+    {
+      "name": "exhibit",
+      "category": "evidence",
+      "concept": "label tag with a number"
+    },
+    {
+      "name": "exhibit-sticker",
+      "category": "evidence",
+      "concept": "round sticker with a letter"
+    },
+    {
+      "name": "case-file",
+      "category": "evidence",
+      "concept": "folder with a badge"
+    },
+    {
+      "name": "chain-of-custody",
+      "category": "evidence",
+      "concept": "hand-to-hand arrow with a seal"
+    },
+    {
+      "name": "footage",
+      "category": "evidence",
+      "concept": "film strip"
+    },
+    {
+      "name": "frame-extract",
+      "category": "evidence",
+      "concept": "film strip with one frame pulled out"
+    },
+    {
+      "name": "timeline-scrub",
+      "category": "evidence",
+      "concept": "timeline with a playhead"
+    },
+    {
+      "name": "codec",
+      "category": "evidence",
+      "concept": "film strip with angle brackets"
+    },
+    {
+      "name": "proprietary-format",
+      "category": "evidence",
+      "concept": "film strip with a lock"
+    },
+    {
+      "name": "player-missing",
+      "category": "evidence",
+      "concept": "play button with a question mark"
+    },
+    {
+      "name": "export-video",
+      "category": "evidence",
+      "concept": "film strip with an up-arrow"
+    },
+    {
+      "name": "redact",
+      "category": "evidence",
+      "concept": "rectangle over lines"
+    },
+    {
+      "name": "blur-face",
+      "category": "evidence",
+      "concept": "face outline with a grid"
+    },
+    {
+      "name": "worksheet",
+      "category": "evidence",
+      "concept": "clipboard with a table"
+    },
+    {
+      "name": "recovery",
+      "category": "evidence",
+      "concept": "hard drive with a circular arrow"
+    },
+    {
+      "name": "hard-drive",
+      "category": "evidence",
+      "concept": "hard drive"
+    },
+    {
+      "name": "dme",
+      "category": "evidence",
+      "concept": "DVR box with a download"
+    },
+    {
+      "name": "body-cam",
+      "category": "evidence",
+      "concept": "small camera with a clip"
+    },
+    {
+      "name": "dash-cam",
+      "category": "evidence",
+      "concept": "camera on a windshield line"
+    },
+    {
+      "name": "cctv",
+      "category": "evidence",
+      "concept": "wall camera"
+    },
+    {
+      "name": "hash-verify",
+      "category": "evidence",
+      "concept": "file with a fingerprint and check"
+    },
+    {
+      "name": "court",
+      "category": "evidence",
+      "concept": "columns with a pediment"
+    },
+    {
+      "name": "speech-to-text",
+      "category": "voice",
+      "concept": "waveform becoming lines"
+    },
+    {
+      "name": "text-to-speech",
+      "category": "voice",
+      "concept": "lines becoming a waveform"
+    },
+    {
+      "name": "voice-clone",
+      "category": "voice",
+      "concept": "two waveforms mirrored"
+    },
+    {
+      "name": "voice-profile",
+      "category": "voice",
+      "concept": "person with a waveform"
+    },
+    {
+      "name": "microphone-studio",
+      "category": "voice",
+      "concept": "studio mic with a stand"
+    },
+    {
+      "name": "reference-audio",
+      "category": "voice",
+      "concept": "waveform with a bookmark"
+    },
+    {
+      "name": "narration",
+      "category": "voice",
+      "concept": "speech bubble with a waveform"
+    },
+    {
+      "name": "mixer",
+      "category": "voice",
+      "concept": "three sliders"
+    },
+    {
+      "name": "mute-voice",
+      "category": "voice",
+      "concept": "waveform with a slash"
+    },
+    {
+      "name": "kokoro",
+      "category": "voice",
+      "concept": "waveform with a flower-free spark"
+    },
+    {
+      "name": "report",
+      "category": "documents",
+      "concept": "document with a chart"
+    },
+    {
+      "name": "report-html",
+      "category": "documents",
+      "concept": "document with angle brackets"
+    },
+    {
+      "name": "report-md",
+      "category": "documents",
+      "concept": "document with a hash"
+    },
+    {
+      "name": "coverage",
+      "category": "documents",
+      "concept": "document with a pie"
+    },
+    {
+      "name": "confidence",
+      "category": "documents",
+      "concept": "gauge on a document"
+    },
+    {
+      "name": "fix-plan",
+      "category": "documents",
+      "concept": "checklist with a wrench"
+    },
+    {
+      "name": "certificate",
+      "category": "documents",
+      "concept": "document with a ribbon seal"
+    },
+    {
+      "name": "form",
+      "category": "documents",
+      "concept": "document with input boxes"
+    },
+    {
+      "name": "export",
+      "category": "documents",
+      "concept": "document with an up-right arrow"
+    },
+    {
+      "name": "print",
+      "category": "documents",
+      "concept": "printer"
+    },
+    {
+      "name": "pdf",
+      "category": "documents",
+      "concept": "document with a curly corner"
+    },
+    {
+      "name": "spreadsheet",
+      "category": "documents",
+      "concept": "grid document"
+    },
+    {
+      "name": "proof-confirmed",
+      "category": "status",
+      "concept": "circle with a double check"
+    },
+    {
+      "name": "pattern-confirmed",
+      "category": "status",
+      "concept": "circle with a dashed check"
+    },
+    {
+      "name": "plausible",
+      "category": "status",
+      "concept": "circle with a tilde"
+    },
+    {
+      "name": "refuted",
+      "category": "status",
+      "concept": "circle with a slash"
+    },
+    {
+      "name": "triaged-out",
+      "category": "status",
+      "concept": "funnel with an x"
+    },
+    {
+      "name": "gate-pass",
+      "category": "status",
+      "concept": "gate open with a check"
+    },
+    {
+      "name": "gate-blocked",
+      "category": "status",
+      "concept": "gate closed with an x"
+    },
+    {
+      "name": "healthy",
+      "category": "status",
+      "concept": "heart-free: pulse line with a check"
+    },
+    {
+      "name": "degraded",
+      "category": "status",
+      "concept": "pulse line with a dip"
+    },
+    {
+      "name": "offline",
+      "category": "status",
+      "concept": "dot with a slash"
+    },
+    {
+      "name": "warming-up",
+      "category": "status",
+      "concept": "thermometer with a spark"
+    },
+    {
+      "name": "queued",
+      "category": "status",
+      "concept": "hourglass"
+    },
+    {
+      "name": "arrow-up",
+      "category": "interface",
+      "concept": "arrow"
+    },
+    {
+      "name": "arrow-down",
+      "category": "interface",
+      "concept": "arrow"
+    },
+    {
+      "name": "arrow-left",
+      "category": "interface",
+      "concept": "arrow"
+    },
+    {
+      "name": "arrow-right",
+      "category": "interface",
+      "concept": "arrow"
+    },
+    {
+      "name": "chevron-up",
+      "category": "interface",
+      "concept": "chevron"
+    },
+    {
+      "name": "chevron-down",
+      "category": "interface",
+      "concept": "chevron"
+    },
+    {
+      "name": "chevron-left",
+      "category": "interface",
+      "concept": "chevron"
+    },
+    {
+      "name": "chevron-right",
+      "category": "interface",
+      "concept": "chevron"
+    },
+    {
+      "name": "check",
+      "category": "interface",
+      "concept": "check mark"
+    },
+    {
+      "name": "close",
+      "category": "interface",
+      "concept": "x"
+    },
+    {
+      "name": "plus",
+      "category": "interface",
+      "concept": "plus"
+    },
+    {
+      "name": "minus",
+      "category": "interface",
+      "concept": "minus"
+    },
+    {
+      "name": "search",
+      "category": "interface",
+      "concept": "magnifier"
+    },
+    {
+      "name": "settings",
+      "category": "interface",
+      "concept": "cog"
+    },
+    {
+      "name": "menu",
+      "category": "interface",
+      "concept": "three lines"
+    },
+    {
+      "name": "more-horizontal",
+      "category": "interface",
+      "concept": "three dots"
+    },
+    {
+      "name": "more-vertical",
+      "category": "interface",
+      "concept": "three dots"
+    },
+    {
+      "name": "home",
+      "category": "interface",
+      "concept": "house"
+    },
+    {
+      "name": "external-link",
+      "category": "interface",
+      "concept": "box with an arrow out"
+    },
+    {
+      "name": "copy",
+      "category": "interface",
+      "concept": "two overlapping squares"
+    },
+    {
+      "name": "download",
+      "category": "interface",
+      "concept": "arrow into a tray"
+    },
+    {
+      "name": "upload",
+      "category": "interface",
+      "concept": "arrow out of a tray"
+    },
+    {
+      "name": "edit",
+      "category": "interface",
+      "concept": "pencil"
+    },
+    {
+      "name": "trash",
+      "category": "interface",
+      "concept": "bin"
+    },
+    {
+      "name": "filter",
+      "category": "interface",
+      "concept": "funnel"
+    },
+    {
+      "name": "sort",
+      "category": "interface",
+      "concept": "arrows up and down"
+    },
+    {
+      "name": "refresh",
+      "category": "interface",
+      "concept": "circular arrow"
+    },
+    {
+      "name": "undo",
+      "category": "interface",
+      "concept": "curved back arrow"
+    },
+    {
+      "name": "redo",
+      "category": "interface",
+      "concept": "curved forward arrow"
+    },
+    {
+      "name": "eye",
+      "category": "interface",
+      "concept": "eye"
+    },
+    {
+      "name": "eye-off",
+      "category": "interface",
+      "concept": "eye with a slash"
+    },
+    {
+      "name": "lock",
+      "category": "interface",
+      "concept": "padlock"
+    },
+    {
+      "name": "unlock",
+      "category": "interface",
+      "concept": "open padlock"
+    },
+    {
+      "name": "bell",
+      "category": "interface",
+      "concept": "bell"
+    },
+    {
+      "name": "calendar",
+      "category": "interface",
+      "concept": "calendar"
+    },
+    {
+      "name": "clock",
+      "category": "interface",
+      "concept": "clock"
+    },
+    {
+      "name": "sun",
+      "category": "interface",
+      "concept": "sun"
+    },
+    {
+      "name": "moon",
+      "category": "interface",
+      "concept": "moon"
+    },
+    {
+      "name": "sidebar",
+      "category": "interface",
+      "concept": "window with a left panel"
+    },
+    {
+      "name": "layout-grid",
+      "category": "interface",
+      "concept": "four squares"
+    },
+    {
+      "name": "maximize",
+      "category": "interface",
+      "concept": "corners out"
+    },
+    {
+      "name": "minimize",
+      "category": "interface",
+      "concept": "corners in"
+    },
+    {
+      "name": "link",
+      "category": "interface",
+      "concept": "link"
+    },
+    {
+      "name": "share",
+      "category": "interface",
+      "concept": "three dots connected"
+    },
+    {
+      "name": "info",
+      "category": "interface",
+      "concept": "circle with i"
+    },
+    {
+      "name": "help",
+      "category": "interface",
+      "concept": "circle with ?"
+    },
+    {
+      "name": "alert",
+      "category": "interface",
+      "concept": "triangle with !"
+    },
+    {
+      "name": "star",
+      "category": "interface",
+      "concept": "star"
+    },
+    {
+      "name": "heart",
+      "category": "interface",
+      "concept": "heart"
+    },
+    {
+      "name": "send",
+      "category": "interface",
+      "concept": "paper plane"
+    },
+    {
+      "name": "chat",
+      "category": "interface",
+      "concept": "speech bubble"
+    },
+    {
+      "name": "mail",
+      "category": "interface",
+      "concept": "envelope"
+    },
+    {
+      "name": "user",
+      "category": "people",
+      "concept": "person"
+    },
+    {
+      "name": "users",
+      "category": "people",
+      "concept": "two people"
+    },
+    {
+      "name": "team",
+      "category": "people",
+      "concept": "three people"
+    },
+    {
+      "name": "admin",
+      "category": "people",
+      "concept": "person with a shield"
+    },
+    {
+      "name": "role",
+      "category": "people",
+      "concept": "person with a badge"
+    },
+    {
+      "name": "sign-in",
+      "category": "people",
+      "concept": "arrow into a door"
+    },
+    {
+      "name": "sign-out",
+      "category": "people",
+      "concept": "arrow out of a door"
+    },
+    {
+      "name": "sso",
+      "category": "people",
+      "concept": "key with a person"
+    },
+    {
+      "name": "org",
+      "category": "people",
+      "concept": "building"
+    },
+    {
+      "name": "tenant",
+      "category": "people",
+      "concept": "building with a door key"
+    },
+    {
+      "name": "bowling-ball",
+      "category": "recreation",
+      "concept": "ball with three finger holes"
+    },
+    {
+      "name": "strike",
+      "category": "recreation",
+      "concept": "pins falling with an x"
+    },
+    {
+      "name": "spare",
+      "category": "recreation",
+      "concept": "pins with a slash"
+    },
+    {
+      "name": "scoreboard",
+      "category": "recreation",
+      "concept": "grid with frames"
+    },
+    {
+      "name": "league",
+      "category": "recreation",
+      "concept": "trophy"
+    },
+    {
+      "name": "lane",
+      "category": "recreation",
+      "concept": "lane with arrows"
+    },
+    {
+      "name": "pin-setter",
+      "category": "recreation",
+      "concept": "row of pins"
+    },
+    {
+      "name": "team-standings",
+      "category": "recreation",
+      "concept": "podium"
+    },
+    {
+      "name": "bandit",
+      "category": "brand",
+      "concept": "the Bandit mark: masked face, house style"
+    },
+    {
+      "name": "bandit-stealth",
+      "category": "brand",
+      "concept": "mask with an editor window"
+    },
+    {
+      "name": "sentinel",
+      "category": "brand",
+      "concept": "watchtower eye with a shield"
+    },
+    {
+      "name": "forge",
+      "category": "brand",
+      "concept": "anvil with a chain link"
+    },
+    {
+      "name": "burtson-labs",
+      "category": "brand",
+      "concept": "BL monogram in the house stroke"
+    }
+  ]
+}
