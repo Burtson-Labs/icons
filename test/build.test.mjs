@@ -25,8 +25,14 @@ test('types and React components are generated for every icon', () => {
   for (const n of listIconNames()) {
     assert.ok(dts.includes(`"${n}"`), `IconName lacks ${n}`);
     const pascal = n.replace(/(^|-)([a-z0-9])/g, (_, __, c) => c.toUpperCase());
-    assert.ok(react.includes(`export const ${pascal} =`), `react.js lacks ${pascal}`);
-    assert.ok(reactDts.includes(`export declare const ${pascal}: Icon;`), `react.d.ts lacks ${pascal}`);
+    assert.ok(
+      react.includes(`export { ${pascal} } from './react/${n}.js';`),
+      `react.js lacks ${pascal}`,
+    );
+    assert.ok(
+      reactDts.includes(`export { ${pascal} } from './react/${n}.js';`),
+      `react.d.ts lacks ${pascal}`,
+    );
   }
 });
 

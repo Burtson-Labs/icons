@@ -1,15 +1,5 @@
 {
-  "tags": [
-    "bowling",
-    "pin",
-    "league",
-    "sports",
-    "score"
-  ],
-  "categories": [
-    "recreation"
-  ],
-  "contributors": [
-    "burtson-labs"
-  ]
+  "tags": ["bowling", "pin", "league", "sports", "score"],
+  "categories": ["recreation"],
+  "contributors": ["burtson-labs"]
 }

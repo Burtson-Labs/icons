@@ -23,14 +23,18 @@ jobs:
         run: npm run validate
       - name: Originality (against Lucide)
         run: npm run originality
-      - name: Lint
+      - name: Lint (Burtson Labs frontend standards)
         run: npm run lint
+      - name: Format
+        run: npm run format:check
       - name: Typecheck (scripts and generated declarations)
         run: npm run typecheck
       - name: Dependency audit
         run: npm audit --audit-level=high
       - name: Test
         run: npm test
+      - name: React rendering (strict)
+        run: npm run test:react
       - name: Site
         run: npm run site
       - name: Generated files are committed
@@ -65,6 +69,6 @@ jobs:
           node-version: '22'
           cache: npm
       - run: npm ci --ignore-scripts
-      - uses: Burtson-Labs/sentinel-audit@fd44c9223ae78a52ea5a3a234c36b1c48da2d838 # v0.2.2
+      - uses: Burtson-Labs/sentinel-audit@92d75402690302b9f1693a557eb66bf543369fd6 # v0.2.3
         with:
           fail-on: findings

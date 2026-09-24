@@ -1,0 +1,7 @@
+dist/
+site/dist/
+node_modules/
+package-lock.json
+preview/
+.burtson-icons-upgrade-backup/
+icons/*.svg

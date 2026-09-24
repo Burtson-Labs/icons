@@ -1,12 +1,18 @@
-import js from '@eslint/js';
+import { defineBurtsonFrontendConfig } from '@burtson-labs/frontend-standards';
 import globals from 'globals';
 
+// Burtson Labs frontend standards (type-aware TS/React, a11y, import order,
+// Prettier last). The authored TSX here is the compile-only types check and
+// the React example; the build tooling is plain Node ESM.
 export default [
-  { ignores: ['dist/', 'site/dist/', 'node_modules/'] },
-  js.configs.recommended,
+  ...defineBurtsonFrontendConfig({
+    files: ['test/**/*.tsx', 'examples/**/*.tsx'],
+    ignores: ['dist/**', 'site/dist/**', '.burtson-icons-upgrade-backup/**'],
+    tsconfigRootDir: import.meta.dirname,
+  }),
   {
     files: ['**/*.{js,mjs}'],
-    languageOptions: { ecmaVersion: 2023, sourceType: 'module', globals: { ...globals.node } },
+    languageOptions: { globals: { ...globals.node } },
     rules: { 'no-unused-vars': ['error', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }] },
   },
 ];

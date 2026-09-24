@@ -3,3 +3,4 @@ site/dist/
 .DS_Store
 *.log
 dist/
+.burtson-icons-upgrade-backup/

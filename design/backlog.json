@@ -2,16 +2,6 @@
   "note": "Icons to draw next. A name leaves this list when icons/<name>.svg lands; npm run status shows progress. Concepts are starting points, not specs; 'x-free' means avoid that clich\u00e9.",
   "icons": [
     {
-      "name": "agent",
-      "category": "agents",
-      "concept": "a small robot-free agent mark: a speech cursor with a spark"
-    },
-    {
-      "name": "agent-loop",
-      "category": "agents",
-      "concept": "circular arrow around a spark: the plan-act-observe loop"
-    },
-    {
       "name": "subagent",
       "category": "agents",
       "concept": "a large spark with a smaller spark branching off"
@@ -22,11 +12,6 @@
       "concept": "chevron with a text line, inside a speech bubble"
     },
     {
-      "name": "tool-call",
-      "category": "agents",
-      "concept": "wrench inside angle brackets"
-    },
-    {
       "name": "tool-result",
       "category": "agents",
       "concept": "document with a return-arrow"
@@ -35,11 +20,6 @@
       "name": "memory",
       "category": "agents",
       "concept": "brain-free: stacked cards with a bookmark"
-    },
-    {
-      "name": "context-window",
-      "category": "agents",
-      "concept": "brackets framing stacked lines, one fading"
     },
     {
       "name": "model-select",
@@ -247,11 +227,6 @@
       "concept": "tag with a version dot"
     },
     {
-      "name": "shield-pattern",
-      "category": "security",
-      "concept": "shield with a dashed check: pattern-confirmed"
-    },
-    {
       "name": "shield-plausible",
       "category": "security",
       "concept": "shield with a question mark"
@@ -377,11 +352,6 @@
       "concept": "browser window with a shield"
     },
     {
-      "name": "hash-chain",
-      "category": "provenance",
-      "concept": "three linked blocks with arrows"
-    },
-    {
       "name": "prev-hash",
       "category": "provenance",
       "concept": "block with a back-pointing arrow"
@@ -417,11 +387,6 @@
       "concept": "scroll with a magnifier"
     },
     {
-      "name": "key-pinning",
-      "category": "provenance",
-      "concept": "key with a pushpin"
-    },
-    {
       "name": "attestation",
       "category": "provenance",
       "concept": "certificate with a ribbon"
@@ -455,16 +420,6 @@
       "name": "gpu-claim",
       "category": "infrastructure",
       "concept": "gpu with a hand-free grab arrow"
-    },
-    {
-      "name": "gpu-release",
-      "category": "infrastructure",
-      "concept": "gpu with an outward arrow"
-    },
-    {
-      "name": "vram",
-      "category": "infrastructure",
-      "concept": "memory stick with a gauge"
     },
     {
       "name": "container",
@@ -772,11 +727,6 @@
       "concept": "lines becoming a waveform"
     },
     {
-      "name": "voice-clone",
-      "category": "voice",
-      "concept": "two waveforms mirrored"
-    },
-    {
       "name": "voice-profile",
       "category": "voice",
       "concept": "person with a waveform"
@@ -932,229 +882,14 @@
       "concept": "hourglass"
     },
     {
-      "name": "arrow-up",
-      "category": "interface",
-      "concept": "arrow"
-    },
-    {
-      "name": "arrow-down",
-      "category": "interface",
-      "concept": "arrow"
-    },
-    {
-      "name": "arrow-left",
-      "category": "interface",
-      "concept": "arrow"
-    },
-    {
-      "name": "arrow-right",
-      "category": "interface",
-      "concept": "arrow"
-    },
-    {
-      "name": "chevron-up",
-      "category": "interface",
-      "concept": "chevron"
-    },
-    {
-      "name": "chevron-down",
-      "category": "interface",
-      "concept": "chevron"
-    },
-    {
-      "name": "chevron-left",
-      "category": "interface",
-      "concept": "chevron"
-    },
-    {
-      "name": "chevron-right",
-      "category": "interface",
-      "concept": "chevron"
-    },
-    {
-      "name": "check",
-      "category": "interface",
-      "concept": "check mark"
-    },
-    {
-      "name": "close",
-      "category": "interface",
-      "concept": "x"
-    },
-    {
-      "name": "plus",
-      "category": "interface",
-      "concept": "plus"
-    },
-    {
-      "name": "minus",
-      "category": "interface",
-      "concept": "minus"
-    },
-    {
-      "name": "search",
-      "category": "interface",
-      "concept": "magnifier"
-    },
-    {
-      "name": "settings",
-      "category": "interface",
-      "concept": "cog"
-    },
-    {
-      "name": "menu",
-      "category": "interface",
-      "concept": "three lines"
-    },
-    {
-      "name": "more-horizontal",
-      "category": "interface",
-      "concept": "three dots"
-    },
-    {
-      "name": "more-vertical",
-      "category": "interface",
-      "concept": "three dots"
-    },
-    {
-      "name": "home",
-      "category": "interface",
-      "concept": "house"
-    },
-    {
-      "name": "external-link",
-      "category": "interface",
-      "concept": "box with an arrow out"
-    },
-    {
-      "name": "copy",
-      "category": "interface",
-      "concept": "two overlapping squares"
-    },
-    {
-      "name": "download",
-      "category": "interface",
-      "concept": "arrow into a tray"
-    },
-    {
-      "name": "upload",
-      "category": "interface",
-      "concept": "arrow out of a tray"
-    },
-    {
-      "name": "edit",
-      "category": "interface",
-      "concept": "pencil"
-    },
-    {
-      "name": "trash",
-      "category": "interface",
-      "concept": "bin"
-    },
-    {
-      "name": "filter",
-      "category": "interface",
-      "concept": "funnel"
-    },
-    {
-      "name": "sort",
-      "category": "interface",
-      "concept": "arrows up and down"
-    },
-    {
-      "name": "refresh",
-      "category": "interface",
-      "concept": "circular arrow"
-    },
-    {
-      "name": "undo",
-      "category": "interface",
-      "concept": "curved back arrow"
-    },
-    {
-      "name": "redo",
-      "category": "interface",
-      "concept": "curved forward arrow"
-    },
-    {
-      "name": "eye",
-      "category": "interface",
-      "concept": "eye"
-    },
-    {
-      "name": "eye-off",
-      "category": "interface",
-      "concept": "eye with a slash"
-    },
-    {
-      "name": "lock",
-      "category": "interface",
-      "concept": "padlock"
-    },
-    {
       "name": "unlock",
       "category": "interface",
       "concept": "open padlock"
     },
     {
-      "name": "bell",
-      "category": "interface",
-      "concept": "bell"
-    },
-    {
-      "name": "calendar",
-      "category": "interface",
-      "concept": "calendar"
-    },
-    {
-      "name": "clock",
-      "category": "interface",
-      "concept": "clock"
-    },
-    {
-      "name": "sun",
-      "category": "interface",
-      "concept": "sun"
-    },
-    {
-      "name": "moon",
-      "category": "interface",
-      "concept": "moon"
-    },
-    {
       "name": "sidebar",
       "category": "interface",
       "concept": "window with a left panel"
-    },
-    {
-      "name": "layout-grid",
-      "category": "interface",
-      "concept": "four squares"
-    },
-    {
-      "name": "maximize",
-      "category": "interface",
-      "concept": "corners out"
-    },
-    {
-      "name": "minimize",
-      "category": "interface",
-      "concept": "corners in"
-    },
-    {
-      "name": "link",
-      "category": "interface",
-      "concept": "link"
-    },
-    {
-      "name": "share",
-      "category": "interface",
-      "concept": "three dots connected"
-    },
-    {
-      "name": "info",
-      "category": "interface",
-      "concept": "circle with i"
     },
     {
       "name": "help",
@@ -1167,39 +902,9 @@
       "concept": "triangle with !"
     },
     {
-      "name": "star",
-      "category": "interface",
-      "concept": "star"
-    },
-    {
-      "name": "heart",
-      "category": "interface",
-      "concept": "heart"
-    },
-    {
-      "name": "send",
-      "category": "interface",
-      "concept": "paper plane"
-    },
-    {
       "name": "chat",
       "category": "interface",
       "concept": "speech bubble"
-    },
-    {
-      "name": "mail",
-      "category": "interface",
-      "concept": "envelope"
-    },
-    {
-      "name": "user",
-      "category": "people",
-      "concept": "person"
-    },
-    {
-      "name": "users",
-      "category": "people",
-      "concept": "two people"
     },
     {
       "name": "team",
@@ -1300,11 +1005,6 @@
       "name": "forge",
       "category": "brand",
       "concept": "anvil with a chain link"
-    },
-    {
-      "name": "burtson-labs",
-      "category": "brand",
-      "concept": "BL monogram in the house stroke"
     }
   ]
 }

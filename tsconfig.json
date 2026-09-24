@@ -12,5 +12,5 @@
     "types": ["node"],
     "jsx": "react-jsx"
   },
-  "include": ["scripts/**/*.mjs", "site/build.mjs", "test/types.check.tsx"]
+  "include": ["examples/**/*.tsx", "scripts/**/*.mjs", "site/build.mjs", "test/types.check.tsx"]
 }

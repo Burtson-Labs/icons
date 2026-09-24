@@ -1,0 +1,5 @@
+{
+  "tags": ["agent", "checkpoint", "resume", "recovery"],
+  "categories": ["agents", "provenance"],
+  "contributors": ["burtson-labs"]
+}

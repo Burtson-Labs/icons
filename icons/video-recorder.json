@@ -1,15 +1,5 @@
 {
-  "tags": [
-    "dvr",
-    "recorder",
-    "video",
-    "recovery",
-    "footage"
-  ],
-  "categories": [
-    "evidence"
-  ],
-  "contributors": [
-    "burtson-labs"
-  ]
+  "tags": ["dvr", "recorder", "video", "recovery", "footage"],
+  "categories": ["evidence"],
+  "contributors": ["burtson-labs"]
 }

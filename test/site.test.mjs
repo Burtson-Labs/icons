@@ -9,15 +9,23 @@ execFileSync(process.execPath, [join(ROOT, 'site/build.mjs')], { stdio: 'pipe' }
 const html = readFileSync(join(ROOT, 'site/dist/index.html'), 'utf8');
 
 test('the site embeds every icon and serves its files', () => {
-  const data = JSON.parse(/<script id="data" type="application\/json">([\s\S]*?)<\/script>/.exec(html)[1]);
+  const data = JSON.parse(
+    /<script id="data" type="application\/json">([\s\S]*?)<\/script>/.exec(html)[1],
+  );
   assert.deepEqual(data.icons.map((i) => i.n).sort(), listIconNames());
-  for (const n of listIconNames()) assert.ok(existsSync(join(ROOT, 'site/dist/svg', `${n}.svg`)), n);
-  for (const f of ['sprite.svg', 'icons.json', 'robots.txt', 'sitemap.xml']) assert.ok(existsSync(join(ROOT, 'site/dist', f)), f);
+  for (const n of listIconNames())
+    assert.ok(existsSync(join(ROOT, 'site/dist/svg', `${n}.svg`)), n);
+  for (const f of ['sprite.svg', 'icons.json', 'robots.txt', 'sitemap.xml'])
+    assert.ok(existsSync(join(ROOT, 'site/dist', f)), f);
 });
 
 test('the page loads nothing from another origin', () => {
   // Links out are fine; fetching scripts, styles, fonts or images is not.
-  const loads = [...html.matchAll(/<(script|link|img|iframe)\b[^>]*\b(src|href)="(https?:[^"]+)"/g)]
+  // Code samples (inside <script> strings and <pre>) are text, not loads.
+  const markup = html.replace(/<script[\s\S]*?<\/script>/g, '').replace(/<pre[\s\S]*?<\/pre>/g, '');
+  const loads = [
+    ...markup.matchAll(/<(script|link|img|iframe)\b[^>]*\b(src|href)="(https?:[^"]+)"/g),
+  ]
     .filter((m) => !(m[1] === 'link' && /rel="canonical"/.test(m[0])))
     .map((m) => m[3]);
   assert.deepEqual(loads, []);

@@ -4,7 +4,11 @@ import { spawnSync } from 'node:child_process';
 import { join } from 'node:path';
 import { ROOT, listIconNames, toCamel, toPascal, toSvgString } from '../scripts/lib.mjs';
 
-const run = (script, args = []) => spawnSync(process.execPath, [join(ROOT, 'scripts', script), ...args], { encoding: 'utf8', env: { ...process.env, GITHUB_ACTIONS: '' } });
+const run = (script, args = []) =>
+  spawnSync(process.execPath, [join(ROOT, 'scripts', script), ...args], {
+    encoding: 'utf8',
+    env: { ...process.env, GITHUB_ACTIONS: '' },
+  });
 
 test('new-icon refuses bad names and existing icons without writing', () => {
   const bad = run('new-icon.mjs', ['Bad_Name']);
@@ -27,7 +31,10 @@ test('status totals match the icons on disk', () => {
 test('name helpers and SVG serialisation', () => {
   assert.equal(toCamel('shield-proof'), 'shieldProof');
   assert.equal(toPascal('gpu'), 'Gpu');
-  const svg = toSvgString([['circle', { cx: '12', cy: '12', r: '9' }]], { size: 16, color: 'a"<b' });
+  const svg = toSvgString([['circle', { cx: '12', cy: '12', r: '9' }]], {
+    size: 16,
+    color: 'a"<b',
+  });
   assert.match(svg, /width="16"/);
   assert.ok(svg.includes('stroke="a&quot;&lt;b"'), 'attribute values are escaped');
 });

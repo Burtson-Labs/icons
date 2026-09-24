@@ -53,6 +53,7 @@ export function readCategories() {
 }
 
 function parseAttrs(src) {
+  /** @type {Record<string, string>} */
   const attrs = {};
   const re = /([a-zA-Z_:][-a-zA-Z0-9_:.]*)\s*=\s*"([^"]*)"/g;
   let m;
@@ -61,17 +62,22 @@ function parseAttrs(src) {
   return { attrs, leftover };
 }
 
+/** @typedef {[string, Record<string, string>]} IconElement */
+
 /**
  * Parse the restricted SVG dialect icons are written in: one <svg> root and
  * self-closing geometry children. Anything else is an error rather than
  * something to be clever about.
  */
+/** @returns {{ errors: string[], attrs: Record<string, string>, children: IconElement[] }} */
 export function parseIcon(svg) {
   const errors = [];
   const src = svg.replace(/<!--[\s\S]*?-->/g, '').trim();
   const open = /^<svg\b([^>]*)>([\s\S]*)<\/svg>$/.exec(src);
-  if (!open) return { errors: ['file must be a single <svg>…</svg> element'], attrs: {}, children: [] };
+  if (!open)
+    return { errors: ['file must be a single <svg>…</svg> element'], attrs: {}, children: [] };
   const { attrs } = parseAttrs(open[1]);
+  /** @type {IconElement[]} */
   const children = [];
   let body = open[2];
   const el = /<([a-zA-Z]+)\b([^>]*?)\/>/g;
@@ -83,13 +89,15 @@ export function parseIcon(svg) {
     children.push([tag, parsed.attrs]);
   }
   const rest = body.replace(el, '').trim();
-  if (rest) errors.push(`only self-closing geometry elements are allowed; found: ${rest.slice(0, 80)}`);
+  if (rest)
+    errors.push(`only self-closing geometry elements are allowed; found: ${rest.slice(0, 80)}`);
   return { errors, attrs, children };
 }
 
 /** Every coordinate a path visits, control points included. */
 export function pathPoints(d) {
   const tokens = d.match(/[a-zA-Z]|-?(?:\d+\.?\d*|\.\d+)(?:e-?\d+)?/g) ?? [];
+  /** @type {Array<[number, number]>} */
   const pts = [];
   let i = 0;
   let cmd = '';
@@ -139,22 +147,42 @@ export function pathPoints(d) {
   return pts;
 }
 
-/** Points that bound one element's centreline (approximate for curves). */
+/**
+ * Points that bound one element's centreline (approximate for curves).
+ * @param {[string, Record<string, string>]} element
+ * @returns {Array<[number, number]>}
+ */
 export function elementPoints([tag, a]) {
   const n = (k) => Number(a[k] ?? 0);
   switch (tag) {
     case 'path':
       return pathPoints(a.d ?? '');
     case 'circle':
-      return [[n('cx') - n('r'), n('cy') - n('r')], [n('cx') + n('r'), n('cy') + n('r')]];
+      return [
+        [n('cx') - n('r'), n('cy') - n('r')],
+        [n('cx') + n('r'), n('cy') + n('r')],
+      ];
     case 'ellipse':
-      return [[n('cx') - n('rx'), n('cy') - n('ry')], [n('cx') + n('rx'), n('cy') + n('ry')]];
+      return [
+        [n('cx') - n('rx'), n('cy') - n('ry')],
+        [n('cx') + n('rx'), n('cy') + n('ry')],
+      ];
     case 'rect':
-      return [[n('x'), n('y')], [n('x') + n('width'), n('y') + n('height')]];
+      return [
+        [n('x'), n('y')],
+        [n('x') + n('width'), n('y') + n('height')],
+      ];
     case 'line':
-      return [[n('x1'), n('y1')], [n('x2'), n('y2')]];
+      return [
+        [n('x1'), n('y1')],
+        [n('x2'), n('y2')],
+      ];
     default: {
-      const nums = (a.points ?? '').trim().split(/[\s,]+/).map(Number);
+      const nums = (a.points ?? '')
+        .trim()
+        .split(/[\s,]+/)
+        .map(Number);
+      /** @type {Array<[number, number]>} */
       const out = [];
       for (let k = 0; k + 1 < nums.length; k += 2) out.push([nums[k], nums[k + 1]]);
       return out;
@@ -174,10 +202,20 @@ export function toPascal(name) {
 const esc = (v) => String(v).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
 
 export function nodeToInner(children) {
-  return children.map(([tag, attrs]) => `<${tag} ${Object.entries(attrs).map(([k, v]) => `${k}="${esc(v)}"`).join(' ')} />`).join('');
+  return children
+    .map(
+      ([tag, attrs]) =>
+        `<${tag} ${Object.entries(attrs)
+          .map(([k, v]) => `${k}="${esc(v)}"`)
+          .join(' ')} />`,
+    )
+    .join('');
 }
 
-export function toSvgString(children, { size = 24, color = 'currentColor', strokeWidth = 2, extra = '' } = {}) {
+export function toSvgString(
+  children,
+  { size = 24, color = 'currentColor', strokeWidth = 2, extra = '' } = {},
+) {
   return (
     `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" ` +
     `stroke="${esc(color)}" stroke-width="${strokeWidth}" stroke-linecap="round" stroke-linejoin="round"${extra}>` +

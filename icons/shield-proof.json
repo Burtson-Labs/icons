@@ -1,17 +1,5 @@
 {
-  "tags": [
-    "sentinel",
-    "verified",
-    "proof",
-    "confirmed",
-    "security",
-    "audit"
-  ],
-  "categories": [
-    "security",
-    "status"
-  ],
-  "contributors": [
-    "burtson-labs"
-  ]
+  "tags": ["sentinel", "verified", "proof", "confirmed", "security", "audit"],
+  "categories": ["security", "status"],
+  "contributors": ["burtson-labs"]
 }

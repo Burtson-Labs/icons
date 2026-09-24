@@ -31,7 +31,7 @@ Hard rules (a validator rejects anything else):
   No fill, stroke, transform, style, class, id, groups, text, masks or gradients.
 - All coordinates (stroke centreline) between 1 and 23; aim for 2 to 22. Max 2 decimals.
 - A dot is a zero-length path: M6.5 12h.01
-- Categories must come from: agents, development, security, provenance, infrastructure, data, evidence, voice, documents, status, interface, people, recreation, brand.
+- Categories must come from: agents, development, security, provenance, infrastructure, data, evidence, voice, documents, status, interface, people, recreation, brand, operations, files.
 
 Style:
 - One idea per icon, 2 to 5 elements, readable at 16px.
@@ -91,81 +91,19 @@ These icons fail review. Redraw only these, same rules:
 
 ## Batches
 
-Generated from `design/backlog.json` in the order that unblocks the most UI first. The core interface set comes first, because every app needs it before any domain icon.
+Generated from `design/backlog.json`: only icons not yet drawn.
 
-### Batch 1: Interface (15)
-
-```text
-- arrow-up (interface): arrow
-- arrow-down (interface): arrow
-- arrow-left (interface): arrow
-- arrow-right (interface): arrow
-- chevron-up (interface): chevron
-- chevron-down (interface): chevron
-- chevron-left (interface): chevron
-- chevron-right (interface): chevron
-- check (interface): check mark
-- close (interface): x
-- plus (interface): plus
-- minus (interface): minus
-- search (interface): magnifier
-- settings (interface): cog
-- menu (interface): three lines
-```
-
-### Batch 2: Interface (15)
+### Batch 1: Interface (5)
 
 ```text
-- more-horizontal (interface): three dots
-- more-vertical (interface): three dots
-- home (interface): house
-- external-link (interface): box with an arrow out
-- copy (interface): two overlapping squares
-- download (interface): arrow into a tray
-- upload (interface): arrow out of a tray
-- edit (interface): pencil
-- trash (interface): bin
-- filter (interface): funnel
-- sort (interface): arrows up and down
-- refresh (interface): circular arrow
-- undo (interface): curved back arrow
-- redo (interface): curved forward arrow
-- eye (interface): eye
-```
-
-### Batch 3: Interface (15)
-
-```text
-- eye-off (interface): eye with a slash
-- lock (interface): padlock
 - unlock (interface): open padlock
-- bell (interface): bell
-- calendar (interface): calendar
-- clock (interface): clock
-- sun (interface): sun
-- moon (interface): moon
 - sidebar (interface): window with a left panel
-- layout-grid (interface): four squares
-- maximize (interface): corners out
-- minimize (interface): corners in
-- link (interface): link
-- share (interface): three dots connected
-- info (interface): circle with i
-```
-
-### Batch 4: Interface (7)
-
-```text
 - help (interface): circle with ?
 - alert (interface): triangle with !
-- star (interface): star
-- heart (interface): heart
-- send (interface): paper plane
 - chat (interface): speech bubble
-- mail (interface): envelope
 ```
 
-### Batch 5: Status (12)
+### Batch 2: Status (12)
 
 ```text
 - proof-confirmed (status): circle with a double check
@@ -182,10 +120,9 @@ Generated from `design/backlog.json` in the order that unblocks the most UI firs
 - queued (status): hourglass
 ```
 
-### Batch 6: Security (15)
+### Batch 3: Security (15)
 
 ```text
-- shield-pattern (security): shield with a dashed check: pattern-confirmed
 - shield-plausible (security): shield with a question mark
 - shield-triaged (security): shield with a filter funnel
 - proof-script (security): scroll with a play triangle
@@ -200,12 +137,12 @@ Generated from `design/backlog.json` in the order that unblocks the most UI firs
 - injection (security): syringe-free: text caret entering brackets
 - xss (security): angle brackets with a lightning bolt
 - path-traversal (security): folder with ../ steps
+- sarif (security): document with a shield corner
 ```
 
-### Batch 7: Security (11)
+### Batch 4: Security (10)
 
 ```text
-- sarif (security): document with a shield corner
 - policy (security): scroll with a gavel-free check list
 - permission-tier (security): stacked bars with a lock on the top one
 - no-network (security): globe with a slash
@@ -218,17 +155,13 @@ Generated from `design/backlog.json` in the order that unblocks the most UI firs
 - csp (security): browser window with a shield
 ```
 
-### Batch 8: Agents & AI (15)
+### Batch 5: Agents & AI (15)
 
 ```text
-- agent (agents): a small robot-free agent mark: a speech cursor with a spark
-- agent-loop (agents): circular arrow around a spark: the plan-act-observe loop
 - subagent (agents): a large spark with a smaller spark branching off
 - prompt (agents): chevron with a text line, inside a speech bubble
-- tool-call (agents): wrench inside angle brackets
 - tool-result (agents): document with a return-arrow
 - memory (agents): brain-free: stacked cards with a bookmark
-- context-window (agents): brackets framing stacked lines, one fading
 - model-select (agents): chip with a chevron-down
 - model-download (agents): chip with a down-arrow
 - eval-bench (agents): bar chart with a check on the tallest bar
@@ -236,15 +169,15 @@ Generated from `design/backlog.json` in the order that unblocks the most UI firs
 - hallucination (agents): speech bubble with a dashed outline and question
 - fake-completion (agents): check mark crossed through: claimed done, not done
 - stall (agents): hourglass inside a speech bubble
-```
-
-### Batch 9: Agents & AI (11)
-
-```text
 - self-improve (agents): spark with an upward arrow looping back
 - mcp-server (agents): plug connecting to a stack
 - mcp-trust (agents): plug with a fingerprint arc
 - checkpoint (agents): flag on a timeline dot
+```
+
+### Batch 6: Agents & AI (7)
+
+```text
 - rewind (agents): timeline with a back arrow to a dot
 - skill (agents): puzzle-piece-free: a lightning bolt on a card
 - persona (agents): mask outline with a spark
@@ -254,10 +187,9 @@ Generated from `design/backlog.json` in the order that unblocks the most UI firs
 - offline-mode (agents): cloud with a slash and a small chip
 ```
 
-### Batch 10: Provenance & audit (12)
+### Batch 7: Provenance & audit (10)
 
 ```text
-- hash-chain (provenance): three linked blocks with arrows
 - prev-hash (provenance): block with a back-pointing arrow
 - signature (provenance): pen nib with a key
 - verify-signature (provenance): seal with a check
@@ -265,21 +197,18 @@ Generated from `design/backlog.json` in the order that unblocks the most UI firs
 - tamper-evident (provenance): seal with an eye
 - timestamp (provenance): clock with a stamp base
 - transparency-log (provenance): scroll with a magnifier
-- key-pinning (provenance): key with a pushpin
 - attestation (provenance): certificate with a ribbon
 - append-only (provenance): list with a plus at the bottom and a lock
 - replay (provenance): two identical records with an x
 ```
 
-### Batch 11: Infrastructure (15)
+### Batch 8: Infrastructure (15)
 
 ```text
 - cluster (infrastructure): three connected nodes in a hexagon
 - node (infrastructure): single hexagon with a dot
 - raspberry-pi (infrastructure): small board with pins and a berry-free circle
 - gpu-claim (infrastructure): gpu with a hand-free grab arrow
-- gpu-release (infrastructure): gpu with an outward arrow
-- vram (infrastructure): memory stick with a gauge
 - container (infrastructure): stacked box with a door
 - container-image (infrastructure): box with a layered stack
 - registry (infrastructure): shelf of boxes
@@ -289,13 +218,13 @@ Generated from `design/backlog.json` in the order that unblocks the most UI firs
 - pod (infrastructure): capsule with two dots
 - namespace (infrastructure): dashed frame around dots
 - deploy (infrastructure): rocket-free: box moving along an arrow
-```
-
-### Batch 12: Infrastructure (14)
-
-```text
 - rollback (infrastructure): box with a back arrow
 - self-healing (infrastructure): cog with a plus
+```
+
+### Batch 9: Infrastructure (12)
+
+```text
 - reconciler (infrastructure): two arrows forming a circle around a dot
 - vm-boot (infrastructure): power symbol inside a cube
 - gateway (infrastructure): arch with an arrow through it
@@ -310,7 +239,7 @@ Generated from `design/backlog.json` in the order that unblocks the most UI firs
 - trace (infrastructure): dots joined by a path
 ```
 
-### Batch 13: Development (15)
+### Batch 10: Development (15)
 
 ```text
 - code-review (development): magnifier over angle brackets
@@ -330,7 +259,7 @@ Generated from `design/backlog.json` in the order that unblocks the most UI firs
 - extension-host (development): window with a puzzle-free plug socket
 ```
 
-### Batch 14: Development (8)
+### Batch 11: Development (8)
 
 ```text
 - language-server (development): brackets with a signal wave
@@ -343,7 +272,7 @@ Generated from `design/backlog.json` in the order that unblocks the most UI firs
 - release-tag (development): tag with a version dot
 ```
 
-### Batch 15: Data (14)
+### Batch 12: Data (14)
 
 ```text
 - document-ingest (data): document entering a funnel
@@ -362,7 +291,7 @@ Generated from `design/backlog.json` in the order that unblocks the most UI firs
 - sync (data): two cylinders with arrows
 ```
 
-### Batch 16: Evidence & video (15)
+### Batch 13: Evidence & video (15)
 
 ```text
 - exhibit (evidence): label tag with a number
@@ -382,7 +311,7 @@ Generated from `design/backlog.json` in the order that unblocks the most UI firs
 - recovery (evidence): hard drive with a circular arrow
 ```
 
-### Batch 17: Evidence & video (7)
+### Batch 14: Evidence & video (7)
 
 ```text
 - hard-drive (evidence): hard drive
@@ -394,12 +323,11 @@ Generated from `design/backlog.json` in the order that unblocks the most UI firs
 - court (evidence): columns with a pediment
 ```
 
-### Batch 18: Voice & audio (10)
+### Batch 15: Voice & audio (9)
 
 ```text
 - speech-to-text (voice): waveform becoming lines
 - text-to-speech (voice): lines becoming a waveform
-- voice-clone (voice): two waveforms mirrored
 - voice-profile (voice): person with a waveform
 - microphone-studio (voice): studio mic with a stand
 - reference-audio (voice): waveform with a bookmark
@@ -409,7 +337,7 @@ Generated from `design/backlog.json` in the order that unblocks the most UI firs
 - kokoro (voice): waveform with a flower-free spark
 ```
 
-### Batch 19: Documents & reports (12)
+### Batch 16: Documents & reports (12)
 
 ```text
 - report (documents): document with a chart
@@ -426,11 +354,9 @@ Generated from `design/backlog.json` in the order that unblocks the most UI firs
 - spreadsheet (documents): grid document
 ```
 
-### Batch 20: People (10)
+### Batch 17: People (8)
 
 ```text
-- user (people): person
-- users (people): two people
 - team (people): three people
 - admin (people): person with a shield
 - role (people): person with a badge
@@ -441,7 +367,7 @@ Generated from `design/backlog.json` in the order that unblocks the most UI firs
 - tenant (people): building with a door key
 ```
 
-### Batch 21: Recreation (8)
+### Batch 18: Recreation (8)
 
 ```text
 - bowling-ball (recreation): ball with three finger holes
@@ -454,14 +380,13 @@ Generated from `design/backlog.json` in the order that unblocks the most UI firs
 - team-standings (recreation): podium
 ```
 
-### Batch 22: Burtson Labs (5)
+### Batch 19: Burtson Labs (4)
 
 ```text
 - bandit (brand): the Bandit mark: masked face, house style
 - bandit-stealth (brand): mask with an editor window
 - sentinel (brand): watchtower eye with a shield
 - forge (brand): anvil with a chain link
-- burtson-labs (brand): BL monogram in the house stroke
 ```
 
 ## Moodboard prompt (optional, image model)

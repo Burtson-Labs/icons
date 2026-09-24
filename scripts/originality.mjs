@@ -56,7 +56,13 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   /** @type {Array<[string, Set<string>]>} */
   const theirs = readdirSync(dir)
     .filter((f) => f.endsWith('.svg'))
-    .map((f) => /** @type {[string, Set<string>]} */ ([f.slice(0, -4), signatures(readFileSync(join(dir, f), 'utf8'))]));
+    .map(
+      (f) =>
+        /** @type {[string, Set<string>]} */ ([
+          f.slice(0, -4),
+          signatures(readFileSync(join(dir, f), 'utf8')),
+        ]),
+    );
   let failed = 0;
   for (const name of listIconNames()) {
     const ours = signatures(readIcon(name).svg);
@@ -70,8 +76,11 @@ if (import.meta.url === `file://${process.argv[1]}`) {
     if (bestScore >= FAIL) {
       failed++;
       fail(`${name}: ${pct}% of its geometry matches lucide/${bestName}; redraw it`);
-    } else if (bestScore >= WARN) warn(`${name}: ${pct}% overlap with lucide/${bestName}; check it is really ours`);
+    } else if (bestScore >= WARN)
+      warn(`${name}: ${pct}% overlap with lucide/${bestName}; check it is really ours`);
   }
-  say(`${listIconNames().length} icon(s) compared with ${theirs.length} Lucide icons, ${failed} too close`);
+  say(
+    `${listIconNames().length} icon(s) compared with ${theirs.length} Lucide icons, ${failed} too close`,
+  );
   process.exit(failed ? 1 : 0);
 }

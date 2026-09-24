@@ -14,6 +14,9 @@ const rows = Object.keys(cats).map((c) => {
   return [cats[c].title, drawn, todo];
 });
 const w = Math.max(...rows.map((r) => r[0].length));
-for (const [t, d, n] of rows) say(`${t.padEnd(w)}  ${String(d).padStart(3)} drawn  ${String(n).padStart(3)} to go`);
+for (const [t, d, n] of rows)
+  say(`${t.padEnd(w)}  ${String(d).padStart(3)} drawn  ${String(n).padStart(3)} to go`);
 const todo = backlog.filter((i) => !done.has(i.name)).length;
-say(`${'total'.padEnd(w)}  ${String(done.size).padStart(3)} drawn  ${String(todo).padStart(3)} to go`);
+say(
+  `${'total'.padEnd(w)}  ${String(done.size).padStart(3)} drawn  ${String(todo).padStart(3)} to go`,
+);

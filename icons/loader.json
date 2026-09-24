@@ -1,0 +1,6 @@
+{
+  "tags": ["loading", "spinner", "progress", "busy"],
+  "categories": ["interface", "status"],
+  "contributors": ["burtson-labs"],
+  "aliases": ["spinner"]
+}

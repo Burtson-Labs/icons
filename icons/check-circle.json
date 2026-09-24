@@ -1,0 +1,6 @@
+{
+  "tags": ["success", "done", "complete"],
+  "categories": ["status"],
+  "contributors": ["burtson-labs"],
+  "aliases": ["circle-check"]
+}

@@ -1,0 +1,6 @@
+{
+  "tags": ["close", "cancel", "dismiss", "remove"],
+  "categories": ["interface"],
+  "contributors": ["burtson-labs"],
+  "aliases": ["close", "x-mark"]
+}

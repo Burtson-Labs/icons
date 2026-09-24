@@ -1,16 +1,5 @@
 {
-  "tags": [
-    "report",
-    "findings",
-    "sarif",
-    "audit",
-    "severity"
-  ],
-  "categories": [
-    "documents",
-    "security"
-  ],
-  "contributors": [
-    "burtson-labs"
-  ]
+  "tags": ["report", "findings", "sarif", "audit", "severity"],
+  "categories": ["documents", "security"],
+  "contributors": ["burtson-labs"]
 }

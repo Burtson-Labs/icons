@@ -1,0 +1,6 @@
+{
+  "tags": ["blocked", "forbidden", "deny"],
+  "categories": ["status"],
+  "contributors": ["burtson-labs"],
+  "aliases": ["forbidden"]
+}

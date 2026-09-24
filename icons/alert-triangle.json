@@ -1,0 +1,6 @@
+{
+  "tags": ["warning", "caution", "alert"],
+  "categories": ["status"],
+  "contributors": ["burtson-labs"],
+  "aliases": ["warning", "triangle-alert"]
+}
