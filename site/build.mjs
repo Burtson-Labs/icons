@@ -98,10 +98,10 @@ const html = `<!doctype html>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Burtson Icons</title>
 <meta name="description" content="${n} open-source stroke icons for AI agents, editors, security, infrastructure and the products around them. React, SVG and CDN. Free under ISC.">
-<meta name="theme-color" content="#09090b">
+<meta name="theme-color" content="#09090b" media="(prefers-color-scheme: dark)"><meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
 <link rel="canonical" href="${SITE}/">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="Burtson Labs">
+<meta property="og:site_name" content="Burtson Icons">
 <meta property="og:title" content="Burtson Icons: ${n} open-source icons">
 <meta property="og:description" content="${n} stroke icons for agents, editors, security and infrastructure, plus brand logos. React, SVG and CDN. ISC license.">
 <meta property="og:url" content="${SITE}/">
