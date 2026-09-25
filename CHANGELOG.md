@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.4.4
+
+icons.burtson.ai code blocks now match ui.burtson.ai: syntax colouring
+(comments, strings, keywords, tags, numbers), an inline copy button in each
+block that ticks when copied, and the Usage section split into labelled
+Install, React, JavaScript and CDN blocks. No change to the icons.
+
 ## 0.4.3
 
 icons.burtson.ai UX upgrade (Astra; findings in AUDIT.md). No change to the icons.

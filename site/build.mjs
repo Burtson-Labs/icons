@@ -51,6 +51,42 @@ const logo =
   icons.find((i) => i.name === 'burtson-labs-vial') ??
   icons.find((i) => i.name === 'stealth-mask') ??
   icons[0];
+const glyph = (name, cls) =>
+  toSvgString(icons.find((i) => i.name === name).node, {
+    size: 16,
+    extra: ` aria-hidden="true" class="${cls}"`,
+  });
+const copyGlyphs = glyph('copy', 'i-copy') + glyph('check', 'i-check');
+const escHtml = (t) => t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+/** A labelled code block with an inline copy button; gallery.js adds the colouring. */
+const codeBlock = (title, lang, text) =>
+  `<figure class="code-block"><figcaption>${title}</figcaption><div class="code-frame">` +
+  `<button type="button" class="copy-code" aria-label="Copy ${title.toLowerCase()} code">${copyGlyphs}</button>` +
+  `<pre tabindex="0"><code data-lang="${lang}">${escHtml(text)}</code></pre></div></figure>`;
+const usage = [
+  codeBlock('Install', 'sh', 'npm install @burtson-labs/icons'),
+  codeBlock(
+    'React',
+    'tsx',
+    `// One import per icon keeps bundles small
+import { AgentLoop } from '@burtson-labs/icons/react/agent-loop';
+
+<AgentLoop size={20} strokeWidth={1.75} aria-label="Agent loop" />`,
+  ),
+  codeBlock(
+    'JavaScript',
+    'js',
+    `import { toSvg } from '@burtson-labs/icons';
+
+el.innerHTML = toSvg('merkle-tree', { size: 20 });`,
+  ),
+  codeBlock(
+    'CDN',
+    'html',
+    `<!-- Explicit colours: svg-accent, svg-white, svg-black -->
+<img src="${SITE}/svg-accent/gpu.svg" width="24" height="24" alt="GPU" />`,
+  ),
+].join('');
 const favicon = `data:image/svg+xml,${encodeURIComponent(toSvgString(logo.node, { color: '#a60ee5' }))}`;
 const css = readFileSync(join(ROOT, 'site', 'gallery.css'), 'utf8');
 const n = icons.length;
@@ -105,20 +141,9 @@ const html = `<!doctype html>
 <main id="main" tabindex="-1"><section class="hero"><h1>Burtson Icons</h1><p>Stroke icons drawn for the tools we build: agents, editors, security, infrastructure and evidence work, plus brand logos. Search, set the size and stroke, then copy React or SVG, or link the CDN file. All three come from the same source.</p><div class="metrics"><div><b>${n}</b><small>Icons</small></div><div><b>${Object.keys(titles).length}</b><small>Collections</small></div><div><b>24 / 2</b><small>Grid / stroke</small></div></div></section>
 <div class="controls"><label class="search"><span aria-hidden="true">&#8981;</span><input id="search" type="search" placeholder="Search icons, workflows, tags..." aria-label="Search icons" autocomplete="off" spellcheck="false"><kbd>/</kbd></label><label class="knob">Size<input id="size" type="range" min="16" max="48" value="28" step="4"><output id="sizeout">28</output></label><label class="knob">Stroke<input id="weight" type="range" min="1" max="3" value="2" step=".25"><output id="weightout">2</output></label></div>
 <div class="filter-row"><label class="collection-select">Collection<select id="collection" aria-label="Collection"></select></label><button type="button" id="saved-only" aria-pressed="false">Saved icons <span id="saved-count">0</span></button><button type="button" id="reset">Reset filters</button></div><div class="section-head"><h2 id="category-title">All icons</h2><span id="result-count" role="status" aria-live="polite" aria-atomic="true">${n} icons</span></div><div class="grid" id="grid" role="group" aria-label="Icon results"></div><div class="empty" id="empty"><h3>No matching icons</h3><p>Try a shorter search, another collection, or reset the filters.</p><button type="button" id="empty-reset">Show all icons</button> <a href="https://github.com/Burtson-Labs/icons/issues/new?title=Icon%20request%3A%20">Request one</a>.</div>
-<section class="usage" id="usage"><div class="section-head"><h2>Usage</h2></div><pre>npm i @burtson-labs/icons
-
-// React: one import per icon keeps bundles small
-import { AgentLoop } from '@burtson-labs/icons/react/agent-loop';
-&lt;AgentLoop size={20} strokeWidth={1.75} aria-label="agent loop" /&gt;
-
-// Plain JavaScript
-import { toSvg } from '@burtson-labs/icons';
-el.innerHTML = toSvg('merkle-tree', { size: 20 });
-
-// Straight from this site (explicit colours: svg-accent, svg-white, svg-black)
-&lt;img src="${SITE}/svg-accent/gpu.svg" width="24" height="24" alt="GPU"&gt;</pre></section>
+<section class="usage" id="usage"><div class="section-head"><h2>Usage</h2></div><div class="usage-grid">${usage}</div></section>
 <div class="foot">Burtson Icons ${pkg.version} · <a href="https://github.com/Burtson-Labs/icons/blob/main/LICENSE">ISC License</a> · <a href="${SITE}/icons.json">icons.json</a> · Brand logos are trademarks of their owners (<a href="https://github.com/Burtson-Labs/icons/blob/main/TRADEMARKS.md">notice</a>) · Made by <a href="https://burtson.ai">Burtson Labs</a></div></main>
-<aside class="inspector" id="inspector" aria-label="Selected icon"><button type="button" id="close-inspector" class="mobile-close" aria-label="Close icon inspector">Close ×</button><div class="eyebrow">Icon inspector</div><h2 class="mono" id="selected-name"></h2><div class="sub" id="selected-status"></div><div class="preview" id="selected-preview"></div><div class="sizes" id="sizes"></div><div class="inspector-tools"><button type="button" id="save" aria-pressed="false">Save icon</button><button type="button" id="share">Copy link</button></div><label class="decorative"><input id="decorative" type="checkbox" checked> Decorative icon <span title="Turn off for an icon that conveys meaning without nearby text.">ⓘ</span></label><div class="tabs" role="tablist" aria-label="Code format"><button type="button" data-tab="react" role="tab" aria-selected="true">React</button><button type="button" data-tab="svg" role="tab" aria-selected="false">SVG</button><button type="button" data-tab="cdn" role="tab" aria-selected="false">CDN</button></div><pre id="code" role="tabpanel" tabindex="0" aria-label="Usage code"></pre><div class="actions"><button type="button" class="primary" id="copy">Copy code</button><button type="button" id="download">Download SVG</button></div><p class="export-note" id="export-note"></p><div id="tags" class="chips"></div><div class="notice">For an external <code>&lt;img&gt;</code>, use an explicit-colour variant (<code>svg-accent</code>, <code>svg-white</code>, <code>svg-black</code>). Inline SVG, React and CSS masks inherit the text colour.</div></aside></div><div id="toast" class="toast" role="status"></div>
+<aside class="inspector" id="inspector" aria-label="Selected icon"><button type="button" id="close-inspector" class="mobile-close" aria-label="Close icon inspector">Close ×</button><div class="eyebrow">Icon inspector</div><h2 class="mono" id="selected-name"></h2><div class="sub" id="selected-status"></div><div class="preview" id="selected-preview"></div><div class="sizes" id="sizes"></div><div class="inspector-tools"><button type="button" id="save" aria-pressed="false">Save icon</button><button type="button" id="share">Copy link</button></div><label class="decorative"><input id="decorative" type="checkbox" checked> Decorative icon <span title="Turn off for an icon that conveys meaning without nearby text.">ⓘ</span></label><div class="tabs" role="tablist" aria-label="Code format"><button type="button" data-tab="react" role="tab" aria-selected="true">React</button><button type="button" data-tab="svg" role="tab" aria-selected="false">SVG</button><button type="button" data-tab="cdn" role="tab" aria-selected="false">CDN</button></div><div class="code-frame"><button type="button" class="copy-code" id="copy-inline" aria-label="Copy code">${copyGlyphs}</button><pre id="code" role="tabpanel" tabindex="0" aria-label="Usage code"></pre></div><div class="actions"><button type="button" class="primary" id="copy">Copy code</button><button type="button" id="download">Download SVG</button></div><p class="export-note" id="export-note"></p><div id="tags" class="chips"></div><div class="notice">For an external <code>&lt;img&gt;</code>, use an explicit-colour variant (<code>svg-accent</code>, <code>svg-white</code>, <code>svg-black</code>). Inline SVG, React and CSS masks inherit the text colour.</div></aside></div><div id="toast" class="toast" role="status"></div>
 <dialog id="mobile-inspector" aria-labelledby="selected-name"></dialog><noscript><p class="empty-static">Enable JavaScript to search the catalog. SVG files and icons.json remain available directly.</p></noscript>
 <script id="data" type="application/json">${json}</script>
 <script>${readFileSync(join(ROOT, 'site', 'gallery.js'), 'utf8')}</script>

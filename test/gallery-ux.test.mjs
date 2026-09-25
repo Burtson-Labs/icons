@@ -137,3 +137,27 @@ test('brand logos remain separate and disable stroke adjustment', () => {
     dom.window.close();
   }
 });
+
+test('code blocks are coloured and each has a copy button that copies its own text', async () => {
+  const dom = open();
+  const doc = dom.window.document;
+  const blocks = [...doc.querySelectorAll('.usage .code-block')];
+  assert.deepEqual(
+    blocks.map((b) => b.querySelector('figcaption').textContent),
+    ['Install', 'React', 'JavaScript', 'CDN'],
+  );
+  for (const b of blocks) assert.ok(b.querySelector('.copy-code'), 'copy button');
+  assert.ok(doc.querySelector('#code .tok-string'), 'inspector code is highlighted');
+  assert.ok(doc.querySelector('.usage .tok-keyword'), 'usage code is highlighted');
+
+  let copied = '';
+  Object.defineProperty(dom.window.navigator, 'clipboard', {
+    value: { writeText: async (t) => (copied = t) },
+  });
+  const install = blocks[0].querySelector('.copy-code');
+  install.click();
+  await new Promise((r) => setTimeout(r, 0));
+  assert.equal(copied, 'npm install @burtson-labs/icons');
+  assert.ok(install.classList.contains('copied'));
+  assert.equal(install.getAttribute('aria-label'), 'Copied');
+});

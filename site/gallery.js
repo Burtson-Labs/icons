@@ -79,6 +79,24 @@
     if (className) el.className = className;
     return el;
   };
+  // The same colouring as ui.burtson.ai's code blocks: comments, strings,
+  // keywords, tags, numbers. Text nodes and spans only.
+  const TOKEN =
+    /(\/\/[^\n]*|\/\*[\s\S]*?\*\/|<!--[\s\S]*?-->)|('(?:[^'\\\n]|\\.)*'|"(?:[^"\\\n]|\\.)*"|`(?:[^`\\]|\\.)*`)|\b(import|from|export|default|function|return|const|let|new|true|false|null|npm|install)\b|(<\/?[A-Za-z][\w.-]*|\/?>)|(\b\d+(?:\.\d+)?\b)/g;
+  const TOKEN_CLASS = ['tok-comment', 'tok-string', 'tok-keyword', 'tok-tag', 'tok-number'];
+  function highlightInto(el, text) {
+    const parts = [];
+    let last = 0;
+    for (const m of text.matchAll(TOKEN)) {
+      if (m.index > last) parts.push(document.createTextNode(text.slice(last, m.index)));
+      const group = m.slice(1).findIndex((g) => g !== undefined);
+      parts.push(textEl('span', m[0], TOKEN_CLASS[group]));
+      last = m.index + m[0].length;
+    }
+    parts.push(document.createTextNode(text.slice(last)));
+    el.replaceChildren(...parts);
+  }
+
   function svg(i, dimension = 24, decorative = true, colored = false) {
     const a11y = decorative
       ? 'aria-hidden="true"'
@@ -187,7 +205,7 @@
         return cell;
       }),
     );
-    $('code').textContent = code();
+    highlightInto($('code'), code());
     $('code').setAttribute('aria-labelledby', 'format-' + format);
     $('export-note').textContent =
       format === 'cdn'
@@ -429,15 +447,35 @@
       next.focus();
     }
   });
-  const copy = async (text, message) => {
+  const copy = async (text, message, focusOnFail = $('code')) => {
     try {
       await navigator.clipboard.writeText(text);
       toast(message);
+      return true;
     } catch {
       toast('Clipboard unavailable. Select and copy the code manually.');
-      $('code').focus();
+      focusOnFail.focus();
+      return false;
     }
   };
+  // Inline copy buttons in every code frame: tick for a moment on success.
+  for (const block of document.querySelectorAll('.code-block code')) {
+    highlightInto(block, block.textContent);
+  }
+  for (const button of document.querySelectorAll('.copy-code')) {
+    const idleLabel = button.getAttribute('aria-label');
+    button.onclick = async () => {
+      const pre = button.parentElement.querySelector('pre');
+      const ok = await copy(pre.textContent, 'Code copied', pre);
+      if (!ok) return;
+      button.classList.add('copied');
+      button.setAttribute('aria-label', 'Copied');
+      setTimeout(() => {
+        button.classList.remove('copied');
+        button.setAttribute('aria-label', idleLabel);
+      }, 1400);
+    };
+  }
   $('copy').onclick = () => copy(code(), 'Code copied');
   $('share').onclick = () => {
     syncURL();
