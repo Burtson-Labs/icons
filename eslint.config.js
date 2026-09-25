@@ -10,6 +10,7 @@ export default [
     ignores: ['dist/**', 'site/dist/**', '.burtson-icons-upgrade-backup/**'],
     tsconfigRootDir: import.meta.dirname,
   }),
+  { files: ['site/gallery.js'], languageOptions: { globals: { ...globals.browser } } },
   {
     files: ['**/*.{js,mjs}'],
     languageOptions: { globals: { ...globals.node } },

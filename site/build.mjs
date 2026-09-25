@@ -85,8 +85,9 @@ const html = `<!doctype html>
 <style>${css}</style>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to icons</a>
 <header><div class="brand">${toSvgString(logo.node, { extra: ' aria-hidden="true"' })}<div>Burtson Icons<small>@burtson-labs/icons · ISC</small></div></div>
-<div class="topright"><nav class="links"><a href="#usage">Usage</a><a href="https://github.com/Burtson-Labs/icons">GitHub</a><a href="https://www.npmjs.com/package/@burtson-labs/icons">npm</a></nav><span class="tag">v${pkg.version}</span><div class="accents" role="radiogroup" aria-label="Accent colour">${[
+<div class="topright"><nav class="links" aria-label="Resources"><a href="https://ui.burtson.ai">UI components</a><a href="#usage">Usage</a><a href="https://github.com/Burtson-Labs/icons">GitHub</a><a href="https://www.npmjs.com/package/@burtson-labs/icons">npm</a></nav><span class="tag">v${pkg.version}</span><div class="accents" role="radiogroup" aria-label="Accent colour">${[
   ['ink', 'Ink', '#18181b'],
   ['violet', 'Violet (Burtson)', '#a60ee5'],
   ['blue', 'Blue', '#2563eb'],
@@ -101,9 +102,9 @@ const html = `<!doctype html>
     '',
   )}</div><button id="theme" type="button" aria-label="Switch light and dark theme">Theme</button></div></header>
 <div class="shell"><aside class="nav"><h2>COLLECTIONS</h2><div class="cats" id="cats"></div><div class="navnote">24px canvas, 2px stroke, round joins, current-colour strokes.<br><br>Press <kbd>/</kbd> to search.</div></aside>
-<main><section class="hero"><h1>Burtson Icons</h1><p>Stroke icons drawn for the tools we build: agents, editors, security, infrastructure and evidence work, plus brand logos. Each icon ships from the same source as a React component, an SVG file and a CDN URL.</p><div class="metrics"><div><b>${n}</b><small>Icons</small></div><div><b>${Object.keys(titles).length}</b><small>Collections</small></div><div><b>24 / 2</b><small>Grid / stroke</small></div></div></section>
+<main id="main" tabindex="-1"><section class="hero"><h1>Burtson Icons</h1><p>Stroke icons drawn for the tools we build: agents, editors, security, infrastructure and evidence work, plus brand logos. Search, set the size and stroke, then copy React or SVG, or link the CDN file. All three come from the same source.</p><div class="metrics"><div><b>${n}</b><small>Icons</small></div><div><b>${Object.keys(titles).length}</b><small>Collections</small></div><div><b>24 / 2</b><small>Grid / stroke</small></div></div></section>
 <div class="controls"><label class="search"><span aria-hidden="true">&#8981;</span><input id="search" type="search" placeholder="Search icons, workflows, tags..." aria-label="Search icons" autocomplete="off" spellcheck="false"><kbd>/</kbd></label><label class="knob">Size<input id="size" type="range" min="16" max="48" value="28" step="4"><output id="sizeout">28</output></label><label class="knob">Stroke<input id="weight" type="range" min="1" max="3" value="2" step=".25"><output id="weightout">2</output></label></div>
-<div class="section-head"><h2 id="category-title">All icons</h2><span id="result-count">${n} icons</span></div><div class="grid" id="grid"></div><div class="empty" id="empty">No icons match. <a href="https://github.com/Burtson-Labs/icons/issues/new?title=Icon%20request%3A%20">Request one</a>.</div>
+<div class="filter-row"><label class="collection-select">Collection<select id="collection" aria-label="Collection"></select></label><button type="button" id="saved-only" aria-pressed="false">Saved icons <span id="saved-count">0</span></button><button type="button" id="reset">Reset filters</button></div><div class="section-head"><h2 id="category-title">All icons</h2><span id="result-count" role="status" aria-live="polite" aria-atomic="true">${n} icons</span></div><div class="grid" id="grid" role="group" aria-label="Icon results"></div><div class="empty" id="empty"><h3>No matching icons</h3><p>Try a shorter search, another collection, or reset the filters.</p><button type="button" id="empty-reset">Show all icons</button> <a href="https://github.com/Burtson-Labs/icons/issues/new?title=Icon%20request%3A%20">Request one</a>.</div>
 <section class="usage" id="usage"><div class="section-head"><h2>Usage</h2></div><pre>npm i @burtson-labs/icons
 
 // React: one import per icon keeps bundles small
@@ -117,97 +118,10 @@ el.innerHTML = toSvg('merkle-tree', { size: 20 });
 // Straight from this site (explicit colours: svg-accent, svg-white, svg-black)
 &lt;img src="${SITE}/svg-accent/gpu.svg" width="24" height="24" alt="GPU"&gt;</pre></section>
 <div class="foot">Burtson Icons ${pkg.version} · <a href="https://github.com/Burtson-Labs/icons/blob/main/LICENSE">ISC License</a> · <a href="${SITE}/icons.json">icons.json</a> · Brand logos are trademarks of their owners (<a href="https://github.com/Burtson-Labs/icons/blob/main/TRADEMARKS.md">notice</a>) · Made by <a href="https://burtson.ai">Burtson Labs</a></div></main>
-<aside class="inspector" aria-label="Selected icon"><div class="eyebrow">Icon inspector</div><h2 class="mono" id="selected-name"></h2><div class="sub" id="selected-status"></div><div class="preview" id="selected-preview"></div><div class="sizes" id="sizes"></div><div class="tabs" role="tablist" aria-label="Code format"><button type="button" data-tab="react" role="tab" aria-selected="true">React</button><button type="button" data-tab="svg" role="tab" aria-selected="false">SVG</button><button type="button" data-tab="cdn" role="tab" aria-selected="false">CDN</button></div><pre id="code" aria-label="Usage code"></pre><div class="actions"><button type="button" class="primary" id="copy">Copy code</button><button type="button" id="download">Download SVG</button></div><div id="tags" class="chips"></div><div class="notice">For an external <code>&lt;img&gt;</code>, use an explicit-colour variant (<code>svg-accent</code>, <code>svg-white</code>, <code>svg-black</code>). Inline SVG, React and CSS masks inherit the text colour.</div></aside></div><div id="toast" class="toast" role="status"></div>
+<aside class="inspector" id="inspector" aria-label="Selected icon"><button type="button" id="close-inspector" class="mobile-close" aria-label="Close icon inspector">Close ×</button><div class="eyebrow">Icon inspector</div><h2 class="mono" id="selected-name"></h2><div class="sub" id="selected-status"></div><div class="preview" id="selected-preview"></div><div class="sizes" id="sizes"></div><div class="inspector-tools"><button type="button" id="save" aria-pressed="false">Save icon</button><button type="button" id="share">Copy link</button></div><label class="decorative"><input id="decorative" type="checkbox" checked> Decorative icon <span title="Turn off for an icon that conveys meaning without nearby text.">ⓘ</span></label><div class="tabs" role="tablist" aria-label="Code format"><button type="button" data-tab="react" role="tab" aria-selected="true">React</button><button type="button" data-tab="svg" role="tab" aria-selected="false">SVG</button><button type="button" data-tab="cdn" role="tab" aria-selected="false">CDN</button></div><pre id="code" role="tabpanel" tabindex="0" aria-label="Usage code"></pre><div class="actions"><button type="button" class="primary" id="copy">Copy code</button><button type="button" id="download">Download SVG</button></div><p class="export-note" id="export-note"></p><div id="tags" class="chips"></div><div class="notice">For an external <code>&lt;img&gt;</code>, use an explicit-colour variant (<code>svg-accent</code>, <code>svg-white</code>, <code>svg-black</code>). Inline SVG, React and CSS masks inherit the text colour.</div></aside></div><div id="toast" class="toast" role="status"></div>
+<dialog id="mobile-inspector" aria-labelledby="selected-name"></dialog><noscript><p class="empty-static">Enable JavaScript to search the catalog. SVG files and icons.json remain available directly.</p></noscript>
 <script id="data" type="application/json">${json}</script>
-<script>
-(() => {
-  const D = JSON.parse(document.getElementById('data').textContent);
-  const $ = (id) => document.getElementById(id);
-  const root = document.documentElement;
-  const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
-  let selected = D.icons.find((i) => i.n === 'stealth-mask') || D.icons[0];
-  let category = 'all';
-  let tab = 'react';
-  const svg = (i, size = 24) => '<svg xmlns="http://www.w3.org/2000/svg" width="' + size + '" height="' + size + '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="' + $('weight').value + '" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + i.g.map(([t, a]) => '<' + t + ' ' + Object.entries(a).map(([k, v]) => k + '="' + esc(v) + '"').join(' ') + ' />').join('') + '</svg>';
-  const brandSvg = (b, size = 24, colored = false) => '<svg xmlns="http://www.w3.org/2000/svg" width="' + size + '" height="' + size + '" viewBox="0 0 24 24" fill="' + (colored ? b.h : 'currentColor') + '" aria-hidden="true"><path d="' + b.d + '"/></svg>';
-  const isBrand = (i) => Boolean(i.d);
-  const draw = (i, size) => (isBrand(i) ? brandSvg(i, size) : svg(i, size));
-  const label = (i) => (isBrand(i) ? i.ti : i.n.replace(/-/g, ' '));
-  function code() {
-    const i = selected;
-    if (isBrand(i)) {
-      if (tab === 'react') return "import { " + i.p + " } from\\n  '@burtson-labs/icons/brands/react/" + i.n + "';\\n\\n<" + i.p + " size={24} title=\\"" + i.ti + "\\" />\\n// brand colour: <" + i.p + " colored />";
-      if (tab === 'svg') return brandSvg(i).replace(' aria-hidden="true"', ' role="img" aria-label="' + esc(i.ti) + '"');
-      return '<img\\n  src="${SITE}/brands/svg-color/' + i.n + '.svg"\\n  width="24" height="24"\\n  alt="' + esc(i.ti) + '"\\n/>\\n\\n<!-- monochrome (black): ${SITE}/brands/svg/' + i.n + '.svg -->';
-    }
-    if (tab === 'react') return "import { " + i.p + " } from\\n  '@burtson-labs/icons/react/" + i.n + "';\\n\\n<" + i.p + "\\n  size={24}\\n  strokeWidth={" + $('weight').value + "}\\n  aria-label=\\"" + label(i) + "\\"\\n/>";
-    if (tab === 'svg') return svg(i).replace(' aria-hidden="true"', '').replace(/></g, '>\\n<');
-    return '<img\\n  src="${SITE}/svg-accent/' + i.n + '.svg"\\n  width="24" height="24"\\n  alt="' + label(i) + '"\\n/>\\n\\n<!-- or pinned to this release -->\\nhttps://cdn.jsdelivr.net/npm/@burtson-labs/icons@' + D.version + '/dist/svg/' + i.n + '.svg';
-  }
-  function inspect(i, push = true) {
-    selected = i;
-    $('selected-name').textContent = i.n;
-    $('selected-status').textContent = isBrand(i) ? i.ti + ' / ' + i.gr + ' / ' + i.h : i.c.map((c) => D.titles[c] || c).join(' / ');
-    $('selected-preview').innerHTML = isBrand(i) ? brandSvg(i, 96, true) : svg(i, 96);
-    $('sizes').innerHTML = [16, 24, 32].map((s) => '<div>' + draw(i, s) + '<small>' + s + 'px</small></div>').join('');
-    $('code').textContent = code();
-    $('tags').replaceChildren(...(isBrand(i) ? ['trademark of its owner'] : i.t).map((t) => { const e = document.createElement('span'); e.textContent = t; return e; }));
-    document.querySelectorAll('.tile').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.name === i.n)));
-    if (push) history.replaceState(null, '', '#' + (isBrand(i) ? 'brand-' : '') + i.n);
-  }
-  function render() {
-    const q = $('search').value.trim().toLowerCase();
-    const list = category === 'brands'
-      ? D.brands.filter((b) => !q || [b.n, b.ti.toLowerCase(), b.gr.toLowerCase()].join(' ').includes(q))
-      : D.icons.filter((i) => (category === 'all' || i.c.includes(category)) && (!q || [i.n, ...i.t, ...i.a].join(' ').includes(q)));
-    $('grid').replaceChildren(...list.map((i) => {
-      const b = document.createElement('button');
-      b.type = 'button'; b.className = 'tile'; b.dataset.name = i.n;
-      b.setAttribute('aria-label', i.n); b.setAttribute('aria-pressed', String(i.n === selected.n));
-      b.innerHTML = draw(i) + '<span class="name">' + i.n + '</span>';
-      b.onclick = () => inspect(i);
-      return b;
-    }));
-    $('result-count').textContent = list.length + (category === 'brands' ? ' logos' : ' icons');
-    $('empty').style.display = list.length ? 'none' : 'block';
-    $('category-title').textContent = category === 'all' ? 'All icons' : category === 'brands' ? 'Brand logos' : D.titles[category];
-    document.querySelectorAll('.cats button').forEach((b) => { b.classList.toggle('active', b.dataset.category === category); b.setAttribute('aria-pressed', String(b.dataset.category === category)); });
-  }
-  for (const [id, title] of [['all', 'All icons'], ...Object.entries(D.titles), ['brands', 'Brand logos']]) {
-    const count = id === 'brands' ? D.brands.length : D.icons.filter((i) => id === 'all' || i.c.includes(id)).length;
-    const b = document.createElement('button');
-    b.type = 'button'; b.dataset.category = id;
-    b.innerHTML = '<span>' + esc(title) + '</span><b>' + count + '</b>';
-    b.onclick = () => { category = id; render(); };
-    $('cats').appendChild(b);
-  }
-  const dark = () => root.dataset.theme ? root.dataset.theme === 'dark' : !matchMedia('(prefers-color-scheme: light)').matches;
-  const accents = [...document.querySelectorAll('.accents button')];
-  const paintAccent = () => { const cur = root.dataset.accent || 'ink'; accents.forEach((b) => b.setAttribute('aria-checked', String(b.dataset.accent === cur))); };
-  accents.forEach((b) => { b.onclick = () => { root.dataset.accent = b.dataset.accent; try { localStorage.setItem('bl-icons-accent', b.dataset.accent); } catch {} paintAccent(); }; });
-  paintAccent();
-  const paintTheme = () => { $('theme').textContent = dark() ? 'Light mode' : 'Dark mode'; };
-  $('theme').onclick = () => { root.dataset.theme = dark() ? 'light' : 'dark'; try { localStorage.setItem('bl-icons-theme', root.dataset.theme); } catch {} paintTheme(); };
-  paintTheme();
-  $('search').oninput = render;
-  $('size').oninput = () => { root.style.setProperty('--size', $('size').value + 'px'); $('sizeout').textContent = $('size').value; };
-  $('weight').oninput = () => { root.style.setProperty('--weight', $('weight').value); $('weightout').textContent = $('weight').value; render(); inspect(selected, false); };
-  document.querySelectorAll('[data-tab]').forEach((b) => b.onclick = () => { tab = b.dataset.tab; document.querySelectorAll('[data-tab]').forEach((x) => x.setAttribute('aria-selected', String(x === b))); $('code').textContent = code(); });
-  let timer;
-  const toast = (t) => { $('toast').textContent = t; $('toast').style.display = 'block'; clearTimeout(timer); timer = setTimeout(() => $('toast').style.display = 'none', 1800); };
-  $('copy').onclick = async () => { try { await navigator.clipboard.writeText(code()); toast('Code copied'); } catch { toast('Select and copy the code above'); } };
-  $('download').onclick = () => { const a = document.createElement('a'); a.href = (isBrand(selected) ? 'brands/svg-color/' : 'svg/') + selected.n + '.svg'; a.download = selected.n + '.svg'; a.click(); };
-  document.addEventListener('keydown', (e) => {
-    if (e.key === '/' && !['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) { e.preventDefault(); $('search').focus(); }
-    if (e.key === 'Escape') { $('search').value = ''; $('search').blur(); render(); }
-  });
-  const h = decodeURIComponent(location.hash.slice(1));
-  const fromHash = h.startsWith('brand-') ? D.brands.find((b) => 'brand-' + b.n === h) : D.icons.find((i) => i.n === h);
-  if (fromHash) { selected = fromHash; if (isBrand(fromHash)) category = 'brands'; }
-  render();
-  inspect(selected, Boolean(fromHash));
-})();
-</script>
+<script>${readFileSync(join(ROOT, 'site', 'gallery.js'), 'utf8')}</script>
 </body>
 </html>
 `;

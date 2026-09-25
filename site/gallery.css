@@ -701,3 +701,352 @@ pre {
 .usage {
   padding-top: 10px;
 }
+
+/* Catalog workspace: larger reading type, clear focus, and a usable mobile inspector. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+pre:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+.skip-link {
+  position: fixed;
+  inset: 8px auto auto 8px;
+  z-index: 100;
+  padding: 12px 18px;
+  background: var(--text);
+  color: var(--bg);
+  transform: translateY(-180%);
+  border-radius: 8px;
+}
+.skip-link:focus {
+  transform: none;
+}
+header {
+  min-height: 76px;
+  height: auto;
+  padding-block: 16px;
+}
+.hero {
+  padding-block: 8px;
+}
+.hero h1 {
+  font-size: clamp(36px, 4.3vw, 60px);
+  letter-spacing: -2.5px;
+  line-height: 1.05;
+}
+.hero h1 span {
+  color: var(--muted);
+}
+.hero .eyebrow {
+  font-size: 10px;
+  margin-bottom: 20px;
+}
+.hero p {
+  font-size: 15px;
+  line-height: 1.75;
+  max-width: 630px;
+}
+.nav {
+  position: sticky;
+  top: 0;
+  height: 100dvh;
+  overflow: auto;
+}
+.cats button {
+  min-height: 38px;
+  font-size: 12px;
+}
+.accents button {
+  width: 26px;
+  height: 26px;
+  border: 4px solid var(--side);
+}
+.search:focus-within {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+.search input:focus-visible {
+  outline: none;
+}
+.filter-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-top: 16px;
+}
+.filter-row button {
+  font-size: 12px;
+  min-height: 36px;
+}
+#saved-only[aria-pressed='true'] {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: var(--accentsoft);
+}
+#saved-count {
+  margin-left: 6px;
+  font-variant-numeric: tabular-nums;
+}
+#reset {
+  margin-left: auto;
+  background: transparent;
+}
+.collection-select {
+  display: none;
+}
+.collection-select select {
+  color: var(--text);
+  background: var(--card);
+  border: 1px solid var(--line);
+  padding: 10px;
+  border-radius: 8px;
+  max-width: 100%;
+}
+.section-head h2 {
+  font-size: 14px;
+  font-weight: 600;
+}
+.section-head span {
+  font-size: 12px;
+}
+.grid {
+  gap: 10px;
+}
+.tile {
+  min-height: 112px;
+  transition:
+    background-color 120ms,
+    border-color 120ms;
+}
+.tile:hover {
+  border-color: var(--muted);
+}
+.tile .name {
+  font-size: 11px;
+  line-height: 1.5;
+}
+.saved-mark {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  color: var(--accent);
+  font-size: 12px;
+}
+.inspector {
+  height: 100dvh;
+  padding-top: 26px;
+}
+.inspector .preview {
+  height: 180px;
+  background-size: 20px 20px;
+}
+.inspector .sub,
+.notice,
+.export-note {
+  font-size: 12px;
+  line-height: 1.65;
+}
+.inspector-tools {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.inspector-tools button {
+  flex: 1;
+  font-size: 12px;
+  min-height: 38px;
+}
+#save[aria-pressed='true'] {
+  color: var(--accent);
+  background: var(--accentsoft);
+}
+.decorative {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 16px;
+  color: var(--muted);
+  font-size: 12px;
+}
+.decorative input {
+  accent-color: var(--accent);
+  width: 16px;
+  height: 16px;
+}
+.tabs button {
+  font-size: 12px;
+  min-height: 36px;
+}
+pre {
+  font-size: 11px;
+  min-height: 150px;
+}
+.actions button {
+  min-height: 40px;
+  font-size: 12px;
+}
+.chips button,
+.chips span {
+  font-size: 11px;
+  padding: 5px 8px;
+}
+.export-note {
+  color: var(--muted);
+  margin-block: 14px;
+}
+.empty {
+  border: 1px dashed var(--line);
+  border-radius: 12px;
+  margin-top: 8px;
+}
+.empty h3 {
+  color: var(--text);
+  font-size: 18px;
+}
+.empty a {
+  color: var(--accent);
+}
+.mobile-close {
+  display: none;
+}
+#mobile-inspector {
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--side);
+  color: var(--text);
+  width: min(520px, calc(100% - 24px));
+  max-height: calc(100dvh - 24px);
+  overflow-y: auto;
+}
+#mobile-inspector::backdrop {
+  background: #0009;
+  backdrop-filter: blur(4px);
+}
+#mobile-inspector .inspector {
+  display: block;
+  border: 0;
+  height: auto;
+  position: static;
+}
+#mobile-inspector .mobile-close {
+  display: block;
+  float: right;
+  min-height: 40px;
+}
+.toast {
+  max-width: calc(100% - 32px);
+  width: max-content;
+  text-align: center;
+  z-index: 100;
+}
+@media (max-width: 1100px) {
+  .links a:first-child {
+    display: none;
+  }
+  .topright {
+    gap: 10px;
+  }
+}
+@media (max-width: 850px) {
+  .shell {
+    display: block;
+  }
+  .shell > .inspector {
+    display: none;
+  }
+  .collection-select {
+    display: grid;
+    gap: 4px;
+    font-size: 11px;
+    color: var(--muted);
+  }
+  .filter-row {
+    align-items: end;
+  }
+  .hero h1 {
+    max-width: 680px;
+  }
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  }
+  .topright .links {
+    display: none;
+  }
+  .hero p {
+    max-width: 620px;
+  }
+}
+@media (max-width: 600px) {
+  header {
+    padding: 14px 16px;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .brand small {
+    font-size: 10px;
+    letter-spacing: 0.4px;
+  }
+  .topright {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .accents button {
+    width: 32px;
+    height: 32px;
+  }
+  main {
+    padding: 24px 16px;
+  }
+  .hero h1 {
+    font-size: 43px;
+  }
+  .grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .tile {
+    min-height: 112px;
+  }
+  .tile .name {
+    font-size: 10px;
+  }
+  .controls .search {
+    flex-basis: 100%;
+  }
+  .search input {
+    font-size: 16px;
+  }
+  .knob {
+    font-size: 12px;
+    flex: 1;
+  }
+  .knob input[type='range'] {
+    flex: 1;
+    height: 28px;
+  }
+  .collection-select {
+    flex-basis: 100%;
+  }
+  .filter-row button {
+    min-height: 44px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    scroll-behavior: auto !important;
+    transition: none !important;
+    animation: none !important;
+  }
+}
+@media (forced-colors: active) {
+  .tile[aria-pressed='true'],
+  .cats .active {
+    outline: 2px solid Highlight;
+  }
+}

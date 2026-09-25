@@ -34,12 +34,13 @@ jobs:
         run: npm run typecheck
       - name: Dependency audit
         run: npm audit --audit-level=high
+      - name: Site
+        # Built first: the gallery tests load site/dist/index.html.
+        run: npm run site
       - name: Test
         run: npm test
       - name: React rendering (strict)
         run: npm run test:react
-      - name: Site
-        run: npm run site
       - name: Generated files are committed
         # preview/ and the README block are rebuilt from icons/; a stale copy
         # means a README that shows different icons from the package.

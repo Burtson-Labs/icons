@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.4.3
+
+icons.burtson.ai UX upgrade (Astra; findings in AUDIT.md). No change to the icons.
+
+- Collections reachable on phones; the inspector opens as a dialog on narrow
+  screens.
+- Multi-word search across names, aliases and tags; saved icons (this
+  browser); shareable links keep size, stroke, format and accessibility mode.
+- Copied React/SVG and downloads match the chosen size and stroke; decorative
+  or labelled output.
+- One tab stop for the grid with arrow-key navigation; roving tabs and radios.
+- Gallery markup built with DOM calls (no innerHTML); test files run serially
+  and the site is built before the tests that read it.
+
 ## 0.4.2
 
 - New operations icons: `fuel-tanker` (tank trailer and cab) and `fuel-terminal`
