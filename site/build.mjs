@@ -87,7 +87,11 @@ el.innerHTML = toSvg('merkle-tree', { size: 20 });`,
 <img src="${SITE}/svg-accent/gpu.svg" width="24" height="24" alt="GPU" />`,
   ),
 ].join('');
-const favicon = `data:image/svg+xml,${encodeURIComponent(toSvgString(logo.node, { color: '#a60ee5' }))}`;
+// Favicon: the light glyph on a near-black tile with a hairline edge, so it
+// reads on light and dark tab strips alike (a bare purple stroke vanished on
+// dark ones). Same look as apple-touch-icon.png.
+const faviconSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><rect x="0.5" y="0.5" width="31" height="31" rx="7.5" fill="#09090b" stroke="#3f3f46"/><g transform="translate(5 5) scale(0.9167)" fill="none" stroke="#fafafa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${toSvgString(logo.node, { color: '#fafafa' }).replace(/^<svg[^>]*>|<\/svg>$/g, '')}</g></svg>`;
+const favicon = `data:image/svg+xml,${encodeURIComponent(faviconSvg)}`;
 const css = readFileSync(join(ROOT, 'site', 'gallery.css'), 'utf8');
 const n = icons.length;
 
@@ -167,7 +171,7 @@ for (const f of ['og.png', 'apple-touch-icon.png']) {
   }
   cpSync(join(ROOT, 'site', f), join(OUT, f));
 }
-writeFileSync(join(OUT, 'favicon.svg'), toSvgString(logo.node, { color: '#a60ee5' }) + '\n');
+writeFileSync(join(OUT, 'favicon.svg'), faviconSvg + '\n');
 writeFileSync(join(OUT, 'robots.txt'), `User-agent: *\nAllow: /\nSitemap: ${SITE}/sitemap.xml\n`);
 writeFileSync(
   join(OUT, 'sitemap.xml'),
