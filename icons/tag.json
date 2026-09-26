@@ -1,6 +1,6 @@
 {
-  "tags": ["tag", "label", "category"],
+  "tags": ["tag", "label", "category", "price"],
   "categories": ["interface"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["label"]
+  "aliases": ["label"],
+  "contributors": ["burtson-labs"]
 }

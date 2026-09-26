@@ -1,6 +1,6 @@
 {
-  "tags": ["read", "article", "guide"],
+  "tags": ["read", "article", "guide", "glossary", "dictionary", "documentation", "help"],
   "categories": ["documents"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["menu-book"]
+  "aliases": ["menu-book"],
+  "contributors": ["burtson-labs"]
 }

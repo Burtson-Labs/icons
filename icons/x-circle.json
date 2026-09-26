@@ -1,6 +1,6 @@
 {
   "tags": ["error", "failed", "cancel"],
   "categories": ["status"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["circle-x"]
+  "aliases": ["circle-x", "cancel", "highlight-off"],
+  "contributors": ["burtson-labs"]
 }

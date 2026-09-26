@@ -1,6 +1,6 @@
 {
   "tags": ["qr", "scan", "code"],
   "categories": ["interface"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["qr-code-scanner"]
+  "aliases": ["qr-code-scanner"],
+  "contributors": ["burtson-labs"]
 }

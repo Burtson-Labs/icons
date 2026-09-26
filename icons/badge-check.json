@@ -1,6 +1,6 @@
 {
   "tags": ["verified", "approved", "badge"],
   "categories": ["status", "security"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["verified"]
+  "aliases": ["verified"],
+  "contributors": ["burtson-labs"]
 }

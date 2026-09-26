@@ -1,0 +1,6 @@
+{
+  "tags": ["invoice", "bill", "billing", "statement", "charge", "payment", "accounting", "ticket"],
+  "categories": ["documents"],
+  "aliases": ["invoice", "receipt-long"],
+  "contributors": ["burtson-labs"]
+}

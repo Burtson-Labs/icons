@@ -1,6 +1,6 @@
 {
   "tags": ["add", "new", "create"],
   "categories": ["interface"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["add"]
+  "aliases": ["add"],
+  "contributors": ["burtson-labs"]
 }

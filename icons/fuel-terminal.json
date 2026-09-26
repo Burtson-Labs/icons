@@ -1,6 +1,18 @@
 {
-  "tags": ["fuel", "terminal", "rack", "storage", "tank", "refinery", "petroleum", "logistics"],
+  "tags": [
+    "fuel",
+    "terminal",
+    "rack",
+    "storage",
+    "tank",
+    "refinery",
+    "petroleum",
+    "logistics",
+    "loading rack",
+    "bulk plant",
+    "depot"
+  ],
   "categories": ["operations"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["tank-farm", "bulk-terminal"]
+  "aliases": ["tank-farm", "bulk-terminal"],
+  "contributors": ["burtson-labs"]
 }

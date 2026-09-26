@@ -1,6 +1,6 @@
 {
-  "tags": ["radio", "broadcast", "signal"],
+  "tags": ["radio", "broadcast", "signal", "antenna", "live"],
   "categories": ["voice"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["broadcast"]
+  "aliases": ["broadcast"],
+  "contributors": ["burtson-labs"]
 }

@@ -1,5 +1,6 @@
 {
-  "tags": ["package", "build", "artifact", "compile"],
+  "tags": ["package", "build", "artifact", "compile", "box", "parcel"],
   "categories": ["development"],
+  "aliases": ["package", "box"],
   "contributors": ["burtson-labs"]
 }

@@ -1,6 +1,6 @@
 {
   "tags": ["account settings", "manage users", "profile settings"],
   "categories": ["people"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["manage-accounts", "user-round-cog"]
+  "aliases": ["manage-accounts", "user-round-cog"],
+  "contributors": ["burtson-labs"]
 }

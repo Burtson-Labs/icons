@@ -1,6 +1,6 @@
 {
-  "tags": ["gauge", "speed", "performance", "meter"],
+  "tags": ["gauge", "speed", "performance", "meter", "tank level", "pressure", "dashboard"],
   "categories": ["status"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["speed", "speedometer"]
+  "aliases": ["speed", "speedometer"],
+  "contributors": ["burtson-labs"]
 }

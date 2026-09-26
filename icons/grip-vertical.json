@@ -1,6 +1,6 @@
 {
   "tags": ["drag", "handle", "reorder"],
   "categories": ["interface"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["drag-handle"]
+  "aliases": ["drag-handle"],
+  "contributors": ["burtson-labs"]
 }

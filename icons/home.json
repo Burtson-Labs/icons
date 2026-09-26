@@ -1,6 +1,6 @@
 {
-  "tags": ["home", "house", "start"],
+  "tags": ["home", "house", "start", "dashboard", "main"],
   "categories": ["interface"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["house"]
+  "aliases": ["house"],
+  "contributors": ["burtson-labs"]
 }

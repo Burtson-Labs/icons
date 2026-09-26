@@ -1,6 +1,6 @@
 {
-  "tags": ["rows", "layout", "list"],
+  "tags": ["rows", "layout", "list", "stack", "horizontal panes", "rows-2"],
   "categories": ["interface"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["rows-3"]
+  "aliases": ["rows-3", "rows-2"],
+  "contributors": ["burtson-labs"]
 }

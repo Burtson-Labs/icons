@@ -1,5 +1,5 @@
 {
-  "tags": ["pin", "keep", "sticky"],
+  "tags": ["pin", "keep", "sticky", "pinned", "stick", "attach"],
   "categories": ["interface"],
   "contributors": ["burtson-labs"]
 }

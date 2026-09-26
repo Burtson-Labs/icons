@@ -21,6 +21,8 @@ jobs:
       - run: npm ci
       - name: Validate
         run: npm run validate
+      - name: Icon lint (measured house standard)
+        run: npm run icons:lint
       - name: Originality (against Lucide)
         run: npm run originality
       - name: Build

@@ -1,6 +1,6 @@
 {
   "tags": ["mail", "email", "message", "inbox"],
   "categories": ["interface"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["email"]
+  "aliases": ["email"],
+  "contributors": ["burtson-labs"]
 }

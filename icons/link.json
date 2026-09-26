@@ -1,5 +1,6 @@
 {
-  "tags": ["link", "url", "chain"],
+  "tags": ["link", "url", "chain", "hyperlink"],
   "categories": ["interface"],
+  "aliases": ["link-2"],
   "contributors": ["burtson-labs"]
 }

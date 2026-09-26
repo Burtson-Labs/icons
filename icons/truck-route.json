@@ -1,6 +1,6 @@
 {
-  "tags": ["truck", "route", "dispatch", "logistics"],
+  "tags": ["truck", "route", "dispatch", "logistics", "fleet", "haul", "delivery", "shipping"],
   "categories": ["operations"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["local-shipping", "truck"]
+  "aliases": ["local-shipping", "truck"],
+  "contributors": ["burtson-labs"]
 }

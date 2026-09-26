@@ -1,5 +1,6 @@
 {
-  "tags": ["storage", "volume", "nvme", "persistent"],
+  "tags": ["storage", "volume", "nvme", "persistent", "hard drive", "disk", "hdd", "ssd"],
   "categories": ["infrastructure", "data"],
+  "aliases": ["hard-drive"],
   "contributors": ["burtson-labs"]
 }

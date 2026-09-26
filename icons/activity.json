@@ -1,6 +1,6 @@
 {
   "tags": ["activity", "pulse", "heartbeat", "monitoring"],
   "categories": ["status"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["pulse", "monitoring"]
+  "aliases": ["pulse", "monitoring"],
+  "contributors": ["burtson-labs"]
 }

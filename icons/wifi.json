@@ -1,6 +1,6 @@
 {
   "tags": ["wifi", "wireless", "network", "signal"],
   "categories": ["infrastructure", "interface"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["wifi-high", "wifi-low", "signal-wifi", "network-wifi"]
+  "aliases": ["wifi-high", "wifi-low", "signal-wifi", "network-wifi"],
+  "contributors": ["burtson-labs"]
 }

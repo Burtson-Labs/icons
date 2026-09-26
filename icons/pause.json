@@ -1,5 +1,5 @@
 {
-  "tags": ["pause", "hold", "wait"],
+  "tags": ["pause", "hold", "wait", "suspend"],
   "categories": ["interface", "voice"],
   "contributors": ["burtson-labs"]
 }

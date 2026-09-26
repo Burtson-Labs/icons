@@ -1,6 +1,6 @@
 {
-  "tags": ["unpin", "remove pin"],
+  "tags": ["unpin", "remove pin", "unpinned", "detach"],
   "categories": ["interface"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["push-pin-off"]
+  "aliases": ["push-pin-off"],
+  "contributors": ["burtson-labs"]
 }

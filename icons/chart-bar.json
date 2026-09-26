@@ -1,6 +1,6 @@
 {
   "tags": ["chart", "analytics", "stats", "report"],
   "categories": ["documents", "status"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["bar-chart", "analytics", "insights", "query-stats"]
+  "aliases": ["bar-chart", "analytics", "insights", "query-stats", "bar-chart-2"],
+  "contributors": ["burtson-labs"]
 }

@@ -1,6 +1,6 @@
 {
-  "tags": ["cut", "trim", "scissors"],
+  "tags": ["cut", "trim", "scissors", "snip"],
   "categories": ["interface"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["cut", "content-cut"]
+  "aliases": ["cut", "content-cut"],
+  "contributors": ["burtson-labs"]
 }

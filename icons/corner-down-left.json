@@ -1,6 +1,6 @@
 {
   "tags": ["enter", "return", "submit"],
   "categories": ["interface"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["enter"]
+  "aliases": ["enter"],
+  "contributors": ["burtson-labs"]
 }

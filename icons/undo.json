@@ -1,6 +1,6 @@
 {
-  "tags": ["undo", "back", "revert"],
+  "tags": ["undo", "back", "revert", "previous"],
   "categories": ["interface"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["arrow-uturn-left"]
+  "aliases": ["arrow-uturn-left"],
+  "contributors": ["burtson-labs"]
 }

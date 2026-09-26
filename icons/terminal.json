@@ -1,6 +1,6 @@
 {
   "tags": ["terminal", "console", "shell", "cli"],
   "categories": ["development"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["command-line", "console"]
+  "aliases": ["command-line", "console", "square-terminal", "terminal-square"],
+  "contributors": ["burtson-labs"]
 }

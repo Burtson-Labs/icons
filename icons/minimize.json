@@ -1,6 +1,6 @@
 {
-  "tags": ["minimize", "collapse", "shrink"],
+  "tags": ["minimize", "collapse", "shrink", "reduce"],
   "categories": ["interface"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["shrink"]
+  "aliases": ["shrink", "minimize-2"],
+  "contributors": ["burtson-labs"]
 }

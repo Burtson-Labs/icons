@@ -1,6 +1,6 @@
 {
-  "tags": ["music", "song", "audio"],
+  "tags": ["music", "song", "audio", "note"],
   "categories": ["voice"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["music-note"]
+  "aliases": ["music-note"],
+  "contributors": ["burtson-labs"]
 }

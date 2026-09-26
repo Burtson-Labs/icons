@@ -1,5 +1,6 @@
 {
-  "tags": ["code", "source", "brackets"],
+  "tags": ["code", "source", "brackets", "developer", "snippet"],
   "categories": ["development"],
+  "aliases": ["code-2", "code-xml"],
   "contributors": ["burtson-labs"]
 }

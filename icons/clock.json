@@ -1,6 +1,6 @@
 {
-  "tags": ["time", "clock", "recent"],
+  "tags": ["time", "clock", "recent", "hours of service", "eld", "dwell"],
   "categories": ["status"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["time"]
+  "aliases": ["time"],
+  "contributors": ["burtson-labs"]
 }

@@ -1,6 +1,6 @@
 {
-  "tags": ["target", "aim", "precision"],
+  "tags": ["target", "aim", "precision", "gps", "locate", "position"],
   "categories": ["interface"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["my-location", "gps-fixed"]
+  "aliases": ["my-location", "gps-fixed"],
+  "contributors": ["burtson-labs"]
 }

@@ -1,6 +1,6 @@
 {
   "tags": ["help", "question", "support"],
   "categories": ["status"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["question"]
+  "aliases": ["question", "circle-help", "circle-question-mark", "help"],
+  "contributors": ["burtson-labs"]
 }

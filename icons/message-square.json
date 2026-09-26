@@ -1,6 +1,6 @@
 {
   "tags": ["chat", "message", "comment", "conversation"],
   "categories": ["interface"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["comment", "feedback"]
+  "aliases": ["comment", "feedback"],
+  "contributors": ["burtson-labs"]
 }

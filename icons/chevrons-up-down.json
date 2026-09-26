@@ -1,6 +1,6 @@
 {
   "tags": ["select", "sort", "toggle"],
   "categories": ["interface"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["selector"]
+  "aliases": ["selector"],
+  "contributors": ["burtson-labs"]
 }

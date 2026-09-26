@@ -1,6 +1,6 @@
 {
   "tags": ["remove", "blocked", "minus"],
   "categories": ["status"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["circle-minus"]
+  "aliases": ["circle-minus", "remove-circle"],
+  "contributors": ["burtson-labs"]
 }

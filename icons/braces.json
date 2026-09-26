@@ -1,6 +1,6 @@
 {
   "tags": ["json", "object", "data", "code"],
   "categories": ["development"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["data-object", "json"]
+  "aliases": ["data-object", "json"],
+  "contributors": ["burtson-labs"]
 }

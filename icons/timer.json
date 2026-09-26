@@ -1,6 +1,6 @@
 {
-  "tags": ["timer", "stopwatch", "duration"],
+  "tags": ["timer", "stopwatch", "duration", "hours of service", "eld"],
   "categories": ["status"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["stopwatch"]
+  "aliases": ["stopwatch"],
+  "contributors": ["burtson-labs"]
 }

@@ -1,6 +1,6 @@
 {
-  "tags": ["bold", "format", "text"],
+  "tags": ["bold", "format", "text", "strong", "weight"],
   "categories": ["interface"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["format-bold"]
+  "aliases": ["format-bold"],
+  "contributors": ["burtson-labs"]
 }

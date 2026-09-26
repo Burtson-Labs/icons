@@ -1,6 +1,6 @@
 {
-  "tags": ["rotate", "clockwise"],
+  "tags": ["rotate", "clockwise", "turn right", "redo rotation"],
   "categories": ["interface"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["rotate-right"]
+  "aliases": ["rotate-right"],
+  "contributors": ["burtson-labs"]
 }

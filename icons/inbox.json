@@ -1,6 +1,6 @@
 {
-  "tags": ["inbox", "messages", "incoming"],
+  "tags": ["inbox", "messages", "incoming", "tray"],
   "categories": ["interface"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["move-to-inbox"]
+  "aliases": ["move-to-inbox"],
+  "contributors": ["burtson-labs"]
 }

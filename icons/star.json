@@ -1,6 +1,6 @@
 {
-  "tags": ["star", "favorite", "rating"],
+  "tags": ["star", "favorite", "rating", "favourite", "bookmark"],
   "categories": ["interface"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["favorite"]
+  "aliases": ["favorite"],
+  "contributors": ["burtson-labs"]
 }

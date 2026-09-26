@@ -1,0 +1,6 @@
+{
+  "tags": ["tank", "level", "inventory", "gauge", "keep full", "monitoring", "fill"],
+  "categories": ["operations", "status"],
+  "aliases": ["tank-gauge"],
+  "contributors": ["burtson-labs"]
+}

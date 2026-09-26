@@ -1,6 +1,6 @@
 {
-  "tags": ["italic", "format", "text"],
+  "tags": ["italic", "format", "text", "emphasis", "slant"],
   "categories": ["interface"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["format-italic"]
+  "aliases": ["format-italic"],
+  "contributors": ["burtson-labs"]
 }

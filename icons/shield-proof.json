@@ -1,5 +1,15 @@
 {
-  "tags": ["sentinel", "verified", "proof", "confirmed", "security", "audit"],
+  "tags": [
+    "sentinel",
+    "verified",
+    "proof",
+    "confirmed",
+    "security",
+    "audit",
+    "shield check",
+    "passed"
+  ],
   "categories": ["security", "status"],
+  "aliases": ["shield-check"],
   "contributors": ["burtson-labs"]
 }

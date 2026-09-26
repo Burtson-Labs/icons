@@ -1,6 +1,16 @@
 {
-  "tags": ["id", "badge", "identity", "card"],
+  "tags": [
+    "id",
+    "badge",
+    "identity",
+    "card",
+    "license",
+    "cdl",
+    "drivers license",
+    "twic",
+    "credential"
+  ],
   "categories": ["people", "security"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["badge"]
+  "aliases": ["badge", "license", "drivers-license", "cdl"],
+  "contributors": ["burtson-labs"]
 }

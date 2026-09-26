@@ -1,5 +1,5 @@
 {
-  "tags": ["load", "intake", "shipment", "email", "order"],
+  "tags": ["load", "intake", "shipment", "email", "order", "queue", "incoming loads", "orders"],
   "categories": ["operations", "data"],
   "contributors": ["burtson-labs"]
 }

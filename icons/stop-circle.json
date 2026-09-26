@@ -1,5 +1,6 @@
 {
   "tags": ["stop", "halt", "cancel"],
   "categories": ["interface", "status"],
+  "aliases": ["circle-stop"],
   "contributors": ["burtson-labs"]
 }

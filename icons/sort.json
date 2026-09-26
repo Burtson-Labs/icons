@@ -1,6 +1,6 @@
 {
-  "tags": ["sort", "order", "arrows"],
+  "tags": ["sort", "order", "arrows", "arrange", "arrow up down", "arrow-up-down"],
   "categories": ["interface"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["arrow-up-down", "arrows-up-down", "swap-vert"]
+  "aliases": ["arrow-up-down", "arrows-up-down", "swap-vert"],
+  "contributors": ["burtson-labs"]
 }

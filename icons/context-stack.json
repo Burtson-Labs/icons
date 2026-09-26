@@ -1,5 +1,6 @@
 {
-  "tags": ["context", "stack", "history", "conversation"],
+  "tags": ["context", "stack", "history", "conversation", "layers"],
   "categories": ["agents"],
+  "aliases": ["layers"],
   "contributors": ["burtson-labs"]
 }

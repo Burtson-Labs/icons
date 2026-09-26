@@ -1,6 +1,6 @@
 {
   "tags": ["phone", "mobile", "device"],
   "categories": ["interface"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["mobile", "phone"]
+  "aliases": ["mobile", "phone"],
+  "contributors": ["burtson-labs"]
 }

@@ -1,0 +1,15 @@
+{
+  "tags": [
+    "hazmat",
+    "dangerous goods",
+    "dot",
+    "hazard class",
+    "un number",
+    "diamond",
+    "warning",
+    "flammable"
+  ],
+  "categories": ["operations", "security"],
+  "aliases": ["hazmat", "hazmat-placard"],
+  "contributors": ["burtson-labs"]
+}

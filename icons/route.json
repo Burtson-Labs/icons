@@ -1,6 +1,6 @@
 {
-  "tags": ["route", "path", "directions", "journey"],
+  "tags": ["route", "path", "directions", "journey", "lane", "trip", "itinerary"],
   "categories": ["evidence", "infrastructure"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["directions"]
+  "aliases": ["directions"],
+  "contributors": ["burtson-labs"]
 }

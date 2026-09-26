@@ -1,6 +1,6 @@
 {
-  "tags": ["crop", "trim", "resize image"],
+  "tags": ["crop", "trim", "resize image", "cut", "resize"],
   "categories": ["interface"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["crop-square", "crop-portrait", "crop-16-9"]
+  "aliases": ["crop-square", "crop-portrait", "crop-16-9"],
+  "contributors": ["burtson-labs"]
 }

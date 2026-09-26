@@ -1,6 +1,6 @@
 {
-  "tags": ["maximize", "expand", "fullscreen"],
+  "tags": ["maximize", "expand", "fullscreen", "enlarge"],
   "categories": ["interface"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["expand"]
+  "aliases": ["expand", "maximize-2"],
+  "contributors": ["burtson-labs"]
 }

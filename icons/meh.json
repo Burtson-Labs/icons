@@ -1,6 +1,6 @@
 {
   "tags": ["neutral", "okay", "feedback"],
   "categories": ["people"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["sentiment-neutral"]
+  "aliases": ["sentiment-neutral"],
+  "contributors": ["burtson-labs"]
 }

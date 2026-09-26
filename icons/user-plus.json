@@ -1,6 +1,6 @@
 {
   "tags": ["add user", "invite", "new member"],
   "categories": ["people"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["person-add", "user-round-plus"]
+  "aliases": ["person-add", "user-round-plus"],
+  "contributors": ["burtson-labs"]
 }

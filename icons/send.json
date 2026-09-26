@@ -1,6 +1,6 @@
 {
-  "tags": ["send", "submit", "message"],
+  "tags": ["send", "submit", "message", "paper plane", "deliver"],
   "categories": ["interface"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["paper-plane"]
+  "aliases": ["paper-plane"],
+  "contributors": ["burtson-labs"]
 }

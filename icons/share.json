@@ -1,5 +1,6 @@
 {
-  "tags": ["share", "send", "network"],
+  "tags": ["share", "send", "network", "export", "social", "distribute"],
   "categories": ["interface"],
+  "aliases": ["share-2"],
   "contributors": ["burtson-labs"]
 }

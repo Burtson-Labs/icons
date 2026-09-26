@@ -1,6 +1,6 @@
 {
-  "tags": ["columns", "split", "layout"],
+  "tags": ["columns", "split", "layout", "vertical panes", "columns-2"],
   "categories": ["interface"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["split-square-vertical", "view-column"]
+  "aliases": ["split-square-vertical", "view-column", "columns-2"],
+  "contributors": ["burtson-labs"]
 }

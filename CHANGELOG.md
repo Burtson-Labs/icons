@@ -1,5 +1,40 @@
 # Changelog
 
+## 0.5.0
+
+Quality pass over the set, measured rather than eyeballed, plus the icons the
+Burtson Labs apps were faking with text.
+
+- **19 new icons.** Operations: `fuel-rack`, `propane-cylinder`, `pressure-tank`,
+  `tank-level`, `tank-trailer` (DOT 406), `pressure-trailer` (MC 331),
+  `geofence`, `truck-clock` (detention), `placard` (hazmat). Documents:
+  `receipt` (invoice), `newspaper`, `book-a` (glossary). Interface and
+  infrastructure: `signpost` (tour), `calculator`, `plus-circle`, `map-pin`,
+  `laptop`, `cloud-upload`, `database`. 403 icons.
+- **Measured house standard** in `design/DESIGN.md` and a lint that enforces
+  it: `npm run icons:lint` (`--fix` rewrites formatting). Optical size and
+  centring, visual weight, element budget, naming order, three real search
+  tags, canonical source formatting. It runs in CI and in `npm run check`.
+- **Redrawn for the standard:** `server-stack` (a third lighter, no longer a
+  block at 16px), `bell`, `gauge`, `list-ordered`, `list-plus`, `scroll-text`,
+  `projector`, `voice-agent` (re-centred), `alert-triangle` (on the grid).
+  79 source files normalised to ` />`; metadata keys ordered.
+- **Search:** 90 icons gained tags (every icon now has at least three besides
+  its name), domain words for fleet and fuel work (`bill of lading`, `cdl`,
+  `hours of service`, `fuel card`, ...), and 77 aliases so both Lucide naming
+  conventions resolve (`circle-x` and `x-circle`, `square-check`,
+  `shield-check`, `layout-dashboard`, `hard-drive`, `lock-open`, ...).
+- **MUI:** per-icon entries `@burtson-labs/icons/mui/<name>`, and `title` is
+  accepted as an alias of `titleAccess` so `/react` and `/mui` label icons the
+  same way. The `/mui` barrel now tree-shakes like `/react`.
+- **Package:** `./package.json` export; `aliases` is typed
+  `Record<IconAlias, IconName>`. Verified with a Vite fixture (one icon from
+  the `/react` barrel is a 2 KB chunk) and strict `tsc` with
+  `skipLibCheck: false` under bundler and Node16 resolution.
+- **Tests:** export contract (every icon on every surface and no orphans),
+  wrapper markup snapshots (React, MUI, brands), metadata schema, lint rules.
+- icons.burtson.ai: MUI tab and usage block; counts and previews regenerated.
+
 ## 0.4.4
 
 icons.burtson.ai code blocks now match ui.burtson.ai: syntax colouring

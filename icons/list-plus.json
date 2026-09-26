@@ -1,6 +1,6 @@
 {
-  "tags": ["add to list", "new item"],
+  "tags": ["add to list", "new item", "append", "add row"],
   "categories": ["interface"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["playlist-add"]
+  "aliases": ["playlist-add"],
+  "contributors": ["burtson-labs"]
 }

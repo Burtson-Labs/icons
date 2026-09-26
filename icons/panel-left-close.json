@@ -1,5 +1,5 @@
 {
-  "tags": ["collapse sidebar", "hide panel"],
+  "tags": ["collapse sidebar", "hide panel", "sidebar toggle", "left panel"],
   "categories": ["interface"],
   "contributors": ["burtson-labs"]
 }

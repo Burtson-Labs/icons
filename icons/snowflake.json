@@ -1,6 +1,6 @@
 {
   "tags": ["freeze", "cold", "frozen"],
   "categories": ["status"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["ac-unit"]
+  "aliases": ["ac-unit"],
+  "contributors": ["burtson-labs"]
 }

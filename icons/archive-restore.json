@@ -1,6 +1,6 @@
 {
   "tags": ["unarchive", "restore", "box"],
   "categories": ["files"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["unarchive"]
+  "aliases": ["unarchive"],
+  "contributors": ["burtson-labs"]
 }

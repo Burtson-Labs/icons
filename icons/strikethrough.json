@@ -1,6 +1,6 @@
 {
-  "tags": ["strikethrough", "format", "text"],
+  "tags": ["strikethrough", "format", "text", "cross out", "delete text"],
   "categories": ["interface"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["format-strikethrough"]
+  "aliases": ["format-strikethrough"],
+  "contributors": ["burtson-labs"]
 }

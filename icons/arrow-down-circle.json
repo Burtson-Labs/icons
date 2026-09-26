@@ -1,6 +1,6 @@
 {
-  "tags": ["download", "down"],
+  "tags": ["download", "down", "circle-arrow-down", "scroll down"],
   "categories": ["interface"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["arrow-circle-down"]
+  "aliases": ["arrow-circle-down", "circle-arrow-down"],
+  "contributors": ["burtson-labs"]
 }

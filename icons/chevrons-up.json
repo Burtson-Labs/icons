@@ -1,6 +1,6 @@
 {
-  "tags": ["collapse all", "top"],
+  "tags": ["collapse all", "top", "double chevron", "skip up"],
   "categories": ["interface"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["keyboard-double-arrow-up"]
+  "aliases": ["keyboard-double-arrow-up"],
+  "contributors": ["burtson-labs"]
 }

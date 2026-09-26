@@ -1,6 +1,6 @@
 {
   "tags": ["key", "passkey", "credential"],
   "categories": ["security"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["passkey"]
+  "aliases": ["passkey"],
+  "contributors": ["burtson-labs"]
 }

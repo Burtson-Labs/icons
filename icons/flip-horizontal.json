@@ -1,6 +1,6 @@
 {
-  "tags": ["mirror", "flip"],
+  "tags": ["mirror", "flip", "reflect", "horizontal"],
   "categories": ["interface"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["flip"]
+  "aliases": ["flip"],
+  "contributors": ["burtson-labs"]
 }

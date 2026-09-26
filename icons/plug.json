@@ -1,6 +1,6 @@
 {
   "tags": ["plug", "power", "connect", "integration"],
   "categories": ["infrastructure"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["power-plug"]
+  "aliases": ["power-plug"],
+  "contributors": ["burtson-labs"]
 }

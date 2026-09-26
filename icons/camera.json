@@ -1,6 +1,6 @@
 {
-  "tags": ["camera", "photo", "capture"],
+  "tags": ["camera", "photo", "capture", "picture"],
   "categories": ["interface"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["photo-camera"]
+  "aliases": ["photo-camera"],
+  "contributors": ["burtson-labs"]
 }

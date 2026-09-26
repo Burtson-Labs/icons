@@ -1,0 +1,6 @@
+{
+  "tags": ["upload", "cloud", "sync", "backup", "send", "remote", "save to cloud"],
+  "categories": ["infrastructure", "interface"],
+  "aliases": ["upload-cloud", "cloud-arrow-up", "backup"],
+  "contributors": ["burtson-labs"]
+}

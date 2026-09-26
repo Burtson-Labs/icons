@@ -1,6 +1,6 @@
 {
   "tags": ["edit", "compose", "new note"],
   "categories": ["interface"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["compose", "pencil-square"]
+  "aliases": ["compose", "pencil-square", "square-pen", "pen-square"],
+  "contributors": ["burtson-labs"]
 }

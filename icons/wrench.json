@@ -1,6 +1,6 @@
 {
   "tags": ["tools", "fix", "configure"],
   "categories": ["development"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["tool"]
+  "aliases": ["tool"],
+  "contributors": ["burtson-labs"]
 }

@@ -1,5 +1,6 @@
 {
-  "tags": ["panel", "grid", "dashboard", "layout"],
+  "tags": ["panel", "grid", "dashboard", "layout", "layout-dashboard"],
   "categories": ["interface"],
+  "aliases": ["layout-dashboard"],
   "contributors": ["burtson-labs"]
 }

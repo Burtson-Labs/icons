@@ -1,6 +1,6 @@
 {
   "tags": ["read mail", "opened", "email"],
   "categories": ["interface"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["drafts"]
+  "aliases": ["drafts"],
+  "contributors": ["burtson-labs"]
 }

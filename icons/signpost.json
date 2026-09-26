@@ -1,0 +1,15 @@
+{
+  "tags": [
+    "tour",
+    "guide",
+    "directions",
+    "onboarding",
+    "wayfinding",
+    "waypoint",
+    "walkthrough",
+    "help"
+  ],
+  "categories": ["interface"],
+  "aliases": ["tour", "guided-tour"],
+  "contributors": ["burtson-labs"]
+}

@@ -1,6 +1,6 @@
 {
   "tags": ["cursor", "pointer", "click", "select"],
   "categories": ["interface"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["cursor", "near-me"]
+  "aliases": ["cursor", "near-me"],
+  "contributors": ["burtson-labs"]
 }

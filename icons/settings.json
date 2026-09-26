@@ -1,6 +1,6 @@
 {
   "tags": ["settings", "cog", "preferences", "gear"],
   "categories": ["interface"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["cog", "gear"]
+  "aliases": ["cog", "gear", "settings-2"],
+  "contributors": ["burtson-labs"]
 }

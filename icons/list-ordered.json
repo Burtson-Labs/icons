@@ -1,6 +1,6 @@
 {
-  "tags": ["numbered list", "ordered"],
+  "tags": ["numbered list", "ordered", "1 2 3", "sequence"],
   "categories": ["interface"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["format-list-numbered"]
+  "aliases": ["format-list-numbered"],
+  "contributors": ["burtson-labs"]
 }

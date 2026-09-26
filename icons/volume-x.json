@@ -1,6 +1,6 @@
 {
   "tags": ["mute", "silent", "no sound"],
   "categories": ["voice"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["volume-off", "mute"]
+  "aliases": ["volume-off", "mute"],
+  "contributors": ["burtson-labs"]
 }

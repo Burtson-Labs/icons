@@ -1,6 +1,6 @@
 {
   "tags": ["face id", "recognition", "scan"],
   "categories": ["security", "people"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["face-id"]
+  "aliases": ["face-id"],
+  "contributors": ["burtson-labs"]
 }

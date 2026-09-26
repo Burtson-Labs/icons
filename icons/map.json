@@ -1,5 +1,5 @@
 {
-  "tags": ["map", "location", "area"],
+  "tags": ["map", "location", "area", "geography", "directions", "region"],
   "categories": ["interface"],
   "contributors": ["burtson-labs"]
 }

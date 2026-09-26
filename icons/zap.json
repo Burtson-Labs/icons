@@ -1,6 +1,6 @@
 {
   "tags": ["fast", "power", "bolt", "action"],
   "categories": ["status", "interface"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["bolt", "lightning"]
+  "aliases": ["bolt", "lightning"],
+  "contributors": ["burtson-labs"]
 }

@@ -1,6 +1,6 @@
 {
   "tags": ["color picker", "eyedropper", "sample"],
   "categories": ["interface"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["colorize", "eyedropper"]
+  "aliases": ["colorize", "eyedropper"],
+  "contributors": ["burtson-labs"]
 }

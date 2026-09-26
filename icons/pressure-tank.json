@@ -1,0 +1,15 @@
+{
+  "tags": [
+    "anhydrous",
+    "ammonia",
+    "nh3",
+    "lpg",
+    "bulk storage",
+    "bullet tank",
+    "nurse tank",
+    "pressure vessel"
+  ],
+  "categories": ["operations"],
+  "aliases": ["bullet-tank", "nurse-tank"],
+  "contributors": ["burtson-labs"]
+}

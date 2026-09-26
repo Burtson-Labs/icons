@@ -1,6 +1,6 @@
 {
-  "tags": ["film", "movie", "video"],
+  "tags": ["film", "movie", "video", "clip", "reel"],
   "categories": ["files", "evidence"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["movie"]
+  "aliases": ["movie"],
+  "contributors": ["burtson-labs"]
 }

@@ -1,0 +1,6 @@
+{
+  "tags": ["db", "storage", "sql", "table", "records", "postgres", "mongo", "data"],
+  "categories": ["data", "infrastructure"],
+  "aliases": ["db", "storage"],
+  "contributors": ["burtson-labs"]
+}

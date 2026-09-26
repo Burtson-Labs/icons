@@ -1,6 +1,6 @@
 {
   "tags": ["account", "profile", "avatar"],
   "categories": ["people"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["account", "avatar"]
+  "aliases": ["account", "avatar", "circle-user", "circle-user-round", "account-circle"],
+  "contributors": ["burtson-labs"]
 }

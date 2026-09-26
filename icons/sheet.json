@@ -1,6 +1,6 @@
 {
-  "tags": ["spreadsheet", "sheet", "excel"],
+  "tags": ["spreadsheet", "sheet", "excel", "grid", "cells"],
   "categories": ["documents"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["spreadsheet"]
+  "aliases": ["spreadsheet"],
+  "contributors": ["burtson-labs"]
 }

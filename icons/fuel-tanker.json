@@ -1,6 +1,18 @@
 {
-  "tags": ["fuel", "tanker", "truck", "transport", "petroleum", "bulk", "hauling", "logistics"],
+  "tags": [
+    "fuel",
+    "tanker",
+    "truck",
+    "transport",
+    "petroleum",
+    "bulk",
+    "hauling",
+    "logistics",
+    "dot 406",
+    "mc 306",
+    "petroleum trailer"
+  ],
   "categories": ["operations"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["tank-truck", "fuel-truck"]
+  "aliases": ["tank-truck", "fuel-truck"],
+  "contributors": ["burtson-labs"]
 }

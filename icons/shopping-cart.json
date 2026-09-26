@@ -1,6 +1,6 @@
 {
   "tags": ["cart", "shop", "buy", "checkout"],
   "categories": ["interface"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["cart"]
+  "aliases": ["cart"],
+  "contributors": ["burtson-labs"]
 }

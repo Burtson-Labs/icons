@@ -1,6 +1,6 @@
 {
   "tags": ["support", "help", "rescue"],
   "categories": ["interface"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["support"]
+  "aliases": ["support"],
+  "contributors": ["burtson-labs"]
 }

@@ -1,6 +1,6 @@
 {
-  "tags": ["filter", "funnel", "narrow"],
+  "tags": ["filter", "funnel", "narrow", "refine"],
   "categories": ["interface"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["funnel"]
+  "aliases": ["funnel"],
+  "contributors": ["burtson-labs"]
 }

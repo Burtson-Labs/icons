@@ -1,6 +1,6 @@
 {
   "tags": ["delete", "remove", "bin"],
   "categories": ["interface"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["bin", "delete", "delete-outline", "delete-sweep"]
+  "aliases": ["bin", "delete", "delete-outline", "delete-sweep", "trash-2"],
+  "contributors": ["burtson-labs"]
 }

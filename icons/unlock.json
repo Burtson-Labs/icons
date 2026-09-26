@@ -1,6 +1,6 @@
 {
-  "tags": ["unlock", "open", "unsecure"],
+  "tags": ["unlock", "open", "unsecure", "unlocked", "lock-open", "access"],
   "categories": ["security", "interface"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["lock-open"]
+  "aliases": ["lock-open", "lock-open-right"],
+  "contributors": ["burtson-labs"]
 }

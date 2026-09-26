@@ -1,6 +1,6 @@
 {
   "tags": ["sound", "speaker", "audio"],
   "categories": ["voice"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["speaker", "sound"]
+  "aliases": ["speaker", "sound", "volume-2"],
+  "contributors": ["burtson-labs"]
 }

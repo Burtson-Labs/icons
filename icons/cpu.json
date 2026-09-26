@@ -1,6 +1,6 @@
 {
   "tags": ["cpu", "processor", "chip", "compute"],
   "categories": ["infrastructure", "development"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["chip", "processor"]
+  "aliases": ["chip", "processor"],
+  "contributors": ["burtson-labs"]
 }

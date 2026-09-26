@@ -1,6 +1,6 @@
 {
-  "tags": ["monitor", "display", "screen", "desktop"],
+  "tags": ["monitor", "display", "screen", "desktop", "laptop", "computer"],
   "categories": ["interface"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["display", "desktop"]
+  "aliases": ["display", "desktop"],
+  "contributors": ["burtson-labs"]
 }

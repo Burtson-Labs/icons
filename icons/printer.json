@@ -1,6 +1,6 @@
 {
-  "tags": ["print", "printer"],
+  "tags": ["print", "printer", "hard copy", "paper", "output"],
   "categories": ["interface", "documents"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["print"]
+  "aliases": ["print"],
+  "contributors": ["burtson-labs"]
 }

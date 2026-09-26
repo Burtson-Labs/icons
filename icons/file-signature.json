@@ -1,6 +1,6 @@
 {
-  "tags": ["sign", "signature", "contract"],
+  "tags": ["sign", "signature", "contract", "bill of lading", "bol", "ebol"],
   "categories": ["files", "documents"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["signature"]
+  "aliases": ["signature"],
+  "contributors": ["burtson-labs"]
 }

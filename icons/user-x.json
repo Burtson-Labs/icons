@@ -1,6 +1,6 @@
 {
   "tags": ["remove user", "blocked user", "user off"],
   "categories": ["people"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["person-off", "user-minus"]
+  "aliases": ["person-off", "user-minus"],
+  "contributors": ["burtson-labs"]
 }

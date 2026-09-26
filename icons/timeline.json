@@ -1,6 +1,6 @@
 {
   "tags": ["gantt", "schedule", "roadmap"],
   "categories": ["interface", "documents"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["gantt-chart"]
+  "aliases": ["gantt-chart"],
+  "contributors": ["burtson-labs"]
 }

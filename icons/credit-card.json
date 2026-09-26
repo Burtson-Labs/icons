@@ -1,6 +1,6 @@
 {
-  "tags": ["card", "payment", "billing"],
+  "tags": ["card", "payment", "billing", "fuel card", "charge", "purchase"],
   "categories": ["interface"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["payment"]
+  "aliases": ["payment"],
+  "contributors": ["burtson-labs"]
 }

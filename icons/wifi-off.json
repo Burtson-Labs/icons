@@ -1,6 +1,6 @@
 {
   "tags": ["offline", "no signal", "disconnected"],
   "categories": ["infrastructure", "status"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["signal-wifi-off"]
+  "aliases": ["signal-wifi-off"],
+  "contributors": ["burtson-labs"]
 }

@@ -1,6 +1,6 @@
 {
-  "tags": ["image", "photo", "picture"],
+  "tags": ["image", "photo", "picture", "gallery"],
   "categories": ["files"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["photo"]
+  "aliases": ["photo"],
+  "contributors": ["burtson-labs"]
 }

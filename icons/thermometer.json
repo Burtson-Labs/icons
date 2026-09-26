@@ -1,6 +1,6 @@
 {
   "tags": ["temperature", "heat", "thermal"],
   "categories": ["status", "infrastructure"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["thermostat", "device-thermostat"]
+  "aliases": ["thermostat", "device-thermostat"],
+  "contributors": ["burtson-labs"]
 }

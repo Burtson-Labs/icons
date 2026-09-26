@@ -1,6 +1,6 @@
 {
-  "tags": ["heart", "like", "love"],
+  "tags": ["heart", "like", "love", "favourite"],
   "categories": ["interface"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["like"]
+  "aliases": ["like"],
+  "contributors": ["burtson-labs"]
 }

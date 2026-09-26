@@ -1,5 +1,6 @@
 {
   "tags": ["git", "review", "pull", "request", "approve"],
   "categories": ["development"],
+  "aliases": ["git-pull-request"],
   "contributors": ["burtson-labs"]
 }

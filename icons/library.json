@@ -1,6 +1,6 @@
 {
-  "tags": ["library", "collection", "books"],
+  "tags": ["library", "collection", "books", "archive"],
   "categories": ["documents"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["local-library"]
+  "aliases": ["local-library"],
+  "contributors": ["burtson-labs"]
 }

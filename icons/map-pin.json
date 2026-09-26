@@ -1,0 +1,6 @@
+{
+  "tags": ["location", "place", "marker", "pin", "address", "stop", "gps"],
+  "categories": ["interface"],
+  "aliases": ["location-on", "place", "location-pin"],
+  "contributors": ["burtson-labs"]
+}

@@ -1,6 +1,6 @@
 {
   "tags": ["theme", "colors", "appearance", "swatch"],
   "categories": ["interface"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["swatch", "theme"]
+  "aliases": ["swatch", "theme"],
+  "contributors": ["burtson-labs"]
 }

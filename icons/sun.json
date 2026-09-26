@@ -1,6 +1,6 @@
 {
   "tags": ["light", "theme", "day", "brightness"],
   "categories": ["interface"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["light-mode"]
+  "aliases": ["light-mode"],
+  "contributors": ["burtson-labs"]
 }

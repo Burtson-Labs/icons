@@ -5,7 +5,9 @@ import { test } from 'node:test';
 
 import { JSDOM } from 'jsdom';
 
-import { ROOT } from '../scripts/lib.mjs';
+import { ROOT, listIconNames } from '../scripts/lib.mjs';
+
+const COUNT = listIconNames().length;
 
 // DOM behavior tests; jsdom has no layout, native dialog focus trap, or contrast engine.
 function open(query = '', mobile = false) {
@@ -46,7 +48,7 @@ test('search accepts multiple words and normalizes hyphens', () => {
     input(dom, 'search', 'zzzz-no-match');
     assert.equal(dom.window.document.getElementById('result-count').textContent, '0 icons');
     dom.window.document.getElementById('empty-reset').click();
-    assert.equal(dom.window.document.querySelectorAll('.tile').length, 384);
+    assert.equal(dom.window.document.querySelectorAll('.tile').length, COUNT);
   } finally {
     dom.window.close();
   }
@@ -70,7 +72,7 @@ test('size, stroke, format and accessibility mode survive a shared link', () => 
 test('malformed URL encoding does not break initialization', () => {
   const dom = open('#%E0%A4%A');
   try {
-    assert.equal(dom.window.document.querySelectorAll('.tile').length, 384);
+    assert.equal(dom.window.document.querySelectorAll('.tile').length, COUNT);
   } finally {
     dom.window.close();
   }
@@ -102,7 +104,7 @@ test('format tabs and icon results have one tab stop and support arrows', () => 
     first.dispatchEvent(
       new dom.window.KeyboardEvent('keydown', { key: 'ArrowRight', bubbles: true }),
     );
-    assert.equal(d.activeElement.dataset.tab, 'svg');
+    assert.equal(d.activeElement.dataset.tab, 'mui');
     assert.equal(d.activeElement.getAttribute('aria-selected'), 'true');
     assert.equal(d.getElementById('code').getAttribute('aria-labelledby'), d.activeElement.id);
   } finally {
@@ -120,6 +122,18 @@ test('mobile selection opens an inspector and closing restores its location', ()
     d.getElementById('close-inspector').click();
     assert.equal(d.getElementById('mobile-inspector').open, false);
     assert.equal(d.getElementById('inspector').parentElement.className, 'shell');
+  } finally {
+    dom.window.close();
+  }
+});
+
+test('the MUI tab shows a per-icon import with the chosen size and a titleAccess label', () => {
+  const dom = open('?format=mui&size=20&decorative=false#agent-loop');
+  try {
+    const code = dom.window.document.getElementById('code').textContent;
+    assert.match(code, /@burtson-labs\/icons\/mui\/agent-loop/);
+    assert.match(code, /fontSize: 20/);
+    assert.match(code, /titleAccess="agent loop"/);
   } finally {
     dom.window.close();
   }
@@ -144,7 +158,7 @@ test('code blocks are coloured and each has a copy button that copies its own te
   const blocks = [...doc.querySelectorAll('.usage .code-block')];
   assert.deepEqual(
     blocks.map((b) => b.querySelector('figcaption').textContent),
-    ['Install', 'React', 'JavaScript', 'CDN'],
+    ['Install', 'React', 'MUI', 'JavaScript', 'CDN'],
   );
   for (const b of blocks) assert.ok(b.querySelector('.copy-code'), 'copy button');
   assert.ok(doc.querySelector('#code .tok-string'), 'inspector code is highlighted');

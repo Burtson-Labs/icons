@@ -1,0 +1,6 @@
+{
+  "tags": ["geofence", "boundary", "zone", "perimeter", "location", "yard", "telematics", "gps"],
+  "categories": ["operations", "infrastructure"],
+  "aliases": ["fence-pin"],
+  "contributors": ["burtson-labs"]
+}

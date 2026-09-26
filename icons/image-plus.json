@@ -1,6 +1,6 @@
 {
-  "tags": ["add image", "upload photo"],
+  "tags": ["add image", "upload photo", "new image", "insert picture"],
   "categories": ["files"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["add-photo-alternate"]
+  "aliases": ["add-photo-alternate"],
+  "contributors": ["burtson-labs"]
 }

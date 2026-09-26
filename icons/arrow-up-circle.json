@@ -1,6 +1,6 @@
 {
   "tags": ["upload", "upgrade", "up"],
   "categories": ["interface"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["arrow-circle-up"]
+  "aliases": ["arrow-circle-up", "circle-arrow-up"],
+  "contributors": ["burtson-labs"]
 }

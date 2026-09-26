@@ -1,6 +1,6 @@
 {
-  "tags": ["search", "find", "magnifier"],
+  "tags": ["search", "find", "magnifier", "lookup"],
   "categories": ["interface"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["magnifying-glass", "find"]
+  "aliases": ["magnifying-glass", "find"],
+  "contributors": ["burtson-labs"]
 }

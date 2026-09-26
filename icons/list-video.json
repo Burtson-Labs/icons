@@ -1,6 +1,6 @@
 {
   "tags": ["playlist", "videos", "queue"],
   "categories": ["voice", "evidence"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["playlist-play"]
+  "aliases": ["playlist-play"],
+  "contributors": ["burtson-labs"]
 }

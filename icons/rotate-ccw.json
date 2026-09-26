@@ -1,6 +1,6 @@
 {
   "tags": ["reset", "restore", "revert"],
   "categories": ["interface"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["reset"]
+  "aliases": ["reset"],
+  "contributors": ["burtson-labs"]
 }

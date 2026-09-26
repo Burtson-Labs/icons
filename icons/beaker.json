@@ -1,6 +1,6 @@
 {
-  "tags": ["experiment", "lab", "test"],
+  "tags": ["experiment", "lab", "test", "flask"],
   "categories": ["development"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["experiment", "flask", "flask-conical", "science", "test-tube"]
+  "aliases": ["experiment", "flask", "flask-conical", "science", "test-tube"],
+  "contributors": ["burtson-labs"]
 }

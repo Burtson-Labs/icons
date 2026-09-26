@@ -1,6 +1,6 @@
 {
-  "tags": ["agent", "assistant", "bot", "ai chat"],
+  "tags": ["agent", "assistant", "bot", "ai chat", "ai"],
   "categories": ["agents"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["bot", "assistant"]
+  "aliases": ["bot", "assistant"],
+  "contributors": ["burtson-labs"]
 }

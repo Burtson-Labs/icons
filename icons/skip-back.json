@@ -1,6 +1,6 @@
 {
   "tags": ["previous", "back", "rewind"],
   "categories": ["voice", "interface"],
-  "contributors": ["burtson-labs"],
-  "aliases": ["skip-previous"]
+  "aliases": ["skip-previous"],
+  "contributors": ["burtson-labs"]
 }
