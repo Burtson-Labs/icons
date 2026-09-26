@@ -32,3 +32,13 @@ for (const [label, load] of [
     assert.match(html, /viewBox="0 0 24 24"/);
   });
 }
+
+test('title labels an MUI icon like titleAccess, and per-icon entries exist', async () => {
+  const { AgentLoop } = await import('../dist/mui/agent-loop.js');
+  const html = renderToString(createElement(AgentLoop, { title: 'Agent loop' }));
+  assert.match(html, /role="img"/);
+  assert.match(html, /<title>Agent loop<\/title>/);
+  assert.doesNotMatch(html, / title="/);
+  const hidden = renderToString(createElement(AgentLoop));
+  assert.match(hidden, /aria-hidden="true"/);
+});

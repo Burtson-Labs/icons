@@ -271,7 +271,7 @@ export function enhanceDist(root = ROOT) {
   coreTypes.push(
     `export declare const version: string;`,
     `export declare const iconNodes: Readonly<Record<IconName, IconNode>>;`,
-    `export declare const aliases: Readonly<Record<string, IconName>>;`,
+    `export declare const aliases: Readonly<Record<IconAlias, IconName>>;`,
     `export declare function resolveIcon(icon: IconKey | IconNode): IconNode;`,
     `export declare function toSvg(icon: IconKey | IconNode, options?: SvgOptions): string;`,
   );

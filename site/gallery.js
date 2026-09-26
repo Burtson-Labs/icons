@@ -154,6 +154,38 @@
         a11y +
         '\n/>'
       );
+    if (format === 'mui') {
+      if (isBrand(i))
+        return (
+          '// Brand logos ship as React components (no MUI entry).\n' +
+          'import { ' +
+          i.p +
+          " } from '@burtson-labs/icons/brands/react/" +
+          i.n +
+          "';\n\n<" +
+          i.p +
+          ' size={' +
+          size() +
+          '} colored ' +
+          a11y +
+          ' />'
+        );
+      return (
+        'import { ' +
+        i.p +
+        " } from '@burtson-labs/icons/mui/" +
+        i.n +
+        "';\n\n<" +
+        i.p +
+        '\n  sx={{ fontSize: ' +
+        size() +
+        ' }}\n  strokeWidth={' +
+        weight() +
+        '}\n  ' +
+        (decorative ? '' : 'titleAccess=' + JSON.stringify(label(i)) + '\n  ') +
+        '/>'
+      );
+    }
     if (format === 'svg') return svg(i, size(), decorative, isBrand(i)).replace(/></g, '>\n<');
     const directory = isBrand(i) ? 'brands/svg-color' : 'svg-accent';
     return (
@@ -209,10 +241,12 @@
     $('code').setAttribute('aria-labelledby', 'format-' + format);
     $('export-note').textContent =
       format === 'cdn'
-        ? 'CDN files use their published weight. Use React or SVG for your custom stroke.'
-        : $('decorative').checked
-          ? 'Decorative: hidden from assistive technology. Give the parent button its own label.'
-          : 'Meaningful: includes an accessible name.';
+        ? 'CDN files use their published weight. Use React, MUI or SVG for your custom stroke.'
+        : format === 'mui'
+          ? 'MUI: fontSize="small" | "medium" | "large" or any sx font size; color and sx apply as on @mui/icons-material.'
+          : $('decorative').checked
+            ? 'Decorative: hidden from assistive technology. Give the parent button its own label.'
+            : 'Meaningful: includes an accessible name.';
     $('weight').disabled = isBrand(selected);
     $('save').textContent = saved.has(key(selected)) ? 'Saved ✓' : 'Save icon';
     $('save').setAttribute('aria-pressed', String(saved.has(key(selected))));
@@ -566,7 +600,7 @@
       ? params.get('collection')
       : 'all';
     $('search').value = params.get('q') || '';
-    format = ['react', 'svg', 'cdn'].includes(params.get('format'))
+    format = ['react', 'mui', 'svg', 'cdn'].includes(params.get('format'))
       ? params.get('format')
       : 'react';
     $('decorative').checked = params.get('decorative') !== 'false';
