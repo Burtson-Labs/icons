@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.6.0
+
+- Eleven new workflow, profile and connection icons: agent-pause, agent-resume, agent-cancel,
+  agent-plan, context-compress, checkpoint-restore, user-image, run-history,
+  panel-review, memory-search and wifi-low. 414 icons in total.
+- Add legacy Material and Lucide search aliases from a scan of 671 Bandit/Engine
+  references. PascalCase names and Material style suffixes work in gallery search;
+  code samples use canonical exports. The mapping is in design/stack-coverage.json.
+- Redraw agent-handoff and agent-swarm to keep their meaning clear at small sizes.
+- React icons no longer shrink inside a flex row. Explicit inline style overrides remain supported.
+- Match the UI documentation's typography and package navigation, including mobile navigation.
+  Add workflow shortcuts and a 20px preview beside a real label in the inspector.
+
 ## 0.5.0
 
 Quality pass over the set, measured rather than eyeballed, plus the icons the

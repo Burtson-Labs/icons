@@ -1,0 +1,6 @@
+{
+  "tags": ["wifi", "weak", "degraded", "connection", "signal"],
+  "categories": ["infrastructure", "status"],
+  "aliases": ["signal-wifi2-bar"],
+  "contributors": ["burtson-labs"]
+}

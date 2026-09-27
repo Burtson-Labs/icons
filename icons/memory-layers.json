@@ -1,5 +1,6 @@
 {
   "tags": ["memory", "persistent", "recall", "layers"],
   "categories": ["agents", "data"],
+  "aliases": ["memory"],
   "contributors": ["burtson-labs"]
 }

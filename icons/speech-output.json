@@ -1,5 +1,6 @@
 {
   "tags": ["speech", "output", "synthesis", "tts"],
   "categories": ["voice"],
+  "aliases": ["record-voice-over"],
   "contributors": ["burtson-labs"]
 }

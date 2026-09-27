@@ -99,7 +99,7 @@ export function createIcon(displayName, node) {
   validateNode(node);
   const Component = forwardRef(function BurtsonIcon({
     size = 24, color = 'currentColor', strokeWidth = 2, absoluteStrokeWidth = false,
-    title, titleId, className, children,
+    title, titleId, className, children, style,
     'aria-label': ariaLabel, 'aria-labelledby': ariaLabelledby, 'aria-hidden': ariaHidden,
     ...rest
   }, ref) {
@@ -111,6 +111,7 @@ export function createIcon(displayName, node) {
       ref, xmlns:'http://www.w3.org/2000/svg', width:size, height:size, viewBox:'0 0 24 24',
       fill:'none', stroke:color, strokeWidth, strokeLinecap:'round', strokeLinejoin:'round',
       className:['bl-icon', className].filter(Boolean).join(' '), focusable:'false',
+      style:{flexShrink:0, verticalAlign:'middle', ...style},
       role: hidden === true || hidden === 'true' ? undefined : 'img',
       'aria-hidden':hidden, 'aria-label':ariaLabel,
       'aria-labelledby':ariaLabelledby || (!ariaLabel && title ? resolvedTitleId : undefined),

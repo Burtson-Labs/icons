@@ -1,5 +1,6 @@
 {
   "tags": ["list", "items", "bullets", "rows"],
   "categories": ["interface"],
+  "aliases": ["view-list"],
   "contributors": ["burtson-labs"]
 }

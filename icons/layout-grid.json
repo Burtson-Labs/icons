@@ -1,6 +1,6 @@
 {
   "tags": ["grid", "apps", "dashboard"],
   "categories": ["interface"],
-  "aliases": ["apps"],
+  "aliases": ["apps", "view-module"],
   "contributors": ["burtson-labs"]
 }

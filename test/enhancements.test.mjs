@@ -168,3 +168,14 @@ test(
     assert.ok(!label.includes('aria-hidden="true"'));
   },
 );
+
+test('React icons keep their width in flex layouts and accept an explicit style override', async () => {
+  const { createElement } = await import('react');
+  const { renderToStaticMarkup } = await import('react-dom/server');
+  const { AgentLoop } = await import('../dist/react.js');
+  assert.match(renderToStaticMarkup(createElement(AgentLoop)), /flex-shrink:0/);
+  assert.match(
+    renderToStaticMarkup(createElement(AgentLoop, { style: { flexShrink: 1, color: 'red' } })),
+    /flex-shrink:1;vertical-align:middle;color:red/,
+  );
+});

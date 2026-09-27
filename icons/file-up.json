@@ -1,5 +1,6 @@
 {
   "tags": ["upload file", "import", "file upload", "send file"],
   "categories": ["files"],
+  "aliases": ["upload-file"],
   "contributors": ["burtson-labs"]
 }

@@ -1,6 +1,6 @@
 {
   "tags": ["alert", "error", "warning"],
   "categories": ["status"],
-  "aliases": ["circle-alert"],
+  "aliases": ["circle-alert", "error-outline", "error"],
   "contributors": ["burtson-labs"]
 }

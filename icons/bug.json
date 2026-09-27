@@ -1,5 +1,6 @@
 {
   "tags": ["bug", "debug", "issue", "defect"],
   "categories": ["development"],
+  "aliases": ["bug-report"],
   "contributors": ["burtson-labs"]
 }

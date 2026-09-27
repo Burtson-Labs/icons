@@ -1,6 +1,6 @@
 {
   "tags": ["more", "options", "kebab"],
   "categories": ["interface"],
-  "aliases": ["ellipsis-vertical"],
+  "aliases": ["ellipsis-vertical", "more-vert"],
   "contributors": ["burtson-labs"]
 }

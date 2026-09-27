@@ -1,6 +1,6 @@
 {
   "tags": ["launch", "deploy", "release", "ship"],
   "categories": ["development"],
-  "aliases": ["launch"],
+  "aliases": ["launch", "rocket-launch"],
   "contributors": ["burtson-labs"]
 }

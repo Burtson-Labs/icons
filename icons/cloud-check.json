@@ -1,5 +1,6 @@
 {
   "tags": ["synced", "cloud", "saved"],
   "categories": ["infrastructure", "status"],
+  "aliases": ["cloud-done"],
   "contributors": ["burtson-labs"]
 }

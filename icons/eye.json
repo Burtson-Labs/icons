@@ -1,6 +1,6 @@
 {
   "tags": ["view", "show", "visible", "preview"],
   "categories": ["interface"],
-  "aliases": ["view"],
+  "aliases": ["view", "visibility", "preview"],
   "contributors": ["burtson-labs"]
 }

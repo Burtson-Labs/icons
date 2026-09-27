@@ -1,6 +1,6 @@
 {
   "tags": ["settings", "adjust", "filters", "controls"],
   "categories": ["interface"],
-  "aliases": ["adjustments", "sliders-horizontal"],
+  "aliases": ["adjustments", "sliders-horizontal", "tune"],
   "contributors": ["burtson-labs"]
 }

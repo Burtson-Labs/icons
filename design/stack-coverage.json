@@ -1,0 +1,420 @@
+{
+  "referencesReviewed": 671,
+  "scope": ["bandit", "bandit-agent-framework", "bandit-engine", "bandit-chat-tenant-ui"],
+  "note": "Semantic alternatives for legacy imports. Aliases resolve through toSvg and search. React and MUI code uses the canonical icon name and entry point. Filled brand logos remain in brands.",
+  "mappings": [
+    {
+      "name": "Brain",
+      "uses": 8,
+      "example": "bandit/src/pages/labs.tsx",
+      "collection": "stroke",
+      "canonical": "agent"
+    },
+    {
+      "name": "MoreVert",
+      "uses": 6,
+      "example": "bandit-engine/src/chat/enhanced-mobile-conversations-modal.tsx",
+      "collection": "stroke",
+      "canonical": "more-vertical"
+    },
+    {
+      "name": "ExpandMore",
+      "uses": 4,
+      "example": "bandit-engine/src/chat/chat-input.tsx",
+      "collection": "stroke",
+      "canonical": "chevron-down"
+    },
+    {
+      "name": "ContentCopy",
+      "uses": 4,
+      "example": "bandit-engine/src/chat/conversation-item.tsx",
+      "collection": "stroke",
+      "canonical": "copy"
+    },
+    {
+      "name": "Description",
+      "uses": 4,
+      "example": "bandit-engine/src/modals/knowlege/knowledge-file-modal.tsx",
+      "collection": "stroke",
+      "canonical": "file-text"
+    },
+    {
+      "name": "Clear",
+      "uses": 3,
+      "example": "bandit-engine/src/chat/enhanced-mobile-conversations-modal.tsx",
+      "collection": "stroke",
+      "canonical": "x"
+    },
+    {
+      "name": "DragIndicator",
+      "uses": 3,
+      "example": "bandit-engine/src/chat/conversation-item.tsx",
+      "collection": "stroke",
+      "canonical": "grip-vertical"
+    },
+    {
+      "name": "RecordVoiceOver",
+      "uses": 3,
+      "example": "bandit-engine/src/chat/chat-app-bar.tsx",
+      "collection": "stroke",
+      "canonical": "speech-output"
+    },
+    {
+      "name": "ErrorOutline",
+      "uses": 3,
+      "example": "bandit-engine/src/chat/chat-app-bar.tsx",
+      "collection": "stroke",
+      "canonical": "alert-circle"
+    },
+    {
+      "name": "Article",
+      "uses": 3,
+      "example": "bandit-engine/src/modals/knowlege/knowledge-file-modal.tsx",
+      "collection": "stroke",
+      "canonical": "newspaper"
+    },
+    {
+      "name": "SignalWifi2Bar",
+      "uses": 3,
+      "example": "bandit-engine/src/chat/instant-message-feedback.tsx",
+      "collection": "stroke",
+      "canonical": "wifi-low"
+    },
+    {
+      "name": "PlayArrow",
+      "uses": 3,
+      "example": "bandit-engine/src/modals/chat-modal/ai-response-action-bar.tsx",
+      "collection": "stroke",
+      "canonical": "play"
+    },
+    {
+      "name": "Error",
+      "uses": 3,
+      "example": "bandit-engine/src/management/components/PreferencesTab.tsx",
+      "collection": "stroke",
+      "canonical": "alert-circle"
+    },
+    {
+      "name": "BugReport",
+      "uses": 2,
+      "example": "bandit-engine/src/debug/floating-project-debug.tsx",
+      "collection": "stroke",
+      "canonical": "bug"
+    },
+    {
+      "name": "Psychology",
+      "uses": 2,
+      "example": "bandit-engine/src/chat/chat-input.tsx",
+      "collection": "stroke",
+      "canonical": "agent"
+    },
+    {
+      "name": "CloudDone",
+      "uses": 2,
+      "example": "bandit-engine/src/chat/chat-app-bar.tsx",
+      "collection": "stroke",
+      "canonical": "cloud-check"
+    },
+    {
+      "name": "Sync",
+      "uses": 2,
+      "example": "bandit-engine/src/chat/chat-app-bar.tsx",
+      "collection": "stroke",
+      "canonical": "refresh"
+    },
+    {
+      "name": "Memory",
+      "uses": 2,
+      "example": "bandit-engine/src/modals/chat-modal/chat-drawer.tsx",
+      "collection": "stroke",
+      "canonical": "memory-layers"
+    },
+    {
+      "name": "ExpandLess",
+      "uses": 2,
+      "example": "bandit-engine/src/modals/chat-modal/chat-drawer.tsx",
+      "collection": "stroke",
+      "canonical": "chevron-up"
+    },
+    {
+      "name": "RotateLeft",
+      "uses": 2,
+      "example": "bandit-engine/src/components/LogoCropper.tsx",
+      "collection": "stroke",
+      "canonical": "rotate-ccw"
+    },
+    {
+      "name": "Restore",
+      "uses": 2,
+      "example": "bandit-engine/src/management/components/PreferencesTab.tsx",
+      "collection": "stroke",
+      "canonical": "history"
+    },
+    {
+      "name": "AutoAwesome",
+      "uses": 2,
+      "example": "bandit-engine/src/components/shared/ProcessingOverlay.tsx",
+      "collection": "stroke",
+      "canonical": "sparkles"
+    },
+    {
+      "name": "Apple",
+      "uses": 2,
+      "example": "bandit-chat-tenant-ui/src/gateway/TenantGateway.tsx",
+      "collection": "brands",
+      "canonical": "apple"
+    },
+    {
+      "name": "GitHub",
+      "uses": 2,
+      "example": "bandit-chat-tenant-ui/src/gateway/TenantGateway.tsx",
+      "collection": "brands",
+      "canonical": "github"
+    },
+    {
+      "name": "Google",
+      "uses": 2,
+      "example": "bandit-chat-tenant-ui/src/gateway/TenantGateway.tsx",
+      "collection": "brands",
+      "canonical": "google"
+    },
+    {
+      "name": "KeyboardArrowDown",
+      "uses": 1,
+      "example": "bandit-engine/src/chat/project-selector.tsx",
+      "collection": "stroke",
+      "canonical": "chevron-down"
+    },
+    {
+      "name": "ArrowUpward",
+      "uses": 1,
+      "example": "bandit-engine/src/chat/chat-input.tsx",
+      "collection": "stroke",
+      "canonical": "arrow-up"
+    },
+    {
+      "name": "StarBorder",
+      "uses": 1,
+      "example": "bandit-engine/src/chat/conversation-item.tsx",
+      "collection": "stroke",
+      "canonical": "star"
+    },
+    {
+      "name": "Notes",
+      "uses": 1,
+      "example": "bandit-engine/src/chat/chat-app-bar.tsx",
+      "collection": "stroke",
+      "canonical": "file-text"
+    },
+    {
+      "name": "NotesOutlined",
+      "uses": 1,
+      "example": "bandit-engine/src/chat/chat-app-bar.tsx",
+      "collection": "stroke",
+      "canonical": "file-text"
+    },
+    {
+      "name": "ArrowDownward",
+      "uses": 1,
+      "example": "bandit-engine/src/chat/chat-scroll-to-bottom-button.tsx",
+      "collection": "stroke",
+      "canonical": "arrow-down"
+    },
+    {
+      "name": "SignalWifiStatusbar4Bar",
+      "uses": 1,
+      "example": "bandit-engine/src/chat/instant-message-feedback.tsx",
+      "collection": "stroke",
+      "canonical": "wifi"
+    },
+    {
+      "name": "Fullscreen",
+      "uses": 1,
+      "example": "bandit-engine/src/modals/chat-modal/modal-header.tsx",
+      "collection": "stroke",
+      "canonical": "maximize"
+    },
+    {
+      "name": "FullscreenExit",
+      "uses": 1,
+      "example": "bandit-engine/src/modals/chat-modal/modal-header.tsx",
+      "collection": "stroke",
+      "canonical": "minimize"
+    },
+    {
+      "name": "ThumbUp",
+      "uses": 1,
+      "example": "bandit-engine/src/modals/chat-modal/ai-response-action-bar.tsx",
+      "collection": "stroke",
+      "canonical": "thumbs-up"
+    },
+    {
+      "name": "ThumbDown",
+      "uses": 1,
+      "example": "bandit-engine/src/modals/chat-modal/ai-response-action-bar.tsx",
+      "collection": "stroke",
+      "canonical": "thumbs-down"
+    },
+    {
+      "name": "VolumeUp",
+      "uses": 1,
+      "example": "bandit-engine/src/components/TTSControls.tsx",
+      "collection": "stroke",
+      "canonical": "volume"
+    },
+    {
+      "name": "PushPin",
+      "uses": 1,
+      "example": "bandit-engine/src/chat/memory-modal.tsx",
+      "collection": "stroke",
+      "canonical": "pin"
+    },
+    {
+      "name": "PushPinOutlined",
+      "uses": 1,
+      "example": "bandit-engine/src/chat/memory-modal.tsx",
+      "collection": "stroke",
+      "canonical": "pin"
+    },
+    {
+      "name": "Message",
+      "uses": 1,
+      "example": "bandit-engine/src/components/feedback/FeedbackModal.tsx",
+      "collection": "stroke",
+      "canonical": "message-square"
+    },
+    {
+      "name": "AttachFile",
+      "uses": 1,
+      "example": "bandit-engine/src/components/feedback/FeedbackModal.tsx",
+      "collection": "stroke",
+      "canonical": "paperclip"
+    },
+    {
+      "name": "PsychologyAltRounded",
+      "uses": 1,
+      "example": "bandit-engine/src/components/feedback/FeedbackModal.tsx",
+      "collection": "stroke",
+      "canonical": "agent"
+    },
+    {
+      "name": "AttachFileRounded",
+      "uses": 1,
+      "example": "bandit-engine/src/components/feedback/FeedbackModal.tsx",
+      "collection": "stroke",
+      "canonical": "paperclip"
+    },
+    {
+      "name": "ArrowBack",
+      "uses": 1,
+      "example": "bandit-engine/src/chat/project-management-modal.tsx",
+      "collection": "stroke",
+      "canonical": "arrow-left"
+    },
+    {
+      "name": "Visibility",
+      "uses": 1,
+      "example": "bandit-engine/src/management/components/MCPToolsTab.tsx",
+      "collection": "stroke",
+      "canonical": "eye"
+    },
+    {
+      "name": "SmartToy",
+      "uses": 1,
+      "example": "bandit-engine/src/components/shared/ProcessingOverlay.tsx",
+      "collection": "stroke",
+      "canonical": "agent"
+    },
+    {
+      "name": "RocketLaunchOutlined",
+      "uses": 1,
+      "example": "bandit-engine/src/management/components/PersonalitiesTab.tsx",
+      "collection": "stroke",
+      "canonical": "rocket"
+    },
+    {
+      "name": "ViewModuleOutlined",
+      "uses": 1,
+      "example": "bandit-engine/src/management/components/PersonalitiesTab.tsx",
+      "collection": "stroke",
+      "canonical": "layout-grid"
+    },
+    {
+      "name": "PlayArrowRounded",
+      "uses": 1,
+      "example": "bandit-engine/src/management/components/PersonalitiesTab.tsx",
+      "collection": "stroke",
+      "canonical": "play"
+    },
+    {
+      "name": "Preview",
+      "uses": 1,
+      "example": "bandit-engine/src/management/components/BrandingTab.tsx",
+      "collection": "stroke",
+      "canonical": "eye"
+    },
+    {
+      "name": "FileUpload",
+      "uses": 1,
+      "example": "bandit-engine/src/management/components/BrandingTab.tsx",
+      "collection": "stroke",
+      "canonical": "upload"
+    },
+    {
+      "name": "ViewModule",
+      "uses": 1,
+      "example": "bandit-engine/src/management/components/KnowledgeTab.tsx",
+      "collection": "stroke",
+      "canonical": "layout-grid"
+    },
+    {
+      "name": "ViewList",
+      "uses": 1,
+      "example": "bandit-engine/src/management/components/KnowledgeTab.tsx",
+      "collection": "stroke",
+      "canonical": "list"
+    },
+    {
+      "name": "UploadFile",
+      "uses": 1,
+      "example": "bandit-engine/src/management/components/KnowledgeTab.tsx",
+      "collection": "stroke",
+      "canonical": "file-up"
+    },
+    {
+      "name": "Group",
+      "uses": 1,
+      "example": "bandit-engine/src/management/components/KnowledgeTab.tsx",
+      "collection": "stroke",
+      "canonical": "users"
+    },
+    {
+      "name": "Public",
+      "uses": 1,
+      "example": "bandit-engine/src/management/components/KnowledgeTab.tsx",
+      "collection": "stroke",
+      "canonical": "globe"
+    },
+    {
+      "name": "Tune",
+      "uses": 1,
+      "example": "bandit-engine/src/management/management.tsx",
+      "collection": "stroke",
+      "canonical": "sliders"
+    },
+    {
+      "name": "Build",
+      "uses": 1,
+      "example": "bandit-engine/src/management/management.tsx",
+      "collection": "stroke",
+      "canonical": "wrench"
+    },
+    {
+      "name": "Microsoft",
+      "uses": 1,
+      "example": "bandit-chat-tenant-ui/src/gateway/TenantGateway.tsx",
+      "collection": "brands",
+      "canonical": "microsoft"
+    }
+  ]
+}
