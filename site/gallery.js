@@ -17,6 +17,7 @@
   );
   const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
   const isBrand = (i) => Boolean(i.d);
+  const brandPaths = (i, colored) => (colored && i.cp ? i.cp : [{ path: i.d }]);
   const key = (i) => (isBrand(i) ? 'brand-' : '') + i.n;
   const label = (i) => (isBrand(i) ? i.ti : i.n.replace(/-/g, ' '));
   const all = [...D.icons, ...D.brands];
@@ -67,9 +68,12 @@
     }
     if (isBrand(i)) {
       el.setAttribute('fill', colored ? i.h : 'currentColor');
-      const path = document.createElementNS(SVG_NS, 'path');
-      path.setAttribute('d', i.d);
-      el.append(path);
+      for (const layer of brandPaths(i, colored)) {
+        const path = document.createElementNS(SVG_NS, 'path');
+        path.setAttribute('d', layer.path);
+        if (layer.fill) path.setAttribute('fill', layer.fill);
+        el.append(path);
+      }
       return el;
     }
     el.setAttribute('fill', 'none');
@@ -119,7 +123,16 @@
         weight() +
         '" stroke-linecap="round" stroke-linejoin="round"';
     const geometry = isBrand(i)
-      ? '<path d="' + esc(i.d) + '"/>'
+      ? brandPaths(i, colored)
+          .map(
+            (p) =>
+              '<path d="' +
+              esc(p.path) +
+              '"' +
+              (p.fill ? ' fill="' + esc(p.fill) + '"' : '') +
+              '/>',
+          )
+          .join('')
       : i.g
           .map(
             ([tag, attrs]) =>
@@ -562,8 +575,9 @@
       ? root.dataset.theme === 'dark'
       : !matchMedia('(prefers-color-scheme: light)').matches;
   const paintTheme = () => {
-    $('theme').textContent = dark() ? 'Light mode' : 'Dark mode';
-    $('theme').setAttribute('aria-label', 'Switch to ' + (dark() ? 'light' : 'dark') + ' theme');
+    const label = 'Switch to ' + (dark() ? 'light' : 'dark') + ' theme';
+    $('theme').setAttribute('aria-label', label);
+    $('theme').setAttribute('title', label);
   };
   $('theme').onclick = () => {
     root.dataset.theme = dark() ? 'light' : 'dark';
