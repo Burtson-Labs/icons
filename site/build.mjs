@@ -43,6 +43,7 @@ const data = {
     ti: b.title,
     h: b.hex,
     d: b.path,
+    ...(b.colorPaths ? { cp: b.colorPaths } : {}),
     gr: BRAND_GROUPS[b.group].title,
   })),
 };
@@ -148,7 +149,7 @@ const html = `<!doctype html>
   )
   .join(
     '',
-  )}</div><button id="theme" type="button" aria-label="Switch light and dark theme">Theme</button></div></header>
+  )}</div><button id="theme" type="button" aria-label="Switch to light theme" title="Switch to light theme">${glyph('sun', 'theme-sun')}${glyph('moon', 'theme-moon')}</button></div></header>
 <div class="shell"><aside class="nav"><h2>COLLECTIONS</h2><div class="cats" id="cats"></div><div class="navnote">24px canvas, 2px stroke, round joins, current-colour strokes.<br><br>Press <kbd>/</kbd> to search.</div></aside>
 <main id="main" tabindex="-1"><section class="hero"><p class="package-meta">@burtson-labs/icons · v${pkg.version} · ISC</p><h1>Every action.<br>Clearly drawn.</h1><p>A shared visual language for agents, editors and the people working with them. Find an icon by action, preview it in context, and bring it into your app. Search, set the size and stroke, then copy React, MUI or SVG, or link the CDN file. All of them come from the same source.</p><div class="metrics"><div><b>${n}</b><small>Icons</small></div><div><b>${Object.keys(titles).length}</b><small>Collections</small></div><div><b>24 / 2</b><small>Grid / stroke</small></div></div></section>
 <div class="workflow-shortcuts" role="group" aria-label="Explore workflows"><span>Explore</span><button type="button" data-workflow="agent">Agent runs</button><button type="button" data-workflow="approval">Approvals</button><button type="button" data-workflow="context">Context</button><button type="button" data-workflow="memory">Memory</button><button type="button" data-workflow="profile">Profiles</button><button type="button" data-workflow="editor">Editor</button></div><div class="controls"><label class="search"><span aria-hidden="true">&#8981;</span><input id="search" type="search" placeholder="Search icons, workflows, tags..." aria-label="Search icons" autocomplete="off" spellcheck="false"><kbd>/</kbd></label><label class="knob">Size<input id="size" type="range" min="16" max="48" value="28" step="4"><output id="sizeout">28</output></label><label class="knob">Stroke<input id="weight" type="range" min="1" max="3" value="2" step=".25"><output id="weightout">2</output></label></div>

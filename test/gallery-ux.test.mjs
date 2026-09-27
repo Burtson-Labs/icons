@@ -6,6 +6,7 @@ import { test } from 'node:test';
 import { JSDOM } from 'jsdom';
 
 import { ROOT, listIconNames } from '../scripts/lib.mjs';
+import { loadBrands } from '../scripts/brands.mjs';
 
 const COUNT = listIconNames().length;
 
@@ -144,7 +145,7 @@ test('brand logos remain separate and disable stroke adjustment', () => {
   try {
     const d = dom.window.document;
     assert.equal(d.getElementById('collection').value, 'brands');
-    assert.equal(d.querySelectorAll('.tile').length, 75);
+    assert.equal(d.querySelectorAll('.tile').length, loadBrands().length);
     assert.equal(d.getElementById('weight').disabled, true);
     assert.match(d.getElementById('code').textContent, /brands\/react\/github/);
   } finally {
@@ -214,6 +215,24 @@ test('legacy PascalCase names and Material suffixes find canonical icons', () =>
     assert.ok(dom.window.document.querySelector('[data-key="speech-output"]'));
     input(dom, 'search', 'PlayArrowRounded');
     assert.ok(dom.window.document.querySelector('[data-key="play"]'));
+  } finally {
+    dom.window.close();
+  }
+});
+
+test('ETS color layers survive gallery preview and copied SVG', () => {
+  const dom = open('?format=svg#brand-ets');
+  try {
+    const d = dom.window.document;
+    assert.equal(d.getElementById('collection').value, 'brands');
+    assert.equal(d.querySelectorAll('#selected-preview path').length, 3);
+    const code = d.getElementById('code').textContent;
+    for (const path of d.querySelectorAll('#selected-preview path')) {
+      assert.ok(code.includes(path.getAttribute('d')));
+      assert.ok(code.includes(path.getAttribute('fill')));
+    }
+    input(dom, 'search', 'Robertson Williams');
+    assert.equal(d.querySelector('.tile').dataset.key, 'brand-rwt');
   } finally {
     dom.window.close();
   }

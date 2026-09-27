@@ -9,7 +9,7 @@ import { ROOT, listIconNames } from '../scripts/lib.mjs';
 
 const require = createRequire(import.meta.url);
 
-test('every listed brand exists in the pinned simple-icons and is built', async () => {
+test('every listed brand is sourced and built on every brand surface', async () => {
   const brands = loadBrands();
   const listed = Object.values(BRAND_GROUPS).flatMap((g) => Object.keys(g.brands));
   assert.equal(brands.length, listed.length);
@@ -48,4 +48,34 @@ test('brand React components render monochrome by default and coloured on reques
   assert.match(named, /fill="#181717"/);
   assert.match(named, /role="img"/);
   assert.match(named, /<title>GitHub<\/title>/);
+});
+
+test('owner-sourced transport marks preserve monochrome and layered color exports', async () => {
+  const { brands, toBrandSvg } = await import('../dist/brands/index.js');
+  const { EtsLogo, RwtLogo } = await import('../dist/brands/react.js');
+  const { createElement } = require('react');
+  const { renderToStaticMarkup } = require('react-dom/server');
+  for (const name of ['rwt', 'ets']) {
+    const brand = brands[name];
+    assert.equal(brand.group, 'transport');
+    assert.ok(brand.source.startsWith('https://'));
+    assert.ok(brand.license.includes('not covered'));
+    assert.ok(brand.adaptation);
+    const mono = toBrandSvg(name);
+    assert.equal((mono.match(/<path /g) || []).length, 1);
+    assert.match(mono, /fill="currentColor"/);
+    assert.ok(mono.includes(brand.path));
+  }
+  const colored = toBrandSvg('ets', { colored: true });
+  const react = renderToStaticMarkup(createElement(EtsLogo, { colored: true, title: 'ETS' }));
+  const cdn = readFileSync(join(ROOT, 'dist/brands/svg-color/ets.svg'), 'utf8');
+  for (const output of [colored, react, cdn]) {
+    assert.equal((output.match(/<path /g) || []).length, 3);
+    for (const layer of brands.ets.colorPaths) {
+      assert.ok(output.includes(layer.path));
+      assert.ok(output.includes(`fill="${layer.fill}"`));
+    }
+  }
+  assert.match(react, /role="img"/);
+  assert.match(renderToStaticMarkup(createElement(RwtLogo)), /aria-hidden="true"/);
 });

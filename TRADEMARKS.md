@@ -8,9 +8,16 @@ The logos in `@burtson-labs/icons/brands` (the `brands/` entry, `dist/brands/`, 
 
 ## Source and license of the geometry
 
-The SVG paths come unmodified from [Simple Icons](https://github.com/simple-icons/simple-icons) (pinned in `package.json`), whose data is released under [CC0-1.0](https://github.com/simple-icons/simple-icons/blob/develop/LICENSE.md). CC0 covers copyright in the drawings only; it grants no trademark rights. `scripts/brands.mjs` generates the package entry from that pinned version, and `dist/brands/brands.json` records each logo's source URL and, where Simple Icons has one, its brand-guidelines link.
+Most SVG paths come unmodified from [Simple Icons](https://github.com/simple-icons/simple-icons) (pinned in `package.json`), whose data is released under [CC0-1.0](https://github.com/simple-icons/simple-icons/blob/develop/LICENSE.md). CC0 covers copyright in the drawings only; it grants no trademark rights. `scripts/brands.mjs` generates the package entry from that pinned version, and `dist/brands/brands.json` records each logo's source URL and, where Simple Icons has one, its brand-guidelines link.
 
 The ISC license in [LICENSE](LICENSE) covers Burtson Labs' own code and icons, not these logos.
+
+## Owner-sourced transport marks
+
+- **RWT — Robertson-Williams Transport:** [source wordmark](https://rwtcompany.com/wp-content/uploads/2022/12/RWT-Logo-2022-124h-retina.png). The compact icon traces the R&W monogram, preserving the italic letter shapes and their proportions. Small company text is omitted. Its color variant uses the red from the TRANSPORT lettering.
+- **ETS — Energy Transport Solutions:** [source badge](https://www.etsmo.com/wp-content/uploads/2020/07/ets-logo.png). The oval rim and letters are traced from the badge, including its oversized T. The color variant retains red, silver and charcoal; the metallic shading is flattened for small sizes.
+
+The vectors in `brands/rwt.json` and `brands/ets.json` were adapted from these owner-published assets. Source URLs and adaptation notes travel with the generated brand data. These marks remain their owners' artwork and trademarks; neither the package's ISC license nor Simple Icons' CC0 license covers them.
 
 ## Not included
 
@@ -28,82 +35,84 @@ These were requested but are not in Simple Icons (several owners asked for remov
 
 ## Included
 
-| Name             | Brand          | Group     |
-| ---------------- | -------------- | --------- |
-| `android`        | Android        | Platforms |
-| `anthropic`      | Anthropic      | AI        |
-| `apple`          | Apple          | Platforms |
-| `bash`           | GNU Bash       | Developer |
-| `bitbucket`      | Bitbucket      | Developer |
-| `bluesky`        | Bluesky        | Social    |
-| `bun`            | Bun            | Developer |
-| `chrome`         | Google Chrome  | Platforms |
-| `claude`         | Claude         | AI        |
-| `cloudflare`     | Cloudflare     | Developer |
-| `cursor`         | Cursor         | AI        |
-| `debian`         | Debian         | Platforms |
-| `deno`           | Deno           | Developer |
-| `discord`        | Discord        | Social    |
-| `docker`         | Docker         | Developer |
-| `dotnet`         | .NET           | Developer |
-| `facebook`       | Facebook       | Social    |
-| `figma`          | Figma          | Developer |
-| `firefox`        | Firefox        | Platforms |
-| `git`            | Git            | Developer |
-| `github`         | GitHub         | Developer |
-| `github-copilot` | GitHub Copilot | AI        |
-| `gitlab`         | GitLab         | Developer |
-| `go`             | Go             | Developer |
-| `google`         | Google         | Platforms |
-| `google-cloud`   | Google Cloud   | Developer |
-| `google-gemini`  | Google Gemini  | AI        |
-| `grafana`        | Grafana        | Developer |
-| `homebrew`       | Homebrew       | Developer |
-| `hugging-face`   | Hugging Face   | AI        |
-| `instagram`      | Instagram      | Social    |
-| `ios`            | iOS            | Platforms |
-| `javascript`     | JavaScript     | Developer |
-| `jetbrains`      | JetBrains      | Developer |
-| `jira`           | Jira           | Developer |
-| `kotlin`         | Kotlin         | Developer |
-| `kubernetes`     | Kubernetes     | Developer |
-| `linux`          | Linux          | Platforms |
-| `macos`          | macOS          | Platforms |
-| `mastodon`       | Mastodon       | Social    |
-| `meta`           | Meta           | AI        |
-| `mistral`        | Mistral AI     | AI        |
-| `mongodb`        | MongoDB        | Developer |
-| `nginx`          | NGINX          | Developer |
-| `nodejs`         | Node.js        | Developer |
-| `notion`         | Notion         | Developer |
-| `npm`            | npm            | Developer |
-| `nvidia`         | NVIDIA         | AI        |
-| `ollama`         | Ollama         | AI        |
-| `perplexity`     | Perplexity     | AI        |
-| `postgresql`     | PostgreSQL     | Developer |
-| `prometheus`     | Prometheus     | Developer |
-| `python`         | Python         | Developer |
-| `raspberry-pi`   | Raspberry Pi   | Platforms |
-| `react`          | React          | Developer |
-| `reddit`         | Reddit         | Social    |
-| `redis`          | Redis          | Developer |
-| `rust`           | Rust           | Developer |
-| `stripe`         | Stripe         | Developer |
-| `swift`          | Swift          | Developer |
-| `tailwindcss`    | Tailwind CSS   | Developer |
-| `telegram`       | Telegram       | Social    |
-| `terraform`      | Terraform      | Developer |
-| `threads`        | Threads        | Social    |
-| `tiktok`         | TikTok         | Social    |
-| `typescript`     | TypeScript     | Developer |
-| `ubuntu`         | Ubuntu         | Platforms |
-| `vercel`         | Vercel         | Developer |
-| `vite`           | Vite           | Developer |
-| `vscodium`       | VSCodium       | Developer |
-| `whatsapp`       | WhatsApp       | Social    |
-| `windsurf`       | Windsurf       | AI        |
-| `x`              | X              | Social    |
-| `youtube`        | YouTube        | Social    |
-| `zed`            | Zed Industries | Developer |
+| Name             | Brand                        | Group     |
+| ---------------- | ---------------------------- | --------- |
+| `android`        | Android                      | Platforms |
+| `anthropic`      | Anthropic                    | AI        |
+| `apple`          | Apple                        | Platforms |
+| `bash`           | GNU Bash                     | Developer |
+| `bitbucket`      | Bitbucket                    | Developer |
+| `bluesky`        | Bluesky                      | Social    |
+| `bun`            | Bun                          | Developer |
+| `chrome`         | Google Chrome                | Platforms |
+| `claude`         | Claude                       | AI        |
+| `cloudflare`     | Cloudflare                   | Developer |
+| `cursor`         | Cursor                       | AI        |
+| `debian`         | Debian                       | Platforms |
+| `deno`           | Deno                         | Developer |
+| `discord`        | Discord                      | Social    |
+| `docker`         | Docker                       | Developer |
+| `dotnet`         | .NET                         | Developer |
+| `facebook`       | Facebook                     | Social    |
+| `ets`            | Energy Transport Solutions   | Transport |
+| `figma`          | Figma                        | Developer |
+| `firefox`        | Firefox                      | Platforms |
+| `git`            | Git                          | Developer |
+| `github`         | GitHub                       | Developer |
+| `github-copilot` | GitHub Copilot               | AI        |
+| `gitlab`         | GitLab                       | Developer |
+| `go`             | Go                           | Developer |
+| `google`         | Google                       | Platforms |
+| `google-cloud`   | Google Cloud                 | Developer |
+| `google-gemini`  | Google Gemini                | AI        |
+| `grafana`        | Grafana                      | Developer |
+| `homebrew`       | Homebrew                     | Developer |
+| `hugging-face`   | Hugging Face                 | AI        |
+| `instagram`      | Instagram                    | Social    |
+| `ios`            | iOS                          | Platforms |
+| `javascript`     | JavaScript                   | Developer |
+| `jetbrains`      | JetBrains                    | Developer |
+| `jira`           | Jira                         | Developer |
+| `kotlin`         | Kotlin                       | Developer |
+| `kubernetes`     | Kubernetes                   | Developer |
+| `linux`          | Linux                        | Platforms |
+| `macos`          | macOS                        | Platforms |
+| `mastodon`       | Mastodon                     | Social    |
+| `meta`           | Meta                         | AI        |
+| `mistral`        | Mistral AI                   | AI        |
+| `mongodb`        | MongoDB                      | Developer |
+| `nginx`          | NGINX                        | Developer |
+| `nodejs`         | Node.js                      | Developer |
+| `notion`         | Notion                       | Developer |
+| `npm`            | npm                          | Developer |
+| `nvidia`         | NVIDIA                       | AI        |
+| `ollama`         | Ollama                       | AI        |
+| `perplexity`     | Perplexity                   | AI        |
+| `postgresql`     | PostgreSQL                   | Developer |
+| `prometheus`     | Prometheus                   | Developer |
+| `python`         | Python                       | Developer |
+| `raspberry-pi`   | Raspberry Pi                 | Platforms |
+| `react`          | React                        | Developer |
+| `reddit`         | Reddit                       | Social    |
+| `redis`          | Redis                        | Developer |
+| `rwt`            | Robertson-Williams Transport | Transport |
+| `rust`           | Rust                         | Developer |
+| `stripe`         | Stripe                       | Developer |
+| `swift`          | Swift                        | Developer |
+| `tailwindcss`    | Tailwind CSS                 | Developer |
+| `telegram`       | Telegram                     | Social    |
+| `terraform`      | Terraform                    | Developer |
+| `threads`        | Threads                      | Social    |
+| `tiktok`         | TikTok                       | Social    |
+| `typescript`     | TypeScript                   | Developer |
+| `ubuntu`         | Ubuntu                       | Platforms |
+| `vercel`         | Vercel                       | Developer |
+| `vite`           | Vite                         | Developer |
+| `vscodium`       | VSCodium                     | Developer |
+| `whatsapp`       | WhatsApp                     | Social    |
+| `windsurf`       | Windsurf                     | AI        |
+| `x`              | X                            | Social    |
+| `youtube`        | YouTube                      | Social    |
+| `zed`            | Zed Industries               | Developer |
 
 A trademark owner who wants a logo removed can open an issue or email team@burtson.ai, and we will take it out in the next release.

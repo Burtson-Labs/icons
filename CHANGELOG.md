@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.7.0
+
+- Add owner-sourced RWT and ETS brand marks, including monochrome exports and the
+  layered ETS color badge across React, SVG, CDN and gallery previews.
+
+- Redraw `stealth-mask` with a tapered hood, angled eyes and a left-side knot based on
+  the Bandit Stealth artwork. Keep the existing name and exports.
+- Match the UI site's compact sun/moon theme button, including hover labels and
+  44px touch targets.
+
 ## 0.6.0
 
 - Eleven new workflow, profile and connection icons: agent-pause, agent-resume, agent-cancel,
