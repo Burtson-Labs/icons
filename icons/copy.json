@@ -1,5 +1,6 @@
 {
   "tags": ["copy", "duplicate", "clipboard", "clone"],
   "categories": ["interface"],
+  "aliases": ["content-copy"],
   "contributors": ["burtson-labs"]
 }

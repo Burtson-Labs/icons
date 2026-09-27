@@ -175,3 +175,46 @@ test('code blocks are coloured and each has a copy button that copies its own te
   assert.ok(install.classList.contains('copied'));
   assert.equal(install.getAttribute('aria-label'), 'Copied');
 });
+
+test('workflow shortcuts reset saved filters and preview the selected icon in context', () => {
+  const dom = open();
+  try {
+    const d = dom.window.document;
+    d.querySelector('[data-workflow="profile"]').click();
+    assert.equal(d.getElementById('search').value, 'profile');
+    const tile = d.querySelector('[data-key="user-image"]');
+    assert.ok(tile);
+    tile.click();
+    assert.equal(d.querySelector('#context-preview svg').getAttribute('width'), '20');
+    assert.match(d.getElementById('context-preview').textContent, /user image/);
+  } finally {
+    dom.window.close();
+  }
+});
+
+test('mobile package navigation closes on Escape and returns focus', () => {
+  const dom = open('', true);
+  try {
+    const menu = dom.window.document.querySelector('.package-menu');
+    menu.open = true;
+    menu.dispatchEvent(new dom.window.KeyboardEvent('keydown', { key: 'Escape', bubbles: true }));
+    assert.equal(menu.open, false);
+    assert.equal(dom.window.document.activeElement, menu.querySelector('summary'));
+  } finally {
+    dom.window.close();
+  }
+});
+
+test('legacy PascalCase names and Material suffixes find canonical icons', () => {
+  const dom = open();
+  try {
+    input(dom, 'search', 'ContentCopy');
+    assert.ok(dom.window.document.querySelector('[data-key="copy"]'));
+    input(dom, 'search', 'RecordVoiceOver');
+    assert.ok(dom.window.document.querySelector('[data-key="speech-output"]'));
+    input(dom, 'search', 'PlayArrowRounded');
+    assert.ok(dom.window.document.querySelector('[data-key="play"]'));
+  } finally {
+    dom.window.close();
+  }
+});

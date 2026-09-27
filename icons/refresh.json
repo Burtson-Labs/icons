@@ -1,6 +1,6 @@
 {
   "tags": ["refresh", "reload", "sync", "update", "refresh-cw"],
   "categories": ["interface"],
-  "aliases": ["reload", "refresh-cw"],
+  "aliases": ["reload", "refresh-cw", "sync"],
   "contributors": ["burtson-labs"]
 }

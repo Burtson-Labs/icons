@@ -1148,3 +1148,216 @@ pre {
   font-weight: 600;
   color: var(--muted);
 }
+
+/* Shared package-site chrome: Inter, ink surfaces, visible package links. */
+@font-face {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('/fonts/InterVariable.woff2') format('woff2');
+}
+body {
+  font-family: Inter, system-ui, sans-serif;
+}
+header {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  min-height: 64px;
+  padding: 0 28px;
+  background: var(--bg);
+}
+.brand {
+  font-size: 16px;
+  letter-spacing: -0.4px;
+  gap: 8px;
+  flex-shrink: 0;
+  color: var(--text);
+}
+.brand svg {
+  width: 20px;
+  height: 20px;
+}
+.links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.links a {
+  font-size: 13px;
+  padding-block: 12px;
+}
+.links a[aria-current] {
+  color: var(--text);
+  font-weight: 600;
+}
+.nav,
+.inspector {
+  top: 64px;
+  height: calc(100dvh - 64px);
+}
+.hero h1 {
+  font-size: clamp(38px, 4.3vw, 60px);
+  font-weight: 650;
+  letter-spacing: -0.055em;
+}
+.hero .package-meta {
+  font:
+    11px ui-monospace,
+    monospace;
+  color: var(--muted);
+  margin: 0 0 18px;
+}
+.workflow-shortcuts {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 24px 0 16px;
+}
+.workflow-shortcuts > span {
+  font-size: 12px;
+  color: var(--muted);
+  margin-right: 4px;
+}
+.workflow-shortcuts button {
+  font-size: 12px;
+  padding: 7px 10px;
+  border-radius: 6px;
+}
+.context-example {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 12px;
+  margin: 0 0 16px;
+}
+#context-preview {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+#context-preview svg,
+.tile svg {
+  flex-shrink: 0;
+}
+@media (max-width: 1100px) {
+  .links a:first-child {
+    display: inline;
+  }
+  .links a:nth-last-child(-n + 2) {
+    display: none;
+  }
+}
+@media (max-width: 850px) {
+  header {
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 12px 16px;
+  }
+  .topright {
+    flex: 1;
+    justify-content: end;
+  }
+  .topright .links {
+    display: flex;
+  }
+  .topright .links a {
+    font-size: 12px;
+  }
+  .topright .links a:nth-child(3),
+  .topright .tag,
+  .topright .accents {
+    display: none;
+  }
+  .links {
+    gap: 12px;
+  }
+  #theme {
+    min-width: 44px;
+    min-height: 44px;
+  }
+  .brand {
+    font-size: 15px;
+  }
+  .inspector {
+    height: auto;
+  }
+  .workflow-shortcuts button {
+    min-height: 44px;
+  }
+}
+@media (max-width: 420px) {
+  header {
+    gap: 8px;
+  }
+  .topright {
+    gap: 8px;
+    width: auto;
+  }
+  .topright .links a[aria-current] {
+    display: none;
+  }
+  .brand svg {
+    width: 18px;
+  }
+}
+
+.brand {
+  text-decoration: none;
+}
+.package-menu {
+  display: none;
+}
+@media (max-width: 850px) {
+  .topright .links {
+    display: none;
+  }
+  .package-menu {
+    display: block;
+    position: relative;
+    order: 10;
+  }
+  .package-menu summary {
+    list-style: none;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 6px;
+  }
+  .package-menu summary::-webkit-details-marker {
+    display: none;
+  }
+  .package-menu nav {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    z-index: 40;
+    width: 220px;
+    padding: 8px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--side);
+    box-shadow: 0 8px 24px #0002;
+  }
+  .package-menu a {
+    display: block;
+    padding: 12px;
+    font-size: 14px;
+    color: var(--text);
+    text-decoration: none;
+    border-radius: 4px;
+  }
+  .package-menu a:hover {
+    background: var(--hover);
+  }
+  .hero p:not(.package-meta) {
+    font-size: 14px;
+    line-height: 1.65;
+  }
+}

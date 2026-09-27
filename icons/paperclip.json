@@ -1,6 +1,6 @@
 {
   "tags": ["attach", "attachment", "file"],
   "categories": ["files", "interface"],
-  "aliases": ["attach"],
+  "aliases": ["attach", "attach-file"],
   "contributors": ["burtson-labs"]
 }

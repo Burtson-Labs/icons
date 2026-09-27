@@ -1,5 +1,6 @@
 {
   "tags": ["chevron", "expand", "dropdown"],
   "categories": ["interface"],
+  "aliases": ["expand-more", "keyboard-arrow-down"],
   "contributors": ["burtson-labs"]
 }

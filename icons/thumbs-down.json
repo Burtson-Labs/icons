@@ -1,5 +1,6 @@
 {
   "tags": ["dislike", "reject", "bad"],
   "categories": ["interface"],
+  "aliases": ["thumb-down"],
   "contributors": ["burtson-labs"]
 }

@@ -3,6 +3,18 @@
   const D = JSON.parse(document.getElementById('data').textContent);
   const $ = (id) => document.getElementById(id);
   const root = document.documentElement;
+  const packageMenu = document.querySelector('.package-menu');
+  packageMenu?.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      packageMenu.open = false;
+      packageMenu.querySelector('summary').focus();
+    }
+  });
+  packageMenu?.querySelectorAll('a').forEach((link) =>
+    link.addEventListener('click', () => {
+      packageMenu.open = false;
+    }),
+  );
   const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
   const isBrand = (i) => Boolean(i.d);
   const key = (i) => (isBrand(i) ? 'brand-' : '') + i.n;
@@ -230,6 +242,10 @@
       ? selected.ti + ' · ' + selected.gr
       : selected.c.map((c) => D.titles[c] || c).join(' / ');
     $('selected-preview').replaceChildren(svgNode(selected, 96, true, isBrand(selected)));
+    $('context-preview').replaceChildren(
+      svgNode(selected, 20, true, isBrand(selected)),
+      textEl('span', label(selected)),
+    );
     $('sizes').replaceChildren(
       ...[16, 24, 32].map((s) => {
         const cell = document.createElement('div');
@@ -299,7 +315,13 @@
   media.addEventListener('change', () => {
     if (dialog.open) dialog.close();
   });
-  const normalize = (text) => text.toLowerCase().replace(/[-_]/g, ' ');
+  const normalize = (text) =>
+    text
+      .replace(/([a-z0-9])([A-Z])/g, '$1 $2')
+      .replace(/(Outlined|Rounded|TwoTone|Sharp|Icon)$/, '')
+      .toLowerCase()
+      .replace(/[-_]/g, ' ')
+      .trim();
   function render() {
     const q = normalize($('search').value.trim());
     const terms = q.split(/\s+/).filter(Boolean);
@@ -409,6 +431,16 @@
   }
   $('reset').onclick = reset;
   $('empty-reset').onclick = reset;
+  for (const button of document.querySelectorAll('[data-workflow]')) {
+    button.onclick = () => {
+      category = 'all';
+      savedOnly = false;
+      $('search').value = button.dataset.workflow;
+      render();
+      syncURL();
+      $('search').focus();
+    };
+  }
   $('search').oninput = () => {
     render();
     syncURL();

@@ -1,6 +1,6 @@
 {
   "tags": ["document", "text", "notes"],
   "categories": ["files", "documents"],
-  "aliases": ["document-text"],
+  "aliases": ["document-text", "description", "notes"],
   "contributors": ["burtson-labs"]
 }

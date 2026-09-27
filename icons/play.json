@@ -1,6 +1,6 @@
 {
   "tags": ["play", "run", "start", "resume", "media"],
   "categories": ["interface", "voice"],
-  "aliases": ["run"],
+  "aliases": ["run", "play-arrow"],
   "contributors": ["burtson-labs"]
 }

@@ -1,5 +1,6 @@
 {
   "tags": ["history", "recent", "past", "log"],
   "categories": ["status"],
+  "aliases": ["restore"],
   "contributors": ["burtson-labs"]
 }
