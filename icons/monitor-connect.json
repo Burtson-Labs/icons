@@ -1,0 +1,6 @@
+{
+  "tags": ["connect", "remote desktop", "vm", "vnc", "rdp", "console", "session"],
+  "categories": ["infrastructure", "interface"],
+  "aliases": ["desktop-connect"],
+  "contributors": ["burtson-labs"]
+}

@@ -505,12 +505,37 @@ main {
   stroke-width: var(--weight);
 }
 .sizes {
+  display: grid;
+  gap: 8px;
+  margin: 10px 0 16px;
+}
+.size-surface {
+  display: grid;
+  grid-template-columns: 34px repeat(4, minmax(0, 1fr));
+  align-items: end;
+  gap: 4px;
+  padding: 12px 8px;
+  border-radius: 8px;
+  border: 1px solid #d4d4d8;
+  background: #fafafa;
+  color: #18181b;
+}
+.size-surface[data-surface='dark'] {
+  border-color: #3f3f46;
+  background: #18181b;
+  color: #fafafa;
+}
+.size-surface .surface-label {
+  align-self: center;
+  font-size: 10px;
+}
+.size-sample {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 26px;
-  margin: 16px 0 26px;
-  color: var(--icon);
+}
+.size-sample svg {
+  flex-shrink: 0;
 }
 .sizes small {
   display: block;
@@ -518,7 +543,7 @@ main {
   font:
     9px ui-monospace,
     monospace;
-  color: var(--muted);
+  color: inherit;
   margin-top: 8px;
 }
 .tabs {

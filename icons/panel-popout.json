@@ -1,0 +1,6 @@
+{
+  "tags": ["open in tab", "pop out", "detach", "editor", "sidebar", "conversation"],
+  "categories": ["interface", "development"],
+  "aliases": ["panel-detach"],
+  "contributors": ["burtson-labs"]
+}

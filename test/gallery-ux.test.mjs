@@ -39,6 +39,49 @@ function input(dom, id, value) {
   el.dispatchEvent(new dom.window.Event('input', { bubbles: true }));
 }
 
+test('interface-size previews compare light and dark surfaces and follow the chosen stroke', () => {
+  const dom = open('#keyboard');
+  try {
+    const d = dom.window.document;
+    for (const surface of ['light', 'dark']) {
+      const row = d.querySelector(`#sizes [data-surface="${surface}"]`);
+      assert.ok(row);
+      assert.deepEqual(
+        [...row.querySelectorAll('svg')].map((svg) => svg.getAttribute('width')),
+        ['16', '20', '24', '32'],
+      );
+    }
+    input(dom, 'weight', '1.5');
+    assert.ok(
+      [...d.querySelectorAll('#sizes svg')].every(
+        (svg) => svg.getAttribute('stroke-width') === '1.5',
+      ),
+    );
+    d.querySelector('[data-key="clipboard-paste"]').click();
+    assert.equal(d.querySelector('#sizes svg rect').getAttribute('width'), '6');
+    assert.match(d.getElementById('code').textContent, /ClipboardPaste/);
+  } finally {
+    dom.window.close();
+  }
+});
+
+test('remote desktop and clipboard shortcuts find the matching controls', () => {
+  const dom = open();
+  try {
+    const d = dom.window.document;
+    d.querySelector('[data-workflow="remote desktop"]').click();
+    const names = [...d.querySelectorAll('.tile')].map((tile) => tile.dataset.key);
+    for (const name of ['monitor-connect', 'file-transfer', 'touchpad', 'clipboard-paste']) {
+      assert.ok(names.includes(name), `${name} is discoverable by its workflow`);
+    }
+    d.querySelector('[data-workflow="clipboard"]').click();
+    assert.ok(d.querySelector('[data-key="clipboard"]'));
+    assert.ok(d.querySelector('[data-key="clipboard-paste"]'));
+  } finally {
+    dom.window.close();
+  }
+});
+
 test('search accepts multiple words and normalizes hyphens', () => {
   const dom = open();
   try {

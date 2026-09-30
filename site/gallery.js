@@ -260,10 +260,23 @@
       textEl('span', label(selected)),
     );
     $('sizes').replaceChildren(
-      ...[16, 24, 32].map((s) => {
-        const cell = document.createElement('div');
-        cell.append(svgNode(selected, s), textEl('small', s + 'px'));
-        return cell;
+      ...['light', 'dark'].map((surface) => {
+        const row = document.createElement('div');
+        row.className = 'size-surface';
+        row.dataset.surface = surface;
+        row.setAttribute('role', 'group');
+        row.setAttribute(
+          'aria-label',
+          `${surface === 'light' ? 'Light' : 'Dark'} surface previews`,
+        );
+        row.append(textEl('span', surface === 'light' ? 'Light' : 'Dark', 'surface-label'));
+        for (const s of [16, 20, 24, 32]) {
+          const cell = document.createElement('div');
+          cell.className = 'size-sample';
+          cell.append(svgNode(selected, s), textEl('small', s + 'px'));
+          row.append(cell);
+        }
+        return row;
       }),
     );
     highlightInto($('code'), code());
