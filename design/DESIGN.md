@@ -64,8 +64,30 @@ Numbers taken from the set itself (0.5.0, 403 icons) and enforced by `npm run ic
 
 ## Review checklist
 
-1. Read it at 16px, 24px and 48px (the site's size slider). Does it still say one thing at 16px?
+1. Read it at 16, 20, 24 and 32px on both surfaces in the site's Interface sizes preview. Does it still say one thing at 16px?
 2. Check it next to its neighbours in the category. Is the visual weight about the same?
 3. Stroke 1.5 and stroke 2.5. Does anything touch or close up?
 4. Dark background. Do any gaps disappear?
 5. `npm run check` is green.
+
+## Control vocabulary
+
+Use the most specific action a control performs. Keep a text label or tooltip
+with the icon; provide the button's accessible name even when the SVG is decorative.
+
+| Control             | Icon                    | Meaning                                           |
+| ------------------- | ----------------------- | ------------------------------------------------- |
+| Clipboard panel     | `clipboard`             | Open the clipboard tools                          |
+| Paste               | `clipboard-paste`       | Insert clipboard content into the destination     |
+| Copy                | `copy`                  | Copy the selected content                         |
+| Transfer files      | `file-transfer`         | Open upload and download actions                  |
+| Upload / download   | `file-up` / `file-down` | One explicit transfer direction                   |
+| Connect desktop     | `monitor-connect`       | Connect to a remote session                       |
+| Trackpad mode       | `touchpad`              | Relative pointer movement, useful on touchscreens |
+| Mouse input         | `mouse`                 | Pointer and click controls                        |
+| Open panel in a tab | `panel-popout`          | Move a panel into a larger editor surface         |
+
+16px suits dense navigation; 20px suits labelled controls; 24px suits toolbars.
+The icon's size is separate from the hit area: keep mobile controls at least
+44px across even when the drawing is 20px. Enlarging the SVG alone does not
+make a control easier to use.

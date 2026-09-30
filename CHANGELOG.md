@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.8.0
+
+- Add seven clipboard, desktop and input controls: `clipboard`, `clipboard-paste`,
+  `file-transfer`, `monitor-connect`, `mouse`, `touchpad` and `panel-popout`.
+  The set now contains 421 icons, with all existing exports preserved.
+- Simplify the keyboard, clipboard list and split editor drawings so details
+  stay separated at small sizes.
+- Compare every icon at 16, 20, 24 and 32px on light and dark surfaces in the
+  inspector. Stroke changes update all eight previews. Add remote desktop and
+  clipboard shortcuts to gallery search.
+
 ## 0.7.0
 
 - Add owner-sourced RWT and ETS brand marks, including monochrome exports and the
