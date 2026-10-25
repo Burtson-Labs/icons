@@ -1,0 +1,6 @@
+{
+  "tags": ["search folder", "find files", "browse", "folder", "lookup"],
+  "categories": ["files"],
+  "aliases": ["find-in-folder", "folder-find"],
+  "contributors": ["burtson-labs"]
+}

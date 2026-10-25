@@ -1,0 +1,6 @@
+{
+  "tags": ["power off", "shut down", "disabled", "offline", "power settings off"],
+  "categories": ["interface", "status"],
+  "aliases": ["power-settings-off"],
+  "contributors": ["burtson-labs"]
+}

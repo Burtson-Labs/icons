@@ -1,0 +1,6 @@
+{
+  "tags": ["add event", "new event", "schedule", "calendar", "book"],
+  "categories": ["interface"],
+  "aliases": ["event-add", "add-event", "calendar-add"],
+  "contributors": ["burtson-labs"]
+}

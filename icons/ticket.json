@@ -1,0 +1,6 @@
+{
+  "tags": ["ticket", "pass", "admission", "coupon", "confirmation number"],
+  "categories": ["interface"],
+  "aliases": ["confirmation-number", "pass"],
+  "contributors": ["burtson-labs"]
+}

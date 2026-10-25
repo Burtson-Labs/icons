@@ -1,0 +1,6 @@
+{
+  "tags": ["rewind", "skip back", "seek back", "media", "reverse"],
+  "categories": ["voice", "interface"],
+  "aliases": ["seek-backward"],
+  "contributors": ["burtson-labs"]
+}

@@ -1,0 +1,6 @@
+{
+  "tags": ["at", "mention", "email", "address", "alternate email"],
+  "categories": ["interface", "people"],
+  "aliases": ["at", "mention", "alternate-email"],
+  "contributors": ["burtson-labs"]
+}

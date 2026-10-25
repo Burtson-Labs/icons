@@ -1,0 +1,6 @@
+{
+  "tags": ["mute notifications", "do not disturb", "silent", "notifications off", "quiet"],
+  "categories": ["status", "interface"],
+  "aliases": ["notifications-off", "notification-off"],
+  "contributors": ["burtson-labs"]
+}

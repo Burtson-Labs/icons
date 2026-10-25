@@ -1,0 +1,6 @@
+{
+  "tags": ["indent", "increase indent", "tab", "format", "nest"],
+  "categories": ["interface"],
+  "aliases": ["indent-increase", "list-indent-increase", "format-indent-increase"],
+  "contributors": ["burtson-labs"]
+}

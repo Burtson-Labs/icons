@@ -1,0 +1,6 @@
+{
+  "tags": ["zip", "archive", "compressed", "tar", "bundle"],
+  "categories": ["files"],
+  "aliases": ["file-zip", "zip-file"],
+  "contributors": ["burtson-labs"]
+}

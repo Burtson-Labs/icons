@@ -1,0 +1,6 @@
+{
+  "tags": ["outdent", "decrease indent", "unindent", "format", "dedent"],
+  "categories": ["interface"],
+  "aliases": ["indent-decrease", "list-indent-decrease", "format-indent-decrease", "dedent"],
+  "contributors": ["burtson-labs"]
+}

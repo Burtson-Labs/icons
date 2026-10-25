@@ -1,0 +1,6 @@
+{
+  "tags": ["battery", "power", "charge", "energy", "battery empty"],
+  "categories": ["status", "interface"],
+  "aliases": ["battery-empty", "battery-0-bar"],
+  "contributors": ["burtson-labs"]
+}

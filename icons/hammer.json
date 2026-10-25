@@ -1,0 +1,6 @@
+{
+  "tags": ["hammer", "build", "tool", "construct", "make", "fix"],
+  "categories": ["development"],
+  "aliases": ["build-tool"],
+  "contributors": ["burtson-labs"]
+}

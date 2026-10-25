@@ -1,0 +1,6 @@
+{
+  "tags": ["messages", "conversation", "chat", "thread", "forum", "comments"],
+  "categories": ["interface"],
+  "aliases": ["forum", "chat-bubbles", "messages"],
+  "contributors": ["burtson-labs"]
+}

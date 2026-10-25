@@ -1,0 +1,6 @@
+{
+  "tags": ["file warning", "file alert", "document error", "problem", "caution"],
+  "categories": ["files", "status"],
+  "aliases": ["file-alert", "document-warning"],
+  "contributors": ["burtson-labs"]
+}

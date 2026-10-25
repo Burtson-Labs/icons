@@ -1,0 +1,6 @@
+{
+  "tags": ["alarm", "wake", "reminder", "clock", "snooze", "timer"],
+  "categories": ["status"],
+  "aliases": ["alarm"],
+  "contributors": ["burtson-labs"]
+}

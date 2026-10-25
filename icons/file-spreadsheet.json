@@ -1,0 +1,6 @@
+{
+  "tags": ["spreadsheet", "csv", "excel", "sheet", "table", "xlsx"],
+  "categories": ["files", "data"],
+  "aliases": ["file-csv", "file-excel", "file-table"],
+  "contributors": ["burtson-labs"]
+}

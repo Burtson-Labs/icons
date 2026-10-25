@@ -1,0 +1,6 @@
+{
+  "tags": ["read", "read receipt", "delivered", "done all", "double check", "seen"],
+  "categories": ["status", "interface"],
+  "aliases": ["check-check", "done-all", "read-receipt"],
+  "contributors": ["burtson-labs"]
+}

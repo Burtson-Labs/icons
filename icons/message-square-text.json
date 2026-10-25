@@ -1,0 +1,6 @@
+{
+  "tags": ["message", "chat", "comment", "text", "note", "transcript"],
+  "categories": ["interface"],
+  "aliases": ["comment-text", "chat-text", "message-text"],
+  "contributors": ["burtson-labs"]
+}
