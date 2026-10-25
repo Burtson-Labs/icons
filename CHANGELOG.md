@@ -1,5 +1,26 @@
 # Changelog
 
+## 0.9.0
+
+- Add 76 icons for rich-text toolbars, chat, media controls, state variants, file
+  types and everyday UI: text formatting and alignment, reply/forward, reactions,
+  `double-check` read receipts, `-off` media states, first/last page chevrons,
+  sort, calendar and file-type variants, and more. 497 icons in total. Lucide and
+  Material names resolve through aliases (`check-check`, `circle-play`,
+  `link-off`, `videocam`, `swap-horiz`, `format-quote` and others).
+- Redraw 20 icons whose parallel strokes closed up at 16px: server-stack, trash,
+  save, user, waveform, gpu, gpu-queue, vram, model-cache, local-model,
+  truck-clock, lane-score, storage-volume, fuel-level, book-copy, brush-cleaning,
+  fuel-tanker, gavel, plug-zap and tls-rotate. Names and exports are unchanged.
+- `npm run icons:lint` warns when two unjoined, near-parallel strokes come within
+  2.6 units of each other, where they touch at 16px.
+- `toBrandSvg` throws "unknown brand" for inherited names such as `constructor`
+  and `__proto__` instead of returning an empty SVG, and escapes `>` in
+  attribute values.
+- The gallery allows its inline scripts by hash instead of `'unsafe-inline'`.
+- Releases publish only after CI passes for the same commit, with npm provenance.
+  CI installs without lifecycle scripts, and Dependabot proposes grouped updates.
+
 ## 0.8.1
 
 - Redraw `paperclip` so its three loops sit 3.5 units apart instead of 2.6. The
