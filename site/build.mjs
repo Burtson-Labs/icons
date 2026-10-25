@@ -3,6 +3,7 @@
 // inspector) plus the raw assets, so the site doubles as the icon CDN. Hosting
 // lives in the private icons-site repo, which syncs this directory.
 import { cpSync, existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 import { join } from 'node:path';
 import { ROOT, readCategories, toPascal, toSvgString } from '../scripts/lib.mjs';
 import { loadIcons } from '../scripts/build.mjs';
@@ -105,10 +106,21 @@ const favicon = `data:image/svg+xml,${encodeURIComponent(faviconSvg)}`;
 const css = readFileSync(join(ROOT, 'site', 'gallery.css'), 'utf8');
 const n = icons.length;
 
+// The page's two inline scripts are allowed by hash, not by 'unsafe-inline', so
+// an injected <script> or event handler cannot run. The meta policy applies on
+// top of the server's CSP header (both must pass); the Cloudflare Web Analytics
+// beacon is the only external script.
+const themeScript =
+  "try{const q=new URLSearchParams(location.search),d=document.documentElement,t=q.get('theme')||localStorage.getItem('bl-icons-theme'),a=q.get('accent')||localStorage.getItem('bl-icons-accent');if(t)d.dataset.theme=t;if(a)d.dataset.accent=a}catch{}";
+const galleryScript = readFileSync(join(ROOT, 'site', 'gallery.js'), 'utf8');
+const sha256 = (code) => `'sha256-${createHash('sha256').update(code, 'utf8').digest('base64')}'`;
+const scriptCsp = `script-src ${sha256(themeScript)} ${sha256(galleryScript)} https://static.cloudflareinsights.com; script-src-attr 'none'`;
+
 const html = `<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="${scriptCsp}">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Burtson Icons</title>
 <meta name="author" content="Mark Burtson">
@@ -132,7 +144,7 @@ const html = `<!doctype html>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="icon" href="${favicon}">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<script>try{const q=new URLSearchParams(location.search),d=document.documentElement,t=q.get('theme')||localStorage.getItem('bl-icons-theme'),a=q.get('accent')||localStorage.getItem('bl-icons-accent');if(t)d.dataset.theme=t;if(a)d.dataset.accent=a}catch{}</script>
+<script>${themeScript}</script>
 <style>${css}</style>
 </head>
 <body>
@@ -161,7 +173,7 @@ const html = `<!doctype html>
 <aside class="inspector" id="inspector" aria-label="Selected icon"><button type="button" id="close-inspector" class="mobile-close" aria-label="Close icon inspector">Close ×</button><div class="eyebrow">Icon inspector</div><h2 class="mono" id="selected-name"></h2><div class="sub" id="selected-status"></div><div class="preview" id="selected-preview"></div><div class="eyebrow">Interface sizes</div><div class="sizes" id="sizes" aria-label="Icon size and contrast previews"></div><div class="context-example"><span class="eyebrow">In context · 20px</span><div id="context-preview"></div></div><div class="inspector-tools"><button type="button" id="save" aria-pressed="false">Save icon</button><button type="button" id="share">Copy link</button></div><label class="decorative"><input id="decorative" type="checkbox" checked> Decorative icon <span title="Turn off for an icon that conveys meaning without nearby text.">ⓘ</span></label><div class="tabs" role="tablist" aria-label="Code format"><button type="button" data-tab="react" role="tab" aria-selected="true">React</button><button type="button" data-tab="mui" role="tab" aria-selected="false">MUI</button><button type="button" data-tab="svg" role="tab" aria-selected="false">SVG</button><button type="button" data-tab="cdn" role="tab" aria-selected="false">CDN</button></div><div class="code-frame"><button type="button" class="copy-code" id="copy-inline" aria-label="Copy code">${copyGlyphs}</button><pre id="code" role="tabpanel" tabindex="0" aria-label="Usage code"></pre></div><div class="actions"><button type="button" class="primary" id="copy">Copy code</button><button type="button" id="download">Download SVG</button></div><p class="export-note" id="export-note"></p><div id="tags" class="chips"></div><div class="notice">For an external <code>&lt;img&gt;</code>, use an explicit-colour variant (<code>svg-accent</code>, <code>svg-white</code>, <code>svg-black</code>). Inline SVG, React and CSS masks inherit the text colour.</div></aside></div><div id="toast" class="toast" role="status"></div>
 <dialog id="mobile-inspector" aria-labelledby="selected-name"></dialog><noscript><p class="empty-static">Enable JavaScript to search the catalog. SVG files and icons.json remain available directly.</p></noscript>
 <script id="data" type="application/json">${json}</script>
-<script>${readFileSync(join(ROOT, 'site', 'gallery.js'), 'utf8')}</script>
+<script>${galleryScript}</script>
 </body>
 </html>
 `;

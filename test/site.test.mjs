@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import { readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { execFileSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
 import { ROOT, listIconNames } from '../scripts/lib.mjs';
 
 execFileSync(process.execPath, [join(ROOT, 'site/build.mjs')], { stdio: 'pipe' });
@@ -17,6 +18,24 @@ test('the site embeds every icon and serves its files', () => {
     assert.ok(existsSync(join(ROOT, 'site/dist/svg', `${n}.svg`)), n);
   for (const f of ['sprite.svg', 'icons.json', 'robots.txt', 'sitemap.xml'])
     assert.ok(existsSync(join(ROOT, 'site/dist', f)), f);
+});
+
+test('every inline script is allowed by hash, and nothing else inline can run', () => {
+  const csp = /<meta http-equiv="Content-Security-Policy" content="([^"]+)">/.exec(html)?.[1];
+  assert.ok(csp, 'the page carries a script CSP');
+  assert.ok(html.indexOf(csp) < html.indexOf('<script'), 'the policy precedes the first script');
+  const scriptSrc = /script-src ([^;]+)/.exec(csp)[1].split(' ');
+  assert.ok(!scriptSrc.includes("'unsafe-inline'") && !scriptSrc.includes("'unsafe-eval'"));
+  assert.match(csp, /script-src-attr 'none'/);
+  const inline = [
+    ...html.matchAll(/<script(?![^>]*type="application\/json")[^>]*>([\s\S]*?)<\/script>/g),
+  ];
+  assert.ok(inline.length >= 2);
+  for (const [, code] of inline)
+    assert.ok(
+      scriptSrc.includes(`'sha256-${createHash('sha256').update(code, 'utf8').digest('base64')}'`),
+      'an inline script is missing from the CSP hashes',
+    );
 });
 
 test('the page loads nothing from another origin', () => {
