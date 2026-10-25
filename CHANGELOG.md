@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.8.1
+
+- Redraw `paperclip` so its three loops sit 3.5 units apart instead of 2.6. The
+  old drawing closed up into a solid wedge at 14 to 16px, which is the size it
+  appears at in the UI kit's chat composer. Same name and exports.
+
 ## 0.8.0
 
 - Add seven clipboard, desktop and input controls: `clipboard`, `clipboard-paste`,
