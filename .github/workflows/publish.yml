@@ -1,34 +1,70 @@
 name: publish
 
 # Publishes @burtson-labs/icons when package.json carries a version that is not
-# on npm yet. Pushing without a version bump is a no-op, and re-running is safe.
+# on npm yet. It runs only after the ci workflow has passed for that exact main
+# commit, so a failing check can never ship. Pushing without a version bump is a
+# no-op, and re-running is safe. A manual run republishes the current main
+# commit, again only if its ci run passed.
 
 on:
-  push:
+  workflow_run:
+    workflows: [ci]
+    types: [completed]
     branches: [main]
   workflow_dispatch:
 
-permissions:
-  contents: read
-  packages: write # GitHub Packages mirror, for org repos that route @burtson-labs there
+permissions: {}
 
 concurrency:
-  group: publish-${{ github.ref }}
+  group: publish
   cancel-in-progress: false
 
 jobs:
   publish:
+    # A green ci run for a push to main in this repository. head_branch alone is
+    # not enough: a pull request from a fork's own "main" branch also has it.
+    if: >-
+      (github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main') ||
+      (github.event.workflow_run.conclusion == 'success' &&
+       github.event.workflow_run.event == 'push' &&
+       github.event.workflow_run.head_branch == 'main' &&
+       github.event.workflow_run.head_repository.full_name == github.repository)
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
+    permissions:
+      contents: read
+      actions: read # look up the ci run on a manual dispatch
+      id-token: write # npm provenance (signed build attestation)
+      packages: write # GitHub Packages mirror, for org repos that route @burtson-labs there
+    env:
+      SHA: ${{ github.event.workflow_run.head_sha || github.sha }}
     steps:
+      - name: ci passed for this commit
+        if: github.event_name == 'workflow_dispatch'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          ok=$(gh api "repos/$GITHUB_REPOSITORY/actions/workflows/ci.yml/runs?head_sha=$SHA&event=push&status=success" --jq '.total_count')
+          if [ "$ok" -lt 1 ]; then
+            echo "::error::no successful ci run for $SHA on main; not publishing"
+            exit 1
+          fi
+
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          ref: ${{ env.SHA }}
+          persist-credentials: false
+      # No dependency cache in the release job: what ships is installed fresh
+      # from the lockfile.
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           node-version: '22'
-          cache: npm
           registry-url: https://registry.npmjs.org
-      - run: npm ci
-      - run: npm run check
+      - run: npm ci --ignore-scripts
+      # ci ran the full check on this commit; this only rebuilds what ships.
+      - run: npm run build
+      - run: npm pack --dry-run
 
       - name: Skip if this version is already on the registry
         id: check
@@ -42,9 +78,11 @@ jobs:
             echo "published=false" >> "$GITHUB_OUTPUT"
           fi
 
+      # --ignore-scripts: prepublishOnly would rerun the whole check, which ci
+      # already passed for this commit.
       - name: Publish
         if: steps.check.outputs.published == 'false'
-        run: npm publish --access public
+        run: npm publish --provenance --access public --ignore-scripts
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
@@ -60,5 +98,5 @@ jobs:
           if npm view "$NAME@$VERSION" version --registry https://npm.pkg.github.com >/dev/null 2>&1; then
             echo "$NAME@$VERSION is already on GitHub Packages"
           else
-            npm publish --registry https://npm.pkg.github.com
+            npm publish --registry https://npm.pkg.github.com --ignore-scripts
           fi

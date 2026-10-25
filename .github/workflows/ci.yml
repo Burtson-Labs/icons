@@ -1,5 +1,7 @@
 name: ci
 
+# publish.yml runs after this workflow succeeds on main and publishes only then.
+
 on:
   push:
     branches: [main]
@@ -8,17 +10,28 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  # A new push to a pull request supersedes its stale run. Pushes to main are
+  # grouped by commit, so every main commit keeps its own run (publish waits on it).
+  group: ci-${{ github.event_name == 'pull_request' && github.ref || github.sha }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
 jobs:
   check:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          persist-credentials: false
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           node-version: '22'
           cache: npm
-      - run: npm ci
+      # No dependency lifecycle scripts: nothing here needs them (esbuild ships
+      # its binary as an optional dependency), and they are the usual vector for a
+      # compromised package.
+      - run: npm ci --ignore-scripts
       - name: Validate
         run: npm run validate
       - name: Icon lint (measured house standard)
@@ -70,6 +83,7 @@ jobs:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
         with:
           fetch-depth: 0
+          persist-credentials: false
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           node-version: '22'
