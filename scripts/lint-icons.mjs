@@ -11,7 +11,7 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 
-import { measure } from './geometry.mjs';
+import { measure, strokeClearance } from './geometry.mjs';
 import { ICON_DIR, NAME_RE, ROOT_ATTRS, listIconNames, parseIcon, readCategories } from './lib.mjs';
 import { fail, say, warn } from './log.mjs';
 
@@ -29,6 +29,13 @@ export const RULES = {
   maxLength: 150,
   /** Warn when fewer than this share of typed endpoints sit on the 0.5 grid. */
   minHalfGridShare: 0.5,
+  /**
+   * Parallel strokes: the standard is 4 units centre to centre (2 of
+   * daylight). Warn when two unjoined, near-parallel runs come closer than
+   * this, where they visibly close up at 16px, for at least `minParallelRun`.
+   */
+  minParallelGap: 2.6,
+  minParallelRun: 1.5,
   /** Metadata keys, in the order the file is written. */
   metaKeys: ['tags', 'categories', 'aliases', 'contributors'],
   /**
@@ -142,6 +149,11 @@ export function lintIcon(name, svg, meta, categories, metaRaw = null) {
       if (m.length > RULES.maxLength)
         errors.push(
           `too heavy: ${m.length} units of stroke; the set's median is about 67 and the limit is ${RULES.maxLength}`,
+        );
+      const gap = strokeClearance(children, { maxGap: RULES.minParallelGap });
+      if (gap.run >= RULES.minParallelRun && gap.at)
+        warnings.push(
+          `parallel strokes ${gap.min} apart centre to centre near (${gap.at.join(', ')}); they close up at 16px (aim for 4)`,
         );
       if (m.endpoints && m.onHalfGrid / m.endpoints < RULES.minHalfGridShare)
         warnings.push(

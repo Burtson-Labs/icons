@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
 
-import { measure } from '../scripts/geometry.mjs';
+import { measure, strokeClearance } from '../scripts/geometry.mjs';
 import { readCategories } from '../scripts/lib.mjs';
 import { RULES, canonicalSvg, lintAll, lintIcon } from '../scripts/lint-icons.mjs';
 
@@ -50,6 +50,24 @@ test('the lint enforces the measured standard', () => {
   );
   const light = lint(['<path d="M3.3 12h17.4" />']);
   assert.match(light.warnings.join(), /0\/2 endpoints on the 0.5 grid/);
+});
+
+test('parallel strokes that close up at 16px warn; joins, corners and dots do not', () => {
+  const warns = (els) => lint(els).warnings.filter((w) => /parallel strokes/.test(w));
+  // Two bars 2 apart merge into one; 4 apart (the standard) stay two.
+  assert.match(warns(['<path d="M4 11h16M4 13h16" />']).join(), /2 apart centre to centre near/);
+  assert.deepEqual(warns(['<path d="M4 10h16M4 14h16" />']), []);
+  // A rectangle's sides, a T-join, a hairpin turn and a dot beside a line are
+  // one shape bending or touching, not two strokes merging.
+  assert.deepEqual(warns(['<rect x="4" y="4" width="16" height="16" rx="2" />']), []);
+  assert.deepEqual(warns(['<path d="M4 6h16M12 6v14" />']), []);
+  assert.deepEqual(warns(['<path d="M4 8h12a2 2 0 0 1 0 4H4" />']), []);
+  assert.deepEqual(warns(['<path d="M4 12h16" />', '<path d="M12 14h.01" />']), []);
+  // A gap along the same line is not side by side.
+  assert.deepEqual(warns(['<path d="M3 12h8M12 12h9" />']), []);
+  // Two loops of one path running side by side do count (the old paperclip).
+  const hairpin = strokeClearance([['path', { d: 'M4 8h14a2 2 0 0 1 0 4H8a1 1 0 0 0 0 2h10' }]]);
+  assert.ok(hairpin.run > 0 && hairpin.min < RULES.minParallelGap, JSON.stringify(hairpin));
 });
 
 test('source formatting is canonical and fixable', () => {

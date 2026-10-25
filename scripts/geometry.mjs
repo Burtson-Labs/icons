@@ -310,3 +310,129 @@ export function measure(children) {
     onHalfGrid,
   };
 }
+
+/**
+ * Where two stroke runs lie side by side too close to stay apart at small
+ * sizes. Every stroke is sampled every `step` units; a sample is flagged when
+ * another sample sits straight across from it (not further along the same
+ * line), runs within ~15° of parallel, and is closer than `maxGap` centre to
+ * centre. Pairs that are joined through the drawing within a short walk
+ * (corners, T-joins, shared vertices, strokes that cross or touch) are the
+ * same shape bending, not two strokes merging, so they don't count. Dots
+ * (zero-length paths) have no direction and are skipped.
+ * @param {Array<[string, Record<string, string>]>} children
+ * @param {{ maxGap?: number, step?: number }} [opts]
+ * @returns {{ run: number, min: number, at: [number, number] | null }}
+ *   `run`: flagged centreline length (both sides counted once), `min`: the
+ *   closest gap found, `at`: a flagged point near the closest gap.
+ */
+export function strokeClearance(children, { maxGap = 2.6, step = 0.25 } = {}) {
+  const ANGLE = 0.26;
+  const TOUCH = 0.6;
+  /** @type {Array<{ x: number, y: number, ang: number }>} */
+  const pts = [];
+  /** @type {Array<Array<[number, number]>>} */
+  const adj = [];
+  const link = (i, j, w) => {
+    adj[i].push([j, w]);
+    adj[j].push([i, w]);
+  };
+  for (const child of children)
+    for (const pl of sampleElement(child).polylines) {
+      let total = 0;
+      for (let k = 1; k < pl.length; k++)
+        total += Math.hypot(pl[k][0] - pl[k - 1][0], pl[k][1] - pl[k - 1][1]);
+      if (total < 0.5) continue;
+      const first = pts.length;
+      for (let k = 1; k < pl.length; k++) {
+        const [x0, y0] = pl[k - 1];
+        const [x1, y1] = pl[k];
+        const len = Math.hypot(x1 - x0, y1 - y0);
+        if (!len) continue;
+        const ang = Math.atan2(y1 - y0, x1 - x0);
+        const n = Math.ceil(len / step);
+        for (let i = 0; i < n; i++)
+          pts.push({ x: x0 + ((x1 - x0) * i) / n, y: y0 + ((y1 - y0) * i) / n, ang });
+      }
+      const [lx, ly] = pl.at(-1);
+      pts.push({ x: lx, y: ly, ang: pts.at(-1).ang });
+      for (let i = first; i < pts.length; i++) adj[i] = [];
+      for (let i = first + 1; i < pts.length; i++)
+        link(i, i - 1, Math.hypot(pts[i].x - pts[i - 1].x, pts[i].y - pts[i - 1].y));
+    }
+  // Spatial buckets keep the pair search local.
+  const cell = Math.max(maxGap, TOUCH);
+  const buckets = new Map();
+  const key = (cx, cy) => `${cx},${cy}`;
+  pts.forEach((p, i) => {
+    const k = key(Math.floor(p.x / cell), Math.floor(p.y / cell));
+    if (!buckets.has(k)) buckets.set(k, []);
+    buckets.get(k).push(i);
+  });
+  const near = (i, fn) => {
+    const cx = Math.floor(pts[i].x / cell);
+    const cy = Math.floor(pts[i].y / cell);
+    for (let dx = -1; dx <= 1; dx++)
+      for (let dy = -1; dy <= 1; dy++)
+        for (const j of buckets.get(key(cx + dx, cy + dy)) ?? []) fn(j);
+  };
+  for (let i = 0; i < pts.length; i++)
+    near(i, (j) => {
+      if (j <= i || adj[i].some(([k]) => k === j)) return;
+      const d = Math.hypot(pts[i].x - pts[j].x, pts[i].y - pts[j].y);
+      if (d < TOUCH) link(i, j, d);
+    });
+  const limit = 2 * maxGap + 1.5;
+  const walk = (s) => {
+    const dist = new Map([[s, 0]]);
+    const queue = [[0, s]];
+    while (queue.length) {
+      queue.sort((a, b) => a[0] - b[0]);
+      const [g, u] = /** @type {[number, number]} */ (queue.shift());
+      if (g > (dist.get(u) ?? Infinity)) continue;
+      for (const [v, w] of adj[u]) {
+        const ng = g + w;
+        if (ng <= limit && ng < (dist.get(v) ?? Infinity)) {
+          dist.set(v, ng);
+          queue.push([ng, v]);
+        }
+      }
+    }
+    return dist;
+  };
+  let flagged = 0;
+  let min = Infinity;
+  /** @type {[number, number] | null} */
+  let at = null;
+  for (let i = 0; i < pts.length; i++) {
+    const p = pts[i];
+    /** @type {Map<number, number> | null} */
+    let reach = null;
+    let hit = false;
+    near(i, (j) => {
+      if (j === i) return;
+      const q = pts[j];
+      const dx = q.x - p.x;
+      const dy = q.y - p.y;
+      if (Math.abs(dx * Math.cos(p.ang) + dy * Math.sin(p.ang)) > step) return;
+      const d = Math.hypot(dx, dy);
+      if (d >= maxGap) return;
+      let da = Math.abs(p.ang - q.ang) % Math.PI;
+      da = Math.min(da, Math.PI - da);
+      if (da > ANGLE) return;
+      reach ??= walk(i);
+      if ((reach.get(j) ?? Infinity) <= 2 * d + 1.5) return;
+      hit = true;
+      if (d < min) {
+        min = d;
+        at = [Math.round(p.x * 2) / 2, Math.round(p.y * 2) / 2];
+      }
+    });
+    if (hit) flagged++;
+  }
+  return {
+    run: Math.round(((flagged * step) / 2) * 100) / 100,
+    min: Math.round(min * 100) / 100,
+    at,
+  };
+}
