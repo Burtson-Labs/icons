@@ -25,6 +25,12 @@ test('every listed brand is sourced and built on every brand surface', async () 
   assert.match(mod.toBrandSvg('claude', { size: 16 }), /width="16"[^>]*fill="currentColor"/);
   assert.match(mod.toBrandSvg('docker', { colored: true }), /fill="#2496ED"/i);
   assert.throws(() => mod.toBrandSvg('no-such-brand'));
+  // Inherited keys are not brands.
+  for (const n of ['constructor', '__proto__', 'toString', 'hasOwnProperty'])
+    assert.throws(() => mod.toBrandSvg(n), /unknown brand/);
+  // String options are escaped.
+  const s = mod.toBrandSvg('claude', { size: '1" onload="x', color: 'a"><b', title: '"><script>' });
+  assert.ok(!s.includes(' onload="') && !s.includes('<script') && !s.includes('<b'));
 });
 
 test('brands stay out of the stroke set', async () => {

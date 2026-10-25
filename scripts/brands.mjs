@@ -223,9 +223,10 @@ function build() {
       `// Geometry: simple-icons@${SI_VERSION} (CC0-1.0) and owner-sourced artwork. See TRADEMARKS.md.`,
       ...brands.map((b) => `export const ${camel(b.name)} = ${JSON.stringify(b)};`),
       `export const brands = { ${brands.map((b) => `${JSON.stringify(b.name)}: ${camel(b.name)}`).join(', ')} };`,
-      'const esc = (v) => String(v).replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;");',
+      'const esc = (v) => String(v).replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;").replace(/>/g, "&gt;");',
       "export function toBrandSvg(brand, { size = 24, color = 'currentColor', colored = false, title } = {}) {",
-      "  const b = typeof brand === 'string' ? brands[brand] : brand;",
+      // Own keys only: "constructor" or "__proto__" must not resolve to Object.prototype.
+      "  const b = typeof brand === 'string' ? (Object.hasOwn(brands, brand) ? brands[brand] : undefined) : brand;",
       "  if (!b) throw new Error('unknown brand: ' + brand);",
       '  const fill = colored ? b.hex : color;',
       '  const paths = colored && b.colorPaths ? b.colorPaths : [{ path: b.path }];',
