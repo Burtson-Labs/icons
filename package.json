@@ -122,7 +122,7 @@
     "@burtson-labs/frontend-standards": "github:Burtson-Labs/frontend-standards#3d007ff818835a72aaa53087b1f86fedf35bebfe",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
-    "@eslint/js": "^9.39.5",
+    "@eslint/js": "^10.0.1",
     "@mui/material": "^9.4.0",
     "@types/node": "^26.6.2",
     "@types/react": "^19.3.0",
