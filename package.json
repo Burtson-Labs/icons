@@ -25,7 +25,14 @@
     "stroke-icons",
     "burtson-labs",
     "brand-icons",
-    "logos"
+    "logos",
+    "svg-icons",
+    "icon-library",
+    "mui-icons",
+    "ai-icons",
+    "ai-agents",
+    "llms-txt",
+    "agent-skills"
   ],
   "type": "module",
   "sideEffects": [

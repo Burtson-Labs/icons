@@ -10,6 +10,7 @@ import { loadIcons } from '../scripts/build.mjs';
 import { BRAND_GROUPS, loadBrands } from '../scripts/brands.mjs';
 import { say, fail } from '../scripts/log.mjs';
 import { iconDrawing } from './icon-drawing.mjs';
+import { agentsPage, llmsFull, llmsTxt } from './agents.mjs';
 
 const OUT = join(ROOT, 'site', 'dist');
 const SITE = 'https://icons.burtson.ai';
@@ -144,13 +145,14 @@ const html = `<!doctype html>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="icon" href="${favicon}">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="alternate" type="text/plain" href="/llms.txt" title="Burtson Icons docs for AI agents (llms.txt)">
 <script>${themeScript}</script>
 <style>${css}</style>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to icons</a>
 <header><a href="/" class="brand" aria-label="Burtson Icons home">${toSvgString(logo.node, { extra: ' aria-hidden="true"' })}<div>Burtson Icons</div></a>
-<div class="topright"><nav class="links" aria-label="Burtson packages"><a href="https://ui.burtson.ai">Components</a><a href="/" aria-current="page">Icons</a><a href="https://burtson.ai">Burtson Labs</a><a href="#usage">Docs</a><a href="https://github.com/Burtson-Labs/icons">GitHub</a></nav><details class="package-menu"><summary aria-label="Package navigation">${glyph('menu', 'menu-glyph')}</summary><nav aria-label="Burtson packages mobile"><a href="https://ui.burtson.ai">Components</a><a href="/" aria-current="page">Icons</a><a href="#usage">Docs</a><a href="https://burtson.ai">Burtson Labs</a><a href="https://github.com/Burtson-Labs/icons">GitHub</a></nav></details><span class="tag">v${pkg.version}</span><div class="accents" role="radiogroup" aria-label="Accent colour">${[
+<div class="topright"><nav class="links" aria-label="Burtson packages"><a href="https://ui.burtson.ai">Components</a><a href="/" aria-current="page">Icons</a><a href="https://burtson.ai">Burtson Labs</a><a href="#usage">Docs</a><a href="/agents/">AI agents</a><a href="https://github.com/Burtson-Labs/icons">GitHub</a></nav><details class="package-menu"><summary aria-label="Package navigation">${glyph('menu', 'menu-glyph')}</summary><nav aria-label="Burtson packages mobile"><a href="https://ui.burtson.ai">Components</a><a href="/" aria-current="page">Icons</a><a href="#usage">Docs</a><a href="/agents/">AI agents</a><a href="https://burtson.ai">Burtson Labs</a><a href="https://github.com/Burtson-Labs/icons">GitHub</a></nav></details><span class="tag">v${pkg.version}</span><div class="accents" role="radiogroup" aria-label="Accent colour">${[
   ['ink', 'Ink', '#18181b'],
   ['violet', 'Violet (Burtson)', '#a60ee5'],
   ['blue', 'Blue', '#2563eb'],
@@ -169,7 +171,7 @@ const html = `<!doctype html>
 <div class="workflow-shortcuts" role="group" aria-label="Explore workflows"><span>Explore</span><button type="button" data-workflow="agent">Agent runs</button><button type="button" data-workflow="approval">Approvals</button><button type="button" data-workflow="context">Context</button><button type="button" data-workflow="memory">Memory</button><button type="button" data-workflow="profile">Profiles</button><button type="button" data-workflow="editor">Editor</button><button type="button" data-workflow="remote desktop">Remote desktop</button><button type="button" data-workflow="clipboard">Clipboard</button></div><div class="controls"><label class="search"><span aria-hidden="true">&#8981;</span><input id="search" type="search" placeholder="Search icons, workflows, tags..." aria-label="Search icons" autocomplete="off" spellcheck="false"><kbd>/</kbd></label><label class="knob">Size<input id="size" type="range" min="16" max="48" value="28" step="4"><output id="sizeout">28</output></label><label class="knob">Stroke<input id="weight" type="range" min="1" max="3" value="2" step=".25"><output id="weightout">2</output></label></div>
 <div class="filter-row"><label class="collection-select">Collection<select id="collection" aria-label="Collection"></select></label><button type="button" id="saved-only" aria-pressed="false">Saved icons <span id="saved-count">0</span></button><button type="button" id="reset">Reset filters</button></div><div class="section-head"><h2 id="category-title">All icons</h2><span id="result-count" role="status" aria-live="polite" aria-atomic="true">${n} icons</span></div><div class="grid" id="grid" role="group" aria-label="Icon results"></div><div class="empty" id="empty"><h3>No matching icons</h3><p>Try a shorter search, another collection, or reset the filters.</p><button type="button" id="empty-reset">Show all icons</button> <a href="https://github.com/Burtson-Labs/icons/issues/new?title=Icon%20request%3A%20">Request one</a>.</div>
 <section class="usage" id="usage"><div class="section-head"><h2>Usage</h2></div><div class="usage-grid">${usage}</div></section>
-<div class="foot">Burtson Icons ${pkg.version} · <a href="https://github.com/Burtson-Labs/icons/blob/main/LICENSE">ISC License</a> · <a href="${SITE}/icons.json">icons.json</a> · Brand logos are trademarks of their owners (<a href="https://github.com/Burtson-Labs/icons/blob/main/TRADEMARKS.md">notice</a>) · Made by <a href="https://burtson.ai">Burtson Labs</a> · A Mark Burtson production.</div></main>
+<div class="foot">Burtson Icons ${pkg.version} · <a href="https://github.com/Burtson-Labs/icons/blob/main/LICENSE">ISC License</a> · <a href="${SITE}/icons.json">icons.json</a> · <a href="/llms.txt">llms.txt</a> · <a href="/agents/">Use with AI agents</a> · Brand logos are trademarks of their owners (<a href="https://github.com/Burtson-Labs/icons/blob/main/TRADEMARKS.md">notice</a>) · Made by <a href="https://burtson.ai">Burtson Labs</a> · A Mark Burtson production.</div></main>
 <aside class="inspector" id="inspector" aria-label="Selected icon"><button type="button" id="close-inspector" class="mobile-close" aria-label="Close icon inspector">Close ×</button><div class="eyebrow">Icon inspector</div><h2 class="mono" id="selected-name"></h2><div class="sub" id="selected-status"></div><div class="preview" id="selected-preview"></div><div class="eyebrow">Interface sizes</div><div class="sizes" id="sizes" aria-label="Icon size and contrast previews"></div><div class="context-example"><span class="eyebrow">In context · 20px</span><div id="context-preview"></div></div><div class="inspector-tools"><button type="button" id="save" aria-pressed="false">Save icon</button><button type="button" id="share">Copy link</button></div><label class="decorative"><input id="decorative" type="checkbox" checked> Decorative icon <span title="Turn off for an icon that conveys meaning without nearby text.">ⓘ</span></label><div class="tabs" role="tablist" aria-label="Code format"><button type="button" data-tab="react" role="tab" aria-selected="true">React</button><button type="button" data-tab="mui" role="tab" aria-selected="false">MUI</button><button type="button" data-tab="svg" role="tab" aria-selected="false">SVG</button><button type="button" data-tab="cdn" role="tab" aria-selected="false">CDN</button></div><div class="code-frame"><button type="button" class="copy-code" id="copy-inline" aria-label="Copy code">${copyGlyphs}</button><pre id="code" role="tabpanel" tabindex="0" aria-label="Usage code"></pre></div><div class="actions"><button type="button" class="primary" id="copy">Copy code</button><button type="button" id="download">Download SVG</button></div><p class="export-note" id="export-note"></p><div id="tags" class="chips"></div><div class="notice">For an external <code>&lt;img&gt;</code>, use an explicit-colour variant (<code>svg-accent</code>, <code>svg-white</code>, <code>svg-black</code>). Inline SVG, React and CSS masks inherit the text colour.</div></aside></div><div id="toast" class="toast" role="status"></div>
 <dialog id="mobile-inspector" aria-labelledby="selected-name"></dialog><noscript><p class="empty-static">Enable JavaScript to search the catalog. SVG files and icons.json remain available directly.</p></noscript>
 <script id="data" type="application/json">${json}</script>
@@ -196,9 +198,29 @@ for (const f of ['og.png', 'apple-touch-icon.png']) {
   cpSync(join(ROOT, 'site', f), join(OUT, f));
 }
 writeFileSync(join(OUT, 'favicon.svg'), faviconSvg + '\n');
-writeFileSync(join(OUT, 'robots.txt'), `User-agent: *\nAllow: /\nSitemap: ${SITE}/sitemap.xml\n`);
+// Docs for AI agents: llms.txt, llms-full.txt and the /agents/ page (site/agents.mjs).
+const agentDocs = { pkg, icons, titles, brands: data.brands };
+writeFileSync(join(OUT, 'llms.txt'), llmsTxt(agentDocs));
+writeFileSync(join(OUT, 'llms-full.txt'), llmsFull(agentDocs));
+mkdirSync(join(OUT, 'agents'), { recursive: true });
+writeFileSync(
+  join(OUT, 'agents', 'index.html'),
+  agentsPage({
+    pkg,
+    n,
+    css,
+    themeScript,
+    logoSvg: toSvgString(logo.node, { extra: ' aria-hidden="true"' }),
+    menuGlyph: glyph('menu', 'menu-glyph'),
+    copyGlyphs,
+  }),
+);
+writeFileSync(
+  join(OUT, 'robots.txt'),
+  `User-agent: *\nAllow: /\nSitemap: ${SITE}/sitemap.xml\n\n# Docs for AI agents and LLM tools (https://llmstxt.org):\n# ${SITE}/llms.txt\n# ${SITE}/llms-full.txt\n`,
+);
 writeFileSync(
   join(OUT, 'sitemap.xml'),
-  `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>${SITE}/</loc></url></urlset>\n`,
+  `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>${SITE}/</loc></url><url><loc>${SITE}/agents/</loc></url></urlset>\n`,
 );
 say(`site → site/dist (${n} icons, ${(html.length / 1024).toFixed(1)} KB page)`);

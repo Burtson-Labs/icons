@@ -18,6 +18,8 @@
 
 **<img src="preview/accent/stealth-mask.svg" width="22" align="absmiddle" alt=""> Browse, search and copy every icon at [icons.burtson.ai](https://icons.burtson.ai)**
 
+Docs for AI agents: [llms.txt](https://icons.burtson.ai/llms.txt) · [llms-full.txt](https://icons.burtson.ai/llms-full.txt) · [Use with AI agents](https://icons.burtson.ai/agents/)
+
 </div>
 
 ---
@@ -83,6 +85,16 @@ el.innerHTML = toSvg(gpu); // named exports are the raw nodes, so bundlers tree-
 | A sprite           | `@burtson-labs/icons/sprite.svg`, served from your own origin, with `<use href="/sprite.svg#<name>" />` (browsers block cross-origin `<use>`) |
 | Everything as data | `@burtson-labs/icons/icons.json`: names, tags, categories and geometry                                                                        |
 
+### Use with AI agents
+
+Claude Code, Cursor, Codex, Copilot and other coding agents can look icons up by meaning instead of guessing names:
+
+- [`llms.txt`](https://icons.burtson.ai/llms.txt) covers install and every entry point; [`llms-full.txt`](https://icons.burtson.ai/llms-full.txt) lists every icon with its tags, categories, aliases and import lines.
+- `npx skills add burtson-labs/icons` installs the [`burtson-icons` Agent Skill](skills/burtson-icons/SKILL.md).
+- The [Use with AI agents](https://icons.burtson.ai/agents/) page has a block of rules to paste into `CLAUDE.md` or `AGENTS.md` and example prompts. For components, see [Burtson UI's guide](https://ui.burtson.ai/docs/ai-agents).
+
+Contributors' agents: see [AGENTS.md](AGENTS.md).
+
 ## <img src="preview/accent/badge-check.svg" width="22" align="absmiddle" alt=""> Brand logos
 
 Third-party logos live in their own entry, `@burtson-labs/icons/brands`, so they never mix with the stroke set. They are filled marks (`fill="currentColor"`) on the same 24×24 viewBox, each with its official colour. 77 logos, across AI, social, platforms, developer tools and transport:
@@ -135,6 +147,7 @@ npm run check                # validate, originality, build, test, site
 | `preview/`        | README sheets and accent icons (generated, committed)                           |
 | `site/`           | Generator for [icons.burtson.ai](https://icons.burtson.ai)                      |
 | `design/`         | Spec, backlog and drafting prompts                                              |
+| `skills/`         | The `burtson-icons` Agent Skill for people using the set                        |
 
 ## License
 
