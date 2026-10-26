@@ -13,7 +13,7 @@ const COUNT = listIconNames().length;
 // DOM behavior tests; jsdom has no layout, native dialog focus trap, or contrast engine.
 function open(query = '', mobile = false) {
   const html = readFileSync(join(ROOT, 'site/dist/index.html'), 'utf8');
-  return new JSDOM(html, {
+  const dom = new JSDOM(html, {
     url: 'https://icons.burtson.ai/' + query,
     runScripts: 'dangerously',
     beforeParse(window) {
@@ -32,6 +32,16 @@ function open(query = '', mobile = false) {
       };
     },
   });
+  // jsdom matches no media query (the matchMedia stub above only answers the
+  // script), so the phone-width rule these tests rely on is applied by hand:
+  // since jsdom 30 an element hidden by display cannot take focus.
+  if (mobile) {
+    dom.window.document.head.insertAdjacentHTML(
+      'beforeend',
+      '<style>.package-menu{display:block}</style>',
+    );
+  }
+  return dom;
 }
 function input(dom, id, value) {
   const el = dom.window.document.getElementById(id);
