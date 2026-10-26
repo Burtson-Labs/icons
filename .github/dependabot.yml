@@ -13,6 +13,20 @@ updates:
     cooldown:
       default-days: 7
     open-pull-requests-limit: 5
+    # 2026-10-26: TypeScript 7 and ESLint 10 are held back, as in the ui repo.
+    # typescript-eslint (8.72.x, peer typescript "<6.1.0") refuses to load on
+    # TypeScript 7, and the shared @burtson-labs/frontend-standards config depends
+    # on eslint-plugin-import, eslint-plugin-jsx-a11y and eslint-plugin-react,
+    # none of which supports ESLint 10 (@eslint/js 10 is ESLint-10-only). Remove
+    # the ignores once typescript-eslint supports 7 and those plugins ship
+    # ESLint 10 releases, or frontend-standards moves to maintained replacements.
+    ignore:
+      - dependency-name: typescript
+        update-types: ['version-update:semver-major']
+      - dependency-name: eslint
+        update-types: ['version-update:semver-major']
+      - dependency-name: '@eslint/js'
+        update-types: ['version-update:semver-major']
     groups:
       dev-dependencies:
         dependency-type: development
