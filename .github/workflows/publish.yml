@@ -80,9 +80,22 @@ jobs:
 
       # --ignore-scripts: prepublishOnly would rerun the whole check, which ci
       # already passed for this commit.
+      # The registry can take minutes to show a version it has just accepted,
+      # so a queued run for a later commit may try again. npm refuses to
+      # publish over an existing version (E403); that is the version being on
+      # the registry, not a failure.
       - name: Publish
         if: steps.check.outputs.published == 'false'
-        run: npm publish --provenance --access public --ignore-scripts
+        run: |
+          set +e
+          npm publish --provenance --access public --ignore-scripts 2>&1 | tee publish.log
+          rc=${PIPESTATUS[0]}
+          set -e
+          if [ "$rc" -ne 0 ] && grep -qE "E403|EPUBLISHCONFLICT|cannot publish over|previously published" publish.log; then
+            echo "::notice title=Already published::The registry already has this version; nothing to do."
+            exit 0
+          fi
+          exit "$rc"
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
@@ -98,5 +111,13 @@ jobs:
           if npm view "$NAME@$VERSION" version --registry https://npm.pkg.github.com >/dev/null 2>&1; then
             echo "$NAME@$VERSION is already on GitHub Packages"
           else
-            npm publish --registry https://npm.pkg.github.com --ignore-scripts
+            set +e
+            npm publish --registry https://npm.pkg.github.com --ignore-scripts 2>&1 | tee gh-publish.log
+            rc=${PIPESTATUS[0]}
+            set -e
+            if [ "$rc" -ne 0 ] && grep -qE "E403|E409|EPUBLISHCONFLICT|cannot publish over|previously published" gh-publish.log; then
+              echo "$NAME@$VERSION is already on GitHub Packages"
+            else
+              exit "$rc"
+            fi
           fi
