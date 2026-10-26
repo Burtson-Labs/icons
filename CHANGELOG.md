@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.9.1
+
+- Docs for AI agents: `/llms.txt` and `/llms-full.txt` list every icon with its
+  tags, aliases and import lines, generated at build.
+- New "Use with AI agents" guide at `/agents/` with rules to paste into
+  CLAUDE.md or AGENTS.md, the `burtson-icons` Agent Skill
+  (`npx skills add burtson-labs/icons`) and example prompts. The skill ships in
+  the npm package under `skills/`.
+- `AGENTS.md` and `CLAUDE.md` in the repository describe the layout and checks.
+
 ## 0.9.0
 
 - Add 76 icons for rich-text toolbars, chat, media controls, state variants, file

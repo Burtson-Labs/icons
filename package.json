@@ -1,6 +1,6 @@
 {
   "name": "@burtson-labs/icons",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "description": "Burtson Icons: an open-source stroke icon set for AI agents, security, provenance, infrastructure and evidence work. 24px grid, 2px stroke, zero dependencies.",
   "license": "ISC",
   "author": {
@@ -108,7 +108,8 @@
     "dist",
     "LICENSE",
     "README.md",
-    "TRADEMARKS.md"
+    "TRADEMARKS.md",
+    "skills"
   ],
   "engines": {
     "node": ">=18"
